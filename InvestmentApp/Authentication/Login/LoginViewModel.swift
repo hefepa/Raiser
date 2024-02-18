@@ -19,8 +19,7 @@ class LoginViewModel{
        
         do {
             let dico: [String: Any] = ["email": emailInput, "password": passwordInput]
-        
-            let postURLString = "https://f062-155-93-95-78.ngrok-free.app/api/User/Login"
+            let postURLString = "https://bit-group-one-back-end.azurewebsites.net/api/User/Login"
                     guard let postURL = URL(string: postURLString) else {
                         return
                     }

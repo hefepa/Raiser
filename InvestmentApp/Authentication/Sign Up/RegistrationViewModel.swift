@@ -19,8 +19,7 @@ class RegistrationViewModel{
        
         do {
             let dico: [String: Any] = ["firstName": firstNameInput, "lastName": lastNameInput, "email": emailInput, "phoneNumber": phoneNumberInput, "password": passwordInput, "confirmPassword": confirmPasswordInput]
-        
-            let postURLString = "https://f062-155-93-95-78.ngrok-free.app/api/User/register"
+            let postURLString = "https://bit-group-one-back-end.azurewebsites.net/api/User/register"
                     guard let postURL = URL(string: postURLString) else {
                         return
                     }

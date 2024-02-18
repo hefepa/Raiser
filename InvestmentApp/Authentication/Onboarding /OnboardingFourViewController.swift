@@ -37,17 +37,10 @@ class OnboardingFourViewController: UIViewController {
             checkboxes.tintColor = UIColor.black
         }
         propertiesAssignment()
-        updateNextButtonState()
         let skip = UITapGestureRecognizer(target: self, action: #selector(nextScreen))
         skipLabel.isUserInteractionEnabled = true
         skipLabel.addGestureRecognizer(skip)
     }
-    
-    func updateNextButtonState() {
-        let isAnyCheckBoxSelected = checkBoxesArray.contains { $0.isSelected }
-        nextButton.isEnabled = isAnyCheckBoxSelected
-        nextButton.alpha = isAnyCheckBoxSelected ? 1.0 : 0.5
-        }
     
     @IBAction func nextBtn(_ sender: UIButton){
         if checkBoxesArray.contains(where: { $0.isSelected }) {
@@ -94,7 +87,6 @@ class OnboardingFourViewController: UIViewController {
             $0.isSelected = false
         }
         sender.isSelected = true
-        updateNextButtonState()
     }
     
     @IBAction func selfEmployedCheckBox(_ sender: UIButton) {
@@ -102,7 +94,6 @@ class OnboardingFourViewController: UIViewController {
             $0.isSelected = false
         }
         sender.isSelected = true
-        updateNextButtonState()
     }
     
     @IBAction func freelanncerCheckBox(_ sender: UIButton) {
@@ -110,7 +101,6 @@ class OnboardingFourViewController: UIViewController {
             $0.isSelected = false
         }
         sender.isSelected = true
-        updateNextButtonState()
     }
     
     @IBAction func studentCheckBox(_ sender: UIButton) {
@@ -118,7 +108,6 @@ class OnboardingFourViewController: UIViewController {
             $0.isSelected = false
         }
         sender.isSelected = true
-        updateNextButtonState()
     }
     
     @IBAction func unemployedCheckBox(_ sender: UIButton) {
@@ -126,7 +115,6 @@ class OnboardingFourViewController: UIViewController {
             $0.isSelected = false
         }
         sender.isSelected = true
-        updateNextButtonState()
     }
     
 

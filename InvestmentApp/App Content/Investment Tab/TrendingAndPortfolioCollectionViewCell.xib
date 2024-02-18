@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TrendingAndPortfolioCollectionViewCell" customModule="InvestmentApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="166" height="114"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="166" height="114"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tmt-rX-RVp">
+                        <rect key="frame" x="0.0" y="59" width="161" height="21"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain">
+                            <attributedString key="attributedTitle">
+                                <fragment content="Button">
+                                    <attributes>
+                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <font key="NSFont" metaFont="system" size="8"/>
+                                        <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="tAndPButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="uaE-MW-pBg"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="Tmt-rX-RVp" secondAttribute="top" id="BvI-cq-oMI"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="Tmt-rX-RVp" secondAttribute="trailing" constant="5" id="Ctu-t4-PxD"/>
+                <constraint firstItem="Tmt-rX-RVp" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="F4P-pO-ytL"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="Tmt-rX-RVp" secondAttribute="bottom" id="Nw5-H4-5MH"/>
+            </constraints>
+            <size key="customSize" width="166" height="114"/>
+            <connections>
+                <outlet property="tAndPButton" destination="Tmt-rX-RVp" id="CVE-Wr-1g0"/>
+            </connections>
+            <point key="canvasLocation" x="148.09160305343511" y="41.549295774647888"/>
+        </collectionViewCell>
+    </objects>
+</document>

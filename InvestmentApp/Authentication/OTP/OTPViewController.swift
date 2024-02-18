@@ -7,55 +7,67 @@
 
 import UIKit
 import Toast
-
-protocol EmailInputDelegate: AnyObject {
-    func didEnterText(_ text: String)
-}
+//protocol EmailInputDelegate: AnyObject {
+//    func didEnterText(_ text: String)
+//}
 
 class OTPViewController: UIViewController, OTPModelDelegate {
     func DidReceiveError(error: String) {
         DispatchQueue.main.async{
             print("erorororororor")
+            self.activityLoader.hidesWhenStopped = true
+            self.activityLoader.stopAnimating()
         }
+        
     }
     
     func DidReceivedResponse(data: OTPResponseModel?) {
         DispatchQueue.main.async{
             if (data?.success == true){
+                self.activityLoader.hidesWhenStopped = true
                 self.activityLoader.stopAnimating()
                 let config = ToastConfiguration(
                     direction: .top,
                     dismissBy: [.time(time: 4.0), .swipe(direction: .natural), .longPress],
                     animationTime: 0.2
                 )
-                if let response = data?.message{
-                    let toast = Toast.default(
-                        image: UIImage(systemName: "checkmark.shield.fill")!, title: response)
-                    toast.show()
-                }
+                self.userEmailLabel.text = data?.data?.email
+                let response = data?.message
+                let toast = Toast.default(
+                    image: UIImage(systemName: "checkmark.shield.fill")!, title: response ?? "Error")
+                toast.show()
                 let loginPage = LoginPageViewController()
+//                loginPage.emailTF.text = KeychainWrapper.getEmail(forAccount: "userEmail")
                 self.navigationController?.pushViewController(loginPage, animated: true)
                 print("Success message is \(data?.message)")
+            }
+            
+            
+            else{
+                self.activityLoader.hidesWhenStopped = true
+                self.activityLoader.stopAnimating()
                 
-                }else{
-                    let config = ToastConfiguration(
-                        direction: .top,
-                        dismissBy: [.time(time: 4.0), .swipe(direction: .natural), .longPress],
-                        animationTime: 0.2
-                    )
-                    
-                    if let erroResponse = data?.message{
-                        let toast = Toast.default(
-                            image: UIImage(systemName: "exclamationmark.circle.fill")!, title: erroResponse)
-                        toast.show()
-                        print("Verification response is \(data?.message)")
-                    }
+                let config = ToastConfiguration(
+                    direction: .top,
+                    dismissBy: [.time(time: 4.0), .swipe(direction: .natural), .longPress],
+                    animationTime: 0.2
+                )
+                
+                if let erroResponse = data?.message{
+                    let toast = Toast.default(
+                        image: UIImage(systemName: "exclamationmark.circle.fill")!, title: data?.message ?? "Error")
+                    toast.show()
+                    print("Verification response is \(data?.message)")
                 }
             }
         }
+    }
+    
     
     var btn = ButtonColor()
     var otpViewModel = OTPViewModel()
+    let signupView = SignUpViewController()
+
 
     @IBOutlet weak var OTPLabel: UILabel!
     @IBOutlet weak var OTPimage: UIImageView!
@@ -66,10 +78,14 @@ class OTPViewController: UIViewController, OTPModelDelegate {
     @IBOutlet weak var resendOTPLabel: UILabel!
     @IBOutlet weak var verifyBtn: UIButton!
     let activityLoader = UIActivityIndicatorView(style: .large)
+    
+    private var isVerificationInProgress = false
+    var expectedText: String?
 
 
     override func viewDidLoad() {
-        
+        userEmailLabel.text = expectedText
+
         view.addSubview(activityLoader)
         activityLoader.hidesWhenStopped = true
         activityLoader.center = view.center
@@ -110,23 +126,32 @@ class OTPViewController: UIViewController, OTPModelDelegate {
             return true
         }
     
-    
     @IBAction func verifyBtnClicked(_ sender: UIButton) {
-        for otpFields in OTPTFs{
-            otpFields.delegate = self
-            if (otpFields.text?.isEmpty ?? true){
-                print("A field is empty")
-            }else{
-                Task {
-                    activityLoader.startAnimating()
-                    let textFieldValues = OTPTFs.map { $0.text ?? "" }.joined()
-                    await otpViewModel.verifyOTP(otps: textFieldValues)
-                    print("The code entered is \(textFieldValues)")
-                }
-            }
-        }
-    }
-    
+        
+        guard !isVerificationInProgress else {
+                   print("Verification is already in progress.")
+                   return
+               }
+               isVerificationInProgress = true
+               Task { @MainActor in
+                   let nonEmptyFields = OTPTFs.compactMap { $0.text?.isEmpty == false ? $0.text : nil }
+                   if nonEmptyFields.isEmpty {
+                       print("All fields are empty")
+                   } else {
+                       activityLoader.startAnimating()
+                       let textFieldValues = nonEmptyFields.joined()
+                       do {
+                           try await otpViewModel.verifyOTP(otps: textFieldValues)
+                           print("The code entered is \(textFieldValues)")
+                       } catch {
+                           print("Error during verification: \(error)")
+                       }
+                   }
+
+                   isVerificationInProgress = false
+               }
+           }
+        
     
     func textFieldProperties(){
         for textFields in OTPTFs{
@@ -158,7 +183,7 @@ class OTPViewController: UIViewController, OTPModelDelegate {
         enterOTPLabel.font = .systemFont(ofSize: 15, weight: .light)
         
         userEmailLabel.font = .systemFont(ofSize: 15, weight: .light)
-        
+
         notReceivedOTP.text = "Didn't receive the OTP?"
         notReceivedOTP.font = .systemFont(ofSize: 15, weight: .light)
         

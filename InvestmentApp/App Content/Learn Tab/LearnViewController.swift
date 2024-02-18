@@ -12,10 +12,16 @@ class LearnViewController: UIViewController {
     var tableData: [LearnProperties] = LearnPropertiesModel().populateData()
     
     @IBOutlet weak var learnTableView: UITableView!
-
+    @IBOutlet weak var navBackImage: UIImageView!
+    @IBOutlet weak var learnNavImage: UIImageView!
+    @IBOutlet weak var learnNavLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //KeyboardUtility.addTapGestureToDismissKeyboard(for: self)
+//                
+//        let learnNavigationn = LearnNavigation()
+//        navigationItem.titleView = learnNavigationn
         
         learnTableView.register(UINib(nibName: "LearnTableViewCell", bundle: nil), forCellReuseIdentifier: "LearnTableViewCell")
         
@@ -23,7 +29,10 @@ class LearnViewController: UIViewController {
         learnTableView.dataSource = self
         
         learnTableView.separatorStyle = .none
-        
+                
+        let navigationBar = NavigationBar(navigationItem: self.navigationItem)
+        navigationBar.learnNavigation(image: UIImage(named: "learn"), titleText: "Learn")
+
     }
 }
 
@@ -38,6 +47,4 @@ extension LearnViewController: UITableViewDelegate, UITableViewDataSource{
         cell.selectionStyle = .none
         return cell
     }
-    
-    
 }

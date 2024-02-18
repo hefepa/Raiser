@@ -21,7 +21,8 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
         DispatchQueue.main.async{
             
             if data?.success == true{
-                
+                self.activityLoader.stopAnimating()
+                self.savingUserDetails()
                 let config = ToastConfiguration(
                     direction: .top,
                     dismissBy: [.time(time: 4.0), .swipe(direction: .natural), .longPress],
@@ -33,11 +34,17 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
                         image: UIImage(systemName: "checkmark.shield.fill")!, title: response)
                     toast.show()
                 }
+//                self.storesUserName()
                 let otpView = OTPViewController()
+                
+                otpView.expectedText = self.emailTF.text
                 self.navigationController?.pushViewController(otpView, animated: true)
+                
 //                if let text = self.emailTF.text {
 //                    self.delegate?.didEnterText(text)
                 }else{
+                    self.activityLoader.stopAnimating()
+
                     print("My response data is \(data?.message)")
                     if let erroResponse = data?.message{
                         let toast = Toast.default(
@@ -47,7 +54,38 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
                 }
             }
         }
+    
+    func savingUserDetails(){
+        if let password = passwordTF.text, let email = emailTF.text{
+            KeychainWrapper.saveEmail(email, forAccount: "userEmail")
+            KeychainWrapper.savePassword(password, forAccount: "userPassword")
+        }
+    }
         
+        func storesUserName() {
+            // Retrieve email input from the text field
+            guard let emailInput = emailTF.text, !emailInput.isEmpty else {
+                // Handle the case where the email input is nil or empty
+                return
+            }
+
+            // Check if there is no value stored in UserDefaults under the key "EmailAddress"
+            if UserDefaults.standard.string(forKey: "EmailAddress") == nil {
+                // Save the email input to UserDefaults under the key "EmailAddress"
+                UserDefaults.standard.setValue(emailInput, forKey: "EmailAddress")
+            }
+
+            // Create an instance of LoginPageViewController
+            let otpPage = OTPViewController()
+
+            // Set the email text field in the LoginPageViewController instance
+            if let storedEmail = UserDefaults.standard.string(forKey: "EmailAddress") {
+                otpPage.userEmailLabel.text = storedEmail as? String
+            } else {
+                otpPage.userEmailLabel.text = ""
+            }
+        }
+
     
 
     
@@ -78,13 +116,24 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet var container: [UIView]!
     @IBOutlet weak var validationLabel: UILabel!
+    @IBOutlet weak var phoneNumberCaution: UILabel!
+    @IBOutlet weak var passwordHideImage: UIImageView!
+    @IBOutlet weak var confirmPasswordHideImage: UIImageView!
+    let activityLoader = UIActivityIndicatorView(style: .large)
 
+    
     
     var termsAndConditionLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        passwordTF.delegate = self
+        view.addSubview(activityLoader)
+        activityLoader.hidesWhenStopped = true
+        activityLoader.center = view.center
+        
+        
+        //passwordTF.delegate = self
+        phoneNumberTF.delegate = self
         
         passwordTF.addTarget(self, action: #selector(passwordChanged), for: .editingChanged)
 
@@ -104,6 +153,15 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
         let loginPage = UITapGestureRecognizer(target: self, action: #selector(LoginLabelClicked))
         loginLabel.isUserInteractionEnabled = true
         loginLabel.addGestureRecognizer(loginPage)
+        
+        
+        let passwordImageClicked = UITapGestureRecognizer(target: self, action: #selector(togglePassword))
+        passwordHideImage.isUserInteractionEnabled = true
+        passwordHideImage.addGestureRecognizer(passwordImageClicked)
+        
+        let confirmPasswordImageClicked = UITapGestureRecognizer(target: self, action: #selector(toggleConfirmPassword))
+        confirmPasswordHideImage.isUserInteractionEnabled = true
+        confirmPasswordHideImage.addGestureRecognizer(confirmPasswordImageClicked)
     }
     
     @objc func passwordChanged() {
@@ -130,6 +188,9 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
     }
     
     @IBAction func signUpButton(_ sender: UIButton) {
+        let otpPage = OTPViewController()
+        
+        
         if ((firstNameTF.text?.isEmpty ?? true) ||
             (lastNameTF.text?.isEmpty ?? true) ||
             (emailTF.text?.isEmpty ?? true) ||
@@ -138,11 +199,21 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
             (confirmPasswordTF.text?.isEmpty ?? true) || !termsCheckBox.isSelected) {
             let toast = Toast.text("A field is empty")
             toast.show()
-
             print("a field is empty")
-        }else{
+        }else if (phoneNumberTF.text?.count ?? 0 < 11){
+            phoneNumberCaution.textColor = .red
+            phoneNumberCaution.font = .systemFont(ofSize: 12)
+            phoneNumberCaution.text = "Kindly enter 11 digits"
+            print ("Number not to 11 digits")
+        }else {
+            phoneNumberCaution.text = ""
+            
             Task {
+                
+                activityLoader.startAnimating()
                 await registerViewModel.registerUser(firstNameInput: firstNameTF.text ?? "", lastNameInput: lastNameTF.text ?? "", emailInput: emailTF.text ?? "", phoneNumberInput: phoneNumberTF.text ?? "", passwordInput: passwordTF.text ?? "", confirmPasswordInput: confirmPasswordTF.text ?? "")
+//                emailTF.text ?? "\(otpPage.text = emailTF.text)"
+                savingUserDetails()
             }
         }
     }
@@ -158,6 +229,40 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
         sender.isSelected = !sender.isSelected
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newLength = (textField.text?.count ?? 0) + string.count - range.length
+               return newLength <= 11
+    }
+
+    @objc func togglePassword(){
+        // Toggle the secure text entry property of the password text field
+        passwordTF.isSecureTextEntry.toggle()
+//        confirmPasswordTF.isSecureTextEntry.toggle()
+        // Update the eye image based on the current state of the password visibility
+        updateEyeImageView()
+    }
+    
+    func updateEyeImageView() {
+        // Update the eye image based on the current state of the password visibility
+        let imageState = passwordTF.isSecureTextEntry ? "eye" : "openeye"
+//        let imageStateConfirmPassword = confirmPasswordTF.isSecureTextEntry ? "eye" : "openeye"
+        passwordHideImage.image = UIImage(named: imageState)
+//        confirmPasswordHideImage.image = UIImage(named: imageStateConfirmPassword)
+        }
+    
+    
+    @objc func toggleConfirmPassword(){
+        // Toggle the secure text entry property of the password text field
+        confirmPasswordTF.isSecureTextEntry.toggle()
+        // Update the eye image based on the current state of the password visibility
+        updateEyeConfirmPasswordImageView()
+    }
+    
+    func updateEyeConfirmPasswordImageView() {
+        let imageStateConfirmPassword = confirmPasswordTF.isSecureTextEntry ? "eye" : "openeye"
+        confirmPasswordHideImage.image = UIImage(named: imageStateConfirmPassword)
+        }
+
     func propertiesAssignment(){
         signUpLabel.text = "Sign Up"
         signUpLabel.font = .systemFont(ofSize: 30, weight: .bold)
@@ -198,15 +303,18 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
         passwordLabel.font = .systemFont(ofSize: 12)
         
         passwordTF.placeholder = "Enter your password"
+        passwordHideImage.image = UIImage(named: "eye")
         
         confirmPasswordLabel.text = "Confirm Password"
         confirmPasswordLabel.textColor = .white
         confirmPasswordLabel.font = .systemFont(ofSize: 12)
         
+        confirmPasswordTF.placeholder = "Confirm your password"
+        confirmPasswordHideImage.image = UIImage(named: "eye")
 
         termsCheckBox.layer.borderWidth = 2.0
         termsCheckBox.layer.borderColor = UIColor(red: 0.604, green: 0.051, blue: 0.243, alpha: 0.5).cgColor
-        termsLabel.text = "I hereby agree to thE and privacy policy of Raise"
+        termsLabel.text = "I hereby agree to the terms and privacy policy of Raise"
         termsLabel.font = .systemFont(ofSize: 12, weight: .regular)
         
         cancelButton.setTitle("Cancel", for: .normal)
@@ -236,6 +344,4 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
             labelsView.colorConfiguration(viewContainers: viewLabel)
         }
     }
-    
-    
 }

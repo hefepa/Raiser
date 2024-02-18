@@ -10,9 +10,10 @@ import Foundation
 struct CategoriesPropertiesModel{
     func populateData() -> [CategoriesProperties]{
         [
+            CategoriesProperties(catImage: "groupinvest", catName: "Group Investment"),
+            CategoriesProperties(catImage: "catstock", catName: "Nigeria Stocks"),
             CategoriesProperties(catImage: "catagro", catName: "Agro"),
-            CategoriesProperties(catImage: "cathouse", catName: "Real Estate"),
-            CategoriesProperties(catImage: "catstock", catName: "Nigeria Stocks")
+//            CategoriesProperties(catImage: "cathouse", catName: "Real Estate"),
         ]
     }
 }

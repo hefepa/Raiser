@@ -17,13 +17,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         //let loginPage = TabViewController(nibName: "TabViewController", bundle: nil)
-        //let loginPage = HomeViewController(nibName: "HomeViewController", bundle: nil)
-       //let loginPage = LearnViewController(nibName: "LearnViewController", bundle: nil)
-        //let loginPage = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
-        let loginPage = OnboardingViewController(nibName: "OnboardingViewController", bundle: nil)
+//        let loginPage = JoinGroupViewController(nibName: "JoinGroupViewController", bundle: nil)
+
+//        let loginPage = HomeViewController(nibName: "HomeViewController", bundle: nil)
+//       let loginPage = LearnViewController(nibName: "LearnViewController", bundle: nil)
+//        let loginPage = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
+        //let loginPage = OnboardingViewController(nibName: "OnboardingViewController", bundle: nil)
         //let loginPage = ResetPasswordViewController(nibName: "ResetPasswordViewController", bundle: nil)
-        //let loginPage = InvestmentViewController(nibName: "InvestmentViewController", bundle: nil)
-        //let loginPage = LoginPageViewController(nibName: "LoginPageViewController", bundle: nil)
+//        let loginPage = InvestmentViewController(nibName: "InvestmentViewController", bundle: nil)
+//        let loginPage = SplashScreenViewController(nibName: "SplashScreenViewController", bundle: nil)
+//        let loginPage = GroupInvestmentViewController(nibName: "GroupInvestmentViewController", bundle: nil)
+        let loginPage = LoginPageViewController(nibName: "LoginPageViewController", bundle: nil)
         //let loginPage = OTPViewController(nibName: "OTPViewController", bundle: nil)
         let rootViewController = UINavigationController(rootViewController: loginPage)
         window?.rootViewController = rootViewController

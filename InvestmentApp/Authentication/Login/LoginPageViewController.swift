@@ -10,11 +10,12 @@ import Toast
 
 class LoginPageViewController: UIViewController, LoginModelDelegate, UITextFieldDelegate {
     func DidReceivedResponse(data: LoginResponseModel?) {
-        
+
         DispatchQueue.main.async{
-            
+            self.activityLoader.hidesWhenStopped = true
+            self.activityLoader.stopAnimating()
+
             if let token = data?.token{
-                self.activityLoader.stopAnimating()
                 let config = ToastConfiguration(
                     direction: .top,
                     dismissBy: [.time(time: 4.0), .swipe(direction: .natural), .longPress],
@@ -27,25 +28,38 @@ class LoginPageViewController: UIViewController, LoginModelDelegate, UITextField
                 self.navigationController?.pushViewController(onboarding, animated: true)
                 print("Login Success message:", token)
             }else{
+                let config = ToastConfiguration(
+                    direction: .top,
+                    dismissBy: [.time(time: 4.0), .swipe(direction: .natural), .longPress],
+                    animationTime: 0.2
+                    )
+                
+                let toast = Toast.default(
+                    image: UIImage(systemName: "checkmark.shield.fill")!, title: "Invalid User Details")
+                toast.show()
+//                self.activityLoader.hidesWhenStopped = true
                 print("error is error")
+                self.activityLoader.stopAnimating()
+
             }
         }
     }
     
     func DidReceiveError(error: String) {
         DispatchQueue.main.async{
-//            let toast = Toast.text("Network")
-//            toast.show()
+            //            let toast = Toast.text("Network")
+            //            toast.show()
             print("Network")
             self.activityLoader.hidesWhenStopped = true
             self.activityLoader.stopAnimating()
         }
-
-        }
+        
+    }
     
     
     var btn = ButtonColor()
     var lbl = LabelsColor()
+    //var textColor = TextColor()
     let loginViewModel = LoginViewModel()
     
     @IBOutlet weak var appLogo: UIImageView!
@@ -62,10 +76,10 @@ class LoginPageViewController: UIViewController, LoginModelDelegate, UITextField
     @IBOutlet var viewContainers: [UIView]!
     var keyboardHandler: KeyboardHandler?
     let activityLoader = UIActivityIndicatorView(style: .large)
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        emailTF.text = KeychainWrapper.getEmail(forAccount: "userEmail")
         navigationItem.hidesBackButton = true
         view.addSubview(activityLoader)
         activityLoader.hidesWhenStopped = true
@@ -79,12 +93,12 @@ class LoginPageViewController: UIViewController, LoginModelDelegate, UITextField
             // Add your conditions for whether to adjust the view based on keyboard height
             return UIScreen.main.bounds.height <= 800 && keyboardHeight >= 200
         }
-
-
+        
+        
         loginViewModel.delegate = self
         propertiesAssignment()
         btn.colorConfiguration(button: loginButton)
-                
+        
         
         let createAcc = UITapGestureRecognizer(target: self, action: #selector(createLabel))
         createAccLabel.isUserInteractionEnabled = true
@@ -98,7 +112,7 @@ class LoginPageViewController: UIViewController, LoginModelDelegate, UITextField
         forgotPasswordLabel.isUserInteractionEnabled = true
         forgotPasswordLabel.addGestureRecognizer(reset)
     }
-    
+
     @objc func togglePassword(){
         // Toggle the secure text entry property of the password text field
         passwordTF.isSecureTextEntry.toggle()
@@ -121,11 +135,13 @@ class LoginPageViewController: UIViewController, LoginModelDelegate, UITextField
                 print("a field is empty")
             }else{
                 await loginViewModel.login(emailInput: email ?? "", passwordInput: password ?? "")
-                activityLoader.startAnimating()
             }
+
 //            let home = TabViewController()
 //            navigationController?.pushViewController(home, animated: true)
         }
+        activityLoader.startAnimating()
+
     }
     
     @objc func createLabel() {
@@ -139,17 +155,16 @@ class LoginPageViewController: UIViewController, LoginModelDelegate, UITextField
     }
     
     func propertiesAssignment(){
+        
+        let gradient = UIImage.gradientImage(frame: loginLabel.frame, colors: [UIColor(red: 0.804, green: 0.129, blue: 0.157, alpha: 1).cgColor, UIColor(red: 0.286, green: 0.047, blue: 0.235, alpha: 1).cgColor])
         loginLabel.text = "Login"
-        loginLabel.font = .systemFont(ofSize: 35, weight: .bold)
-        loginLabel.textColor = UIColor(red: 0.196, green: 0.055, blue: 0.114, alpha: 1)
-        //lbl.colorConfiguration(label: loginLabel)
-        
-        
+    
+        loginLabel.textColor = UIColor(patternImage: gradient!)
+
+        loginLabel.font = .systemFont(ofSize: 30, weight: .bold)
+
         loginSubLabel.text = "Take control of your financial future Today!"
-        
-        
-        loginSubLabel.textColor = UIColor(red: 0.565, green: 0.039, blue: 0.224, alpha: 1)
-        loginSubLabel.font = UIFont(name: "Lato-Regular", size: 14)
+        loginSubLabel.font = .systemFont(ofSize: 14, weight: .light)
         
         emailLabel.text = "Email"
         emailLabel.textColor = .white
@@ -186,4 +201,19 @@ class LoginPageViewController: UIViewController, LoginModelDelegate, UITextField
             views.colorConfiguration(viewContainers: viewLabel)
         }
     }
+}
+extension UIImage{
+
+    static func gradientImage(frame: CGRect, colors: [CGColor]) -> UIImage? {
+           let gradientLayer = CAGradientLayer()
+           gradientLayer.frame = frame
+           gradientLayer.colors = colors
+
+           // Create an image using UIGraphicsImageRenderer
+           let renderer = UIGraphicsImageRenderer(size: frame.size)
+           let image = renderer.image { _ in
+               gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+           }
+           return image
+       }
 }

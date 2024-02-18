@@ -6,6 +6,21 @@
 //
 
 import Foundation
-struct VerificationUpdates{
+
+struct VerificationUpdatesModel{
+    func populateData() -> [VerificationUpdatesProperties]{
+        [
+            VerificationUpdatesProperties(verificationImage: "bvn", verificationAction: "Add your BVN"),
+            VerificationUpdatesProperties(verificationImage: "profile", verificationAction: "Update your Profile Picture"),
+            VerificationUpdatesProperties(verificationImage: "fingerprint", verificationAction: "Enable Fingerprint/Face ID")
+        ]
+    }
+
+}
+
+
+struct VerificationUpdatesProperties{
+    let verificationImage: String?
+    let verificationAction: String?
     
 }

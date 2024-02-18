@@ -21,13 +21,15 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.hidesBackButton = true
         propertiesAssignment()
         btn.colorConfiguration(button: continueButton)
         
         
-        let skip = UITapGestureRecognizer(target: self, action: #selector(nextScreen))
-        skipLabel.isUserInteractionEnabled = true
-        skipLabel.addGestureRecognizer(skip)
+//        let skip = UITapGestureRecognizer(target: self, action: #selector(nextScreen))
+//        skipLabel.isUserInteractionEnabled = true
+//        skipLabel.addGestureRecognizer(skip)
     }
     
     @IBAction func continueButton(_ sender: UIButton) {
@@ -42,8 +44,8 @@ class OnboardingViewController: UIViewController {
     
     func propertiesAssignment(){
         
-        skipLabel.text = "Skip"
-        skipLabel.font = .systemFont(ofSize: 15, weight: .regular)
+//        skipLabel.text = "Skip"
+//        skipLabel.font = .systemFont(ofSize: 15, weight: .regular)
         
         getToKnowLabel.text = "Let's get to know you"
         getToKnowLabel.font = .systemFont(ofSize: 25, weight: .medium)

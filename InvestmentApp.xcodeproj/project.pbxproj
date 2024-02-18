@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A616E9DD2B80E95E0035BECA /* KeychainHelperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616E9DC2B80E95E0035BECA /* KeychainHelperClass.swift */; };
 		A62996232B74C0C80074EBF1 /* NetworkCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62996222B74C0C80074EBF1 /* NetworkCall.swift */; };
 		A62996252B74C2060074EBF1 /* registrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62996242B74C2060074EBF1 /* registrationModel.swift */; };
 		A62996272B74C3260074EBF1 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62996262B74C3260074EBF1 /* RegistrationViewModel.swift */; };
@@ -23,6 +24,13 @@
 		A62C2EDD2B70E1A9009761CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A62C2EDB2B70E1A9009761CD /* LaunchScreen.storyboard */; };
 		A62C2EE82B70E5EF009761CD /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62C2EE62B70E5EF009761CD /* LoginPageViewController.swift */; };
 		A62C2EE92B70E5EF009761CD /* LoginPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62C2EE72B70E5EF009761CD /* LoginPageViewController.xib */; };
+		A63B4AF62B7F888500ACC2AD /* RecommendationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63B4AF52B7F888500ACC2AD /* RecommendationModel.swift */; };
+		A63B4AF92B800A8A00ACC2AD /* InvestmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63B4AF72B800A8A00ACC2AD /* InvestmentCollectionViewCell.swift */; };
+		A63B4AFA2B800A8A00ACC2AD /* InvestmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A63B4AF82B800A8A00ACC2AD /* InvestmentCollectionViewCell.xib */; };
+		A63B4AFD2B80102D00ACC2AD /* AboutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63B4AFB2B80102D00ACC2AD /* AboutCollectionViewCell.swift */; };
+		A63B4AFE2B80102D00ACC2AD /* AboutCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A63B4AFC2B80102D00ACC2AD /* AboutCollectionViewCell.xib */; };
+		A63B4B012B802D4400ACC2AD /* GroupInvestmentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63B4AFF2B802D4400ACC2AD /* GroupInvestmentDetailsViewController.swift */; };
+		A63B4B022B802D4400ACC2AD /* GroupInvestmentDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A63B4B002B802D4400ACC2AD /* GroupInvestmentDetailsViewController.xib */; };
 		A641187C2B713367004046F8 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A641187A2B713367004046F8 /* OnboardingViewController.swift */; };
 		A641187D2B713367004046F8 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A641187B2B713367004046F8 /* OnboardingViewController.xib */; };
 		A642C6252B72138E00E991D2 /* OnboardingFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642C6232B72138E00E991D2 /* OnboardingFourViewController.swift */; };
@@ -37,13 +45,38 @@
 		A642C6372B724C9700E991D2 /* ButtonColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642C6362B724C9700E991D2 /* ButtonColor.swift */; };
 		A642C6392B727F2500E991D2 /* ColorLable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642C6382B727F2500E991D2 /* ColorLable.swift */; };
 		A648D14D2B73C8E800DAA3BE /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648D14C2B73C8E800DAA3BE /* Labels.swift */; };
+		A64E63062B7A02FD00493E50 /* TrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64E63042B7A02FD00493E50 /* TrendingCollectionViewCell.swift */; };
+		A64E63072B7A02FD00493E50 /* TrendingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64E63052B7A02FD00493E50 /* TrendingCollectionViewCell.xib */; };
+		A64E630E2B7A040700493E50 /* TrendingDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64E630C2B7A040700493E50 /* TrendingDataTableViewCell.swift */; };
+		A64E630F2B7A040700493E50 /* TrendingDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64E630D2B7A040700493E50 /* TrendingDataTableViewCell.xib */; };
+		A64E63112B7A057000493E50 /* TredingStocksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64E63102B7A057000493E50 /* TredingStocksModel.swift */; };
+		A64E63152B7A203D00493E50 /* PortFolioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64E63132B7A203D00493E50 /* PortFolioTableViewCell.swift */; };
+		A64E63162B7A203D00493E50 /* PortFolioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64E63142B7A203D00493E50 /* PortFolioTableViewCell.xib */; };
+		A64E63192B7A222A00493E50 /* PortFolioDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64E63172B7A222A00493E50 /* PortFolioDataTableViewCell.swift */; };
+		A64E631A2B7A222A00493E50 /* PortFolioDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64E63182B7A222A00493E50 /* PortFolioDataTableViewCell.xib */; };
+		A64E631C2B7A232D00493E50 /* PortFolioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64E631B2B7A232D00493E50 /* PortFolioModel.swift */; };
+		A64E631F2B7A9CCD00493E50 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64E631D2B7A9CCD00493E50 /* SplashScreenViewController.swift */; };
+		A64E63202B7A9CCD00493E50 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64E631E2B7A9CCD00493E50 /* SplashScreenViewController.xib */; };
+		A64E63242B7AA2F600493E50 /* SplashSreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64E63222B7AA2F600493E50 /* SplashSreenCollectionViewCell.swift */; };
+		A64E63252B7AA2F600493E50 /* SplashSreenCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64E63232B7AA2F600493E50 /* SplashSreenCollectionViewCell.xib */; };
+		A64E63272B7AA39A00493E50 /* Splash Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64E63262B7AA39A00493E50 /* Splash Model.swift */; };
 		A65A256C2B717A1B000EFA3D /* OnboardingSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65A256A2B717A1B000EFA3D /* OnboardingSecondViewController.swift */; };
 		A65A256D2B717A1B000EFA3D /* OnboardingSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A65A256B2B717A1B000EFA3D /* OnboardingSecondViewController.xib */; };
 		A65A25702B719919000EFA3D /* OnboardingThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65A256E2B719919000EFA3D /* OnboardingThirdViewController.swift */; };
 		A65A25712B719919000EFA3D /* OnboardingThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A65A256F2B719919000EFA3D /* OnboardingThirdViewController.xib */; };
+		A65E53DB2B81557E00A0BF39 /* NavigationBarItemColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65E53DA2B81557E00A0BF39 /* NavigationBarItemColor.swift */; };
 		A66657812B741F0400991EF2 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A666577F2B741F0400991EF2 /* OTPViewController.swift */; };
 		A66657822B741F0400991EF2 /* OTPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66657802B741F0400991EF2 /* OTPViewController.xib */; };
+		A666F07A2B7EB0440042270D /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A666F0782B7EB0440042270D /* CustomAlertViewController.swift */; };
+		A666F07B2B7EB0440042270D /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A666F0792B7EB0440042270D /* CustomAlertViewController.xib */; };
+		A674EEA32B7B4B03007C07FC /* GroupInvestmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A674EEA12B7B4B03007C07FC /* GroupInvestmentViewController.swift */; };
+		A674EEA42B7B4B03007C07FC /* GroupInvestmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A674EEA22B7B4B03007C07FC /* GroupInvestmentViewController.xib */; };
+		A6853FC92B77CB4A00011806 /* TogglePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6853FC82B77CB4A00011806 /* TogglePassword.swift */; };
+		A6853FCB2B78008700011806 /* TextColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6853FCA2B78008700011806 /* TextColor.swift */; };
 		A687BA482B76ACA500274B14 /* ViewPushClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A687BA472B76ACA500274B14 /* ViewPushClass.swift */; };
+		A6B743032B794D5300E2D6A4 /* TrendingAndPortfolioCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B743012B794D5300E2D6A4 /* TrendingAndPortfolioCollectionViewCell.swift */; };
+		A6B743042B794D5300E2D6A4 /* TrendingAndPortfolioCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B743022B794D5300E2D6A4 /* TrendingAndPortfolioCollectionViewCell.xib */; };
+		A6B743062B794DE700E2D6A4 /* TrendingAndPortfolioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B743052B794DE700E2D6A4 /* TrendingAndPortfolioModel.swift */; };
 		A6C7B40B2B736C56009B0059 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C7B4092B736C56009B0059 /* HomeViewController.swift */; };
 		A6C7B40C2B736C56009B0059 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C7B40A2B736C56009B0059 /* HomeViewController.xib */; };
 		A6C7B4102B738040009B0059 /* HomeTopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C7B40E2B738040009B0059 /* HomeTopCollectionViewCell.swift */; };
@@ -60,6 +93,14 @@
 		A6E727672B71078F00798D9B /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6E727652B71078E00798D9B /* ResetPasswordViewController.xib */; };
 		A6E7276B2B710DF200798D9B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E727692B710DF200798D9B /* SignUpViewController.swift */; };
 		A6E7276C2B710DF200798D9B /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6E7276A2B710DF200798D9B /* SignUpViewController.xib */; };
+		A6F7414D2B7C9F5700E1C9A5 /* LearnNavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6F7414C2B7C9F5700E1C9A5 /* LearnNavigation.xib */; };
+		A6F7414F2B7CABAE00E1C9A5 /* LearnNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F7414E2B7CABAE00E1C9A5 /* LearnNavigation.swift */; };
+		A6F741512B7CCB1600E1C9A5 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F741502B7CCB1600E1C9A5 /* NavigationBar.swift */; };
+		A6F741542B7CF9A800E1C9A5 /* JoinGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F741522B7CF9A800E1C9A5 /* JoinGroupViewController.swift */; };
+		A6F741552B7CF9A800E1C9A5 /* JoinGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6F741532B7CF9A800E1C9A5 /* JoinGroupViewController.xib */; };
+		A6F7415C2B7CFA6000E1C9A5 /* JoinGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F7415A2B7CFA6000E1C9A5 /* JoinGroupTableViewCell.swift */; };
+		A6F7415D2B7CFA6000E1C9A5 /* JoinGroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6F7415B2B7CFA6000E1C9A5 /* JoinGroupTableViewCell.xib */; };
+		A6F7415F2B7D030500E1C9A5 /* JoinGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F7415E2B7D030500E1C9A5 /* JoinGroupModel.swift */; };
 		A6FF57792B760D82004D3841 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FF57782B760D82004D3841 /* LoginModel.swift */; };
 		A6FF577B2B760F27004D3841 /* LoginNetworkCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FF577A2B760F27004D3841 /* LoginNetworkCall.swift */; };
 		A6FF577D2B760F92004D3841 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FF577C2B760F92004D3841 /* LoginViewModel.swift */; };
@@ -70,6 +111,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A616E9DC2B80E95E0035BECA /* KeychainHelperClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelperClass.swift; sourceTree = "<group>"; };
 		A62996222B74C0C80074EBF1 /* NetworkCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCall.swift; sourceTree = "<group>"; };
 		A62996242B74C2060074EBF1 /* registrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registrationModel.swift; sourceTree = "<group>"; };
 		A62996262B74C3260074EBF1 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
@@ -87,6 +129,13 @@
 		A62C2EDE2B70E1A9009761CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A62C2EE62B70E5EF009761CD /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		A62C2EE72B70E5EF009761CD /* LoginPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginPageViewController.xib; sourceTree = "<group>"; };
+		A63B4AF52B7F888500ACC2AD /* RecommendationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationModel.swift; sourceTree = "<group>"; };
+		A63B4AF72B800A8A00ACC2AD /* InvestmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentCollectionViewCell.swift; sourceTree = "<group>"; };
+		A63B4AF82B800A8A00ACC2AD /* InvestmentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvestmentCollectionViewCell.xib; sourceTree = "<group>"; };
+		A63B4AFB2B80102D00ACC2AD /* AboutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCollectionViewCell.swift; sourceTree = "<group>"; };
+		A63B4AFC2B80102D00ACC2AD /* AboutCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutCollectionViewCell.xib; sourceTree = "<group>"; };
+		A63B4AFF2B802D4400ACC2AD /* GroupInvestmentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInvestmentDetailsViewController.swift; sourceTree = "<group>"; };
+		A63B4B002B802D4400ACC2AD /* GroupInvestmentDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupInvestmentDetailsViewController.xib; sourceTree = "<group>"; };
 		A641187A2B713367004046F8 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		A641187B2B713367004046F8 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		A642C6232B72138E00E991D2 /* OnboardingFourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFourViewController.swift; sourceTree = "<group>"; };
@@ -101,13 +150,38 @@
 		A642C6362B724C9700E991D2 /* ButtonColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonColor.swift; sourceTree = "<group>"; };
 		A642C6382B727F2500E991D2 /* ColorLable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorLable.swift; sourceTree = "<group>"; };
 		A648D14C2B73C8E800DAA3BE /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
+		A64E63042B7A02FD00493E50 /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
+		A64E63052B7A02FD00493E50 /* TrendingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingCollectionViewCell.xib; sourceTree = "<group>"; };
+		A64E630C2B7A040700493E50 /* TrendingDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingDataTableViewCell.swift; sourceTree = "<group>"; };
+		A64E630D2B7A040700493E50 /* TrendingDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingDataTableViewCell.xib; sourceTree = "<group>"; };
+		A64E63102B7A057000493E50 /* TredingStocksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TredingStocksModel.swift; sourceTree = "<group>"; };
+		A64E63132B7A203D00493E50 /* PortFolioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortFolioTableViewCell.swift; sourceTree = "<group>"; };
+		A64E63142B7A203D00493E50 /* PortFolioTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PortFolioTableViewCell.xib; sourceTree = "<group>"; };
+		A64E63172B7A222A00493E50 /* PortFolioDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortFolioDataTableViewCell.swift; sourceTree = "<group>"; };
+		A64E63182B7A222A00493E50 /* PortFolioDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PortFolioDataTableViewCell.xib; sourceTree = "<group>"; };
+		A64E631B2B7A232D00493E50 /* PortFolioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortFolioModel.swift; sourceTree = "<group>"; };
+		A64E631D2B7A9CCD00493E50 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		A64E631E2B7A9CCD00493E50 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
+		A64E63222B7AA2F600493E50 /* SplashSreenCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashSreenCollectionViewCell.swift; sourceTree = "<group>"; };
+		A64E63232B7AA2F600493E50 /* SplashSreenCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashSreenCollectionViewCell.xib; sourceTree = "<group>"; };
+		A64E63262B7AA39A00493E50 /* Splash Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Splash Model.swift"; sourceTree = "<group>"; };
 		A65A256A2B717A1B000EFA3D /* OnboardingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSecondViewController.swift; sourceTree = "<group>"; };
 		A65A256B2B717A1B000EFA3D /* OnboardingSecondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingSecondViewController.xib; sourceTree = "<group>"; };
 		A65A256E2B719919000EFA3D /* OnboardingThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingThirdViewController.swift; sourceTree = "<group>"; };
 		A65A256F2B719919000EFA3D /* OnboardingThirdViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingThirdViewController.xib; sourceTree = "<group>"; };
+		A65E53DA2B81557E00A0BF39 /* NavigationBarItemColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarItemColor.swift; sourceTree = "<group>"; };
 		A666577F2B741F0400991EF2 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		A66657802B741F0400991EF2 /* OTPViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPViewController.xib; sourceTree = "<group>"; };
+		A666F0782B7EB0440042270D /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		A666F0792B7EB0440042270D /* CustomAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
+		A674EEA12B7B4B03007C07FC /* GroupInvestmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInvestmentViewController.swift; sourceTree = "<group>"; };
+		A674EEA22B7B4B03007C07FC /* GroupInvestmentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupInvestmentViewController.xib; sourceTree = "<group>"; };
+		A6853FC82B77CB4A00011806 /* TogglePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglePassword.swift; sourceTree = "<group>"; };
+		A6853FCA2B78008700011806 /* TextColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextColor.swift; sourceTree = "<group>"; };
 		A687BA472B76ACA500274B14 /* ViewPushClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPushClass.swift; sourceTree = "<group>"; };
+		A6B743012B794D5300E2D6A4 /* TrendingAndPortfolioCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingAndPortfolioCollectionViewCell.swift; sourceTree = "<group>"; };
+		A6B743022B794D5300E2D6A4 /* TrendingAndPortfolioCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingAndPortfolioCollectionViewCell.xib; sourceTree = "<group>"; };
+		A6B743052B794DE700E2D6A4 /* TrendingAndPortfolioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingAndPortfolioModel.swift; sourceTree = "<group>"; };
 		A6C7B4092B736C56009B0059 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A6C7B40A2B736C56009B0059 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		A6C7B40E2B738040009B0059 /* HomeTopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -124,6 +198,14 @@
 		A6E727652B71078E00798D9B /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
 		A6E727692B710DF200798D9B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A6E7276A2B710DF200798D9B /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		A6F7414C2B7C9F5700E1C9A5 /* LearnNavigation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LearnNavigation.xib; sourceTree = "<group>"; };
+		A6F7414E2B7CABAE00E1C9A5 /* LearnNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnNavigation.swift; sourceTree = "<group>"; };
+		A6F741502B7CCB1600E1C9A5 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		A6F741522B7CF9A800E1C9A5 /* JoinGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupViewController.swift; sourceTree = "<group>"; };
+		A6F741532B7CF9A800E1C9A5 /* JoinGroupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JoinGroupViewController.xib; sourceTree = "<group>"; };
+		A6F7415A2B7CFA6000E1C9A5 /* JoinGroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupTableViewCell.swift; sourceTree = "<group>"; };
+		A6F7415B2B7CFA6000E1C9A5 /* JoinGroupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JoinGroupTableViewCell.xib; sourceTree = "<group>"; };
+		A6F7415E2B7D030500E1C9A5 /* JoinGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupModel.swift; sourceTree = "<group>"; };
 		A6FF57782B760D82004D3841 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		A6FF577A2B760F27004D3841 /* LoginNetworkCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNetworkCall.swift; sourceTree = "<group>"; };
 		A6FF577C2B760F92004D3841 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -145,6 +227,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A616E9DB2B80E93B0035BECA /* Keychain Helper  */ = {
+			isa = PBXGroup;
+			children = (
+				A616E9DC2B80E95E0035BECA /* KeychainHelperClass.swift */,
+			);
+			path = "Keychain Helper ";
+			sourceTree = "<group>";
+		};
 		A62996212B74C0B50074EBF1 /* NetworkCall */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +248,7 @@
 			children = (
 				A629963E2B759DFA0074EBF1 /* RecommendationCollectionViewCell.swift */,
 				A629963F2B759DFA0074EBF1 /* RecommendationCollectionViewCell.xib */,
+				A63B4AF52B7F888500ACC2AD /* RecommendationModel.swift */,
 			);
 			path = Recommendations;
 			sourceTree = "<group>";
@@ -181,6 +272,9 @@
 		A62C2ECF2B70E1A8009761CD /* InvestmentApp */ = {
 			isa = PBXGroup;
 			children = (
+				A616E9DB2B80E93B0035BECA /* Keychain Helper  */,
+				A666F0732B7EA8470042270D /* Alert Group */,
+				A64E63212B7AA2CB00493E50 /* Splash Screen */,
 				A62996212B74C0B50074EBF1 /* NetworkCall */,
 				A642C62B2B72388E00E991D2 /* App Content */,
 				A62C2EE42B70E231009761CD /* Authentication */,
@@ -194,6 +288,10 @@
 				A648D14C2B73C8E800DAA3BE /* Labels.swift */,
 				A6FF57842B76562B004D3841 /* KeyboardUtility.swift */,
 				A687BA472B76ACA500274B14 /* ViewPushClass.swift */,
+				A6853FC82B77CB4A00011806 /* TogglePassword.swift */,
+				A6853FCA2B78008700011806 /* TextColor.swift */,
+				A6F741502B7CCB1600E1C9A5 /* NavigationBar.swift */,
+				A65E53DA2B81557E00A0BF39 /* NavigationBarItemColor.swift */,
 			);
 			path = InvestmentApp;
 			sourceTree = "<group>";
@@ -251,6 +349,18 @@
 			path = "App Content";
 			sourceTree = "<group>";
 		};
+		A64E63212B7AA2CB00493E50 /* Splash Screen */ = {
+			isa = PBXGroup;
+			children = (
+				A64E631D2B7A9CCD00493E50 /* SplashScreenViewController.swift */,
+				A64E631E2B7A9CCD00493E50 /* SplashScreenViewController.xib */,
+				A64E63222B7AA2F600493E50 /* SplashSreenCollectionViewCell.swift */,
+				A64E63232B7AA2F600493E50 /* SplashSreenCollectionViewCell.xib */,
+				A64E63262B7AA39A00493E50 /* Splash Model.swift */,
+			);
+			path = "Splash Screen";
+			sourceTree = "<group>";
+		};
 		A666577E2B741EEA00991EF2 /* OTP */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +373,35 @@
 			path = OTP;
 			sourceTree = "<group>";
 		};
+		A666F0732B7EA8470042270D /* Alert Group */ = {
+			isa = PBXGroup;
+			children = (
+				A666F0782B7EB0440042270D /* CustomAlertViewController.swift */,
+				A666F0792B7EB0440042270D /* CustomAlertViewController.xib */,
+			);
+			path = "Alert Group";
+			sourceTree = "<group>";
+		};
+		A674EEA02B7B4AB4007C07FC /* Group Investment */ = {
+			isa = PBXGroup;
+			children = (
+				A674EEA12B7B4B03007C07FC /* GroupInvestmentViewController.swift */,
+				A674EEA22B7B4B03007C07FC /* GroupInvestmentViewController.xib */,
+				A6F741522B7CF9A800E1C9A5 /* JoinGroupViewController.swift */,
+				A6F741532B7CF9A800E1C9A5 /* JoinGroupViewController.xib */,
+				A6F7415A2B7CFA6000E1C9A5 /* JoinGroupTableViewCell.swift */,
+				A6F7415B2B7CFA6000E1C9A5 /* JoinGroupTableViewCell.xib */,
+				A6F7415E2B7D030500E1C9A5 /* JoinGroupModel.swift */,
+				A63B4AF72B800A8A00ACC2AD /* InvestmentCollectionViewCell.swift */,
+				A63B4AF82B800A8A00ACC2AD /* InvestmentCollectionViewCell.xib */,
+				A63B4AFB2B80102D00ACC2AD /* AboutCollectionViewCell.swift */,
+				A63B4AFC2B80102D00ACC2AD /* AboutCollectionViewCell.xib */,
+				A63B4AFF2B802D4400ACC2AD /* GroupInvestmentDetailsViewController.swift */,
+				A63B4B002B802D4400ACC2AD /* GroupInvestmentDetailsViewController.xib */,
+			);
+			path = "Group Investment";
+			sourceTree = "<group>";
+		};
 		A6C7B4072B736C0D009B0059 /* Learn Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +410,8 @@
 				A642C6302B7239C900E991D2 /* LearnTableViewCell.swift */,
 				A642C6312B7239C900E991D2 /* LearnTableViewCell.xib */,
 				A642C6342B723D3E00E991D2 /* LearnModel.swift */,
+				A6F7414C2B7C9F5700E1C9A5 /* LearnNavigation.xib */,
+				A6F7414E2B7CABAE00E1C9A5 /* LearnNavigation.swift */,
 			);
 			path = "Learn Tab";
 			sourceTree = "<group>";
@@ -335,11 +476,25 @@
 		A6C7B41E2B73977A009B0059 /* Investment Tab */ = {
 			isa = PBXGroup;
 			children = (
+				A674EEA02B7B4AB4007C07FC /* Group Investment */,
 				A6C7B4232B7397AE009B0059 /* InvestmentViewController.swift */,
 				A6C7B4242B7397AE009B0059 /* InvestmentViewController.xib */,
 				A6FF577E2B76362F004D3841 /* CategoryCollectionViewCell.swift */,
 				A6FF577F2B76362F004D3841 /* CategoryCollectionViewCell.xib */,
 				A6FF57822B763753004D3841 /* AgroModel.swift */,
+				A6B743012B794D5300E2D6A4 /* TrendingAndPortfolioCollectionViewCell.swift */,
+				A6B743022B794D5300E2D6A4 /* TrendingAndPortfolioCollectionViewCell.xib */,
+				A6B743052B794DE700E2D6A4 /* TrendingAndPortfolioModel.swift */,
+				A64E63042B7A02FD00493E50 /* TrendingCollectionViewCell.swift */,
+				A64E63052B7A02FD00493E50 /* TrendingCollectionViewCell.xib */,
+				A64E630C2B7A040700493E50 /* TrendingDataTableViewCell.swift */,
+				A64E630D2B7A040700493E50 /* TrendingDataTableViewCell.xib */,
+				A64E63102B7A057000493E50 /* TredingStocksModel.swift */,
+				A64E63132B7A203D00493E50 /* PortFolioTableViewCell.swift */,
+				A64E63142B7A203D00493E50 /* PortFolioTableViewCell.xib */,
+				A64E63172B7A222A00493E50 /* PortFolioDataTableViewCell.swift */,
+				A64E63182B7A222A00493E50 /* PortFolioDataTableViewCell.xib */,
+				A64E631B2B7A232D00493E50 /* PortFolioModel.swift */,
 			);
 			path = "Investment Tab";
 			sourceTree = "<group>";
@@ -428,26 +583,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A666F07B2B7EB0440042270D /* CustomAlertViewController.xib in Resources */,
 				A642C6332B7239C900E991D2 /* LearnTableViewCell.xib in Resources */,
 				A6E7276C2B710DF200798D9B /* SignUpViewController.xib in Resources */,
 				A6C7B40C2B736C56009B0059 /* HomeViewController.xib in Resources */,
+				A64E63252B7AA2F600493E50 /* SplashSreenCollectionViewCell.xib in Resources */,
+				A64E63072B7A02FD00493E50 /* TrendingCollectionViewCell.xib in Resources */,
 				A62996412B759DFA0074EBF1 /* RecommendationCollectionViewCell.xib in Resources */,
 				A62C2EDD2B70E1A9009761CD /* LaunchScreen.storyboard in Resources */,
 				A642C6262B72138E00E991D2 /* OnboardingFourViewController.xib in Resources */,
 				A6C7B4112B738040009B0059 /* HomeTopCollectionViewCell.xib in Resources */,
+				A6F7415D2B7CFA6000E1C9A5 /* JoinGroupTableViewCell.xib in Resources */,
 				A6E727672B71078F00798D9B /* ResetPasswordViewController.xib in Resources */,
+				A63B4AFE2B80102D00ACC2AD /* AboutCollectionViewCell.xib in Resources */,
+				A63B4AFA2B800A8A00ACC2AD /* InvestmentCollectionViewCell.xib in Resources */,
 				A642C62A2B72197800E991D2 /* OnboardingFiveViewController.xib in Resources */,
 				A6C7B4192B7391A7009B0059 /* VerificationCollectionViewCell.xib in Resources */,
+				A6F7414D2B7C9F5700E1C9A5 /* LearnNavigation.xib in Resources */,
+				A6B743042B794D5300E2D6A4 /* TrendingAndPortfolioCollectionViewCell.xib in Resources */,
+				A64E63162B7A203D00493E50 /* PortFolioTableViewCell.xib in Resources */,
 				A65A256D2B717A1B000EFA3D /* OnboardingSecondViewController.xib in Resources */,
+				A63B4B022B802D4400ACC2AD /* GroupInvestmentDetailsViewController.xib in Resources */,
+				A6F741552B7CF9A800E1C9A5 /* JoinGroupViewController.xib in Resources */,
 				A642C62F2B7238CD00E991D2 /* LearnViewController.xib in Resources */,
+				A64E631A2B7A222A00493E50 /* PortFolioDataTableViewCell.xib in Resources */,
 				A62C2EDA2B70E1A9009761CD /* Assets.xcassets in Resources */,
 				A66657822B741F0400991EF2 /* OTPViewController.xib in Resources */,
 				A65A25712B719919000EFA3D /* OnboardingThirdViewController.xib in Resources */,
 				A6C7B4262B7397AE009B0059 /* InvestmentViewController.xib in Resources */,
+				A674EEA42B7B4B03007C07FC /* GroupInvestmentViewController.xib in Resources */,
 				A6FF57812B76362F004D3841 /* CategoryCollectionViewCell.xib in Resources */,
 				A6C7B4222B73979B009B0059 /* AnalyzeViewController.xib in Resources */,
 				A62C2EE92B70E5EF009761CD /* LoginPageViewController.xib in Resources */,
+				A64E630F2B7A040700493E50 /* TrendingDataTableViewCell.xib in Resources */,
 				A641187D2B713367004046F8 /* OnboardingViewController.xib in Resources */,
+				A64E63202B7A9CCD00493E50 /* SplashScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,44 +629,70 @@
 			buildActionMask = 2147483647;
 			files = (
 				A629962D2B74F8CC0074EBF1 /* OTPNetworkCall.swift in Sources */,
+				A64E63152B7A203D00493E50 /* PortFolioTableViewCell.swift in Sources */,
+				A674EEA32B7B4B03007C07FC /* GroupInvestmentViewController.swift in Sources */,
 				A6C7B4132B738151009B0059 /* HomeTopModel.swift in Sources */,
 				A62996252B74C2060074EBF1 /* registrationModel.swift in Sources */,
+				A63B4B012B802D4400ACC2AD /* GroupInvestmentDetailsViewController.swift in Sources */,
+				A6F741512B7CCB1600E1C9A5 /* NavigationBar.swift in Sources */,
 				A6C7B4252B7397AE009B0059 /* InvestmentViewController.swift in Sources */,
 				A6FF57802B76362F004D3841 /* CategoryCollectionViewCell.swift in Sources */,
 				A642C6322B7239C900E991D2 /* LearnTableViewCell.swift in Sources */,
+				A6B743032B794D5300E2D6A4 /* TrendingAndPortfolioCollectionViewCell.swift in Sources */,
 				A62C2EE82B70E5EF009761CD /* LoginPageViewController.swift in Sources */,
 				A641187C2B713367004046F8 /* OnboardingViewController.swift in Sources */,
+				A6F741542B7CF9A800E1C9A5 /* JoinGroupViewController.swift in Sources */,
 				A6C7B40B2B736C56009B0059 /* HomeViewController.swift in Sources */,
+				A6F7414F2B7CABAE00E1C9A5 /* LearnNavigation.swift in Sources */,
+				A6B743062B794DE700E2D6A4 /* TrendingAndPortfolioModel.swift in Sources */,
 				A62996232B74C0C80074EBF1 /* NetworkCall.swift in Sources */,
 				A62996322B7571F50074EBF1 /* VerificationUpdatesModel.swift in Sources */,
 				A62C2ED12B70E1A8009761CD /* AppDelegate.swift in Sources */,
 				A642C6292B72197800E991D2 /* OnboardingFiveViewController.swift in Sources */,
+				A63B4AFD2B80102D00ACC2AD /* AboutCollectionViewCell.swift in Sources */,
 				A6C7B4212B73979B009B0059 /* AnalyzeViewController.swift in Sources */,
+				A65E53DB2B81557E00A0BF39 /* NavigationBarItemColor.swift in Sources */,
 				A6FF577D2B760F92004D3841 /* LoginViewModel.swift in Sources */,
+				A666F07A2B7EB0440042270D /* CustomAlertViewController.swift in Sources */,
 				A648D14D2B73C8E800DAA3BE /* Labels.swift in Sources */,
+				A6853FCB2B78008700011806 /* TextColor.swift in Sources */,
 				A65A25702B719919000EFA3D /* OnboardingThirdViewController.swift in Sources */,
 				A6C7B4102B738040009B0059 /* HomeTopCollectionViewCell.swift in Sources */,
 				A66657812B741F0400991EF2 /* OTPViewController.swift in Sources */,
 				A6C7B4182B7391A7009B0059 /* VerificationCollectionViewCell.swift in Sources */,
+				A63B4AF92B800A8A00ACC2AD /* InvestmentCollectionViewCell.swift in Sources */,
 				A62996272B74C3260074EBF1 /* RegistrationViewModel.swift in Sources */,
 				A687BA482B76ACA500274B14 /* ViewPushClass.swift in Sources */,
 				A642C6252B72138E00E991D2 /* OnboardingFourViewController.swift in Sources */,
+				A64E63242B7AA2F600493E50 /* SplashSreenCollectionViewCell.swift in Sources */,
 				A6C7B41C2B73956D009B0059 /* TabViewController.swift in Sources */,
+				A64E63272B7AA39A00493E50 /* Splash Model.swift in Sources */,
+				A64E631F2B7A9CCD00493E50 /* SplashScreenViewController.swift in Sources */,
+				A64E63192B7A222A00493E50 /* PortFolioDataTableViewCell.swift in Sources */,
 				A629962B2B74F69D0074EBF1 /* OTPViewModel.swift in Sources */,
+				A6F7415C2B7CFA6000E1C9A5 /* JoinGroupTableViewCell.swift in Sources */,
 				A642C62E2B7238CD00E991D2 /* LearnViewController.swift in Sources */,
 				A62996292B74F5D90074EBF1 /* OTPVerificationModel.swift in Sources */,
+				A64E63062B7A02FD00493E50 /* TrendingCollectionViewCell.swift in Sources */,
 				A65A256C2B717A1B000EFA3D /* OnboardingSecondViewController.swift in Sources */,
+				A6853FC92B77CB4A00011806 /* TogglePassword.swift in Sources */,
 				A6FF57792B760D82004D3841 /* LoginModel.swift in Sources */,
 				A6FF577B2B760F27004D3841 /* LoginNetworkCall.swift in Sources */,
 				A642C6352B723D3E00E991D2 /* LearnModel.swift in Sources */,
 				A62C2ED32B70E1A8009761CD /* SceneDelegate.swift in Sources */,
 				A6FF57852B76562B004D3841 /* KeyboardUtility.swift in Sources */,
+				A64E630E2B7A040700493E50 /* TrendingDataTableViewCell.swift in Sources */,
 				A6E727662B71078E00798D9B /* ResetPasswordViewController.swift in Sources */,
+				A616E9DD2B80E95E0035BECA /* KeychainHelperClass.swift in Sources */,
 				A6E7276B2B710DF200798D9B /* SignUpViewController.swift in Sources */,
 				A62996402B759DFA0074EBF1 /* RecommendationCollectionViewCell.swift in Sources */,
+				A64E63112B7A057000493E50 /* TredingStocksModel.swift in Sources */,
 				A642C6392B727F2500E991D2 /* ColorLable.swift in Sources */,
+				A64E631C2B7A232D00493E50 /* PortFolioModel.swift in Sources */,
 				A642C6372B724C9700E991D2 /* ButtonColor.swift in Sources */,
 				A6FF57832B763753004D3841 /* AgroModel.swift in Sources */,
+				A63B4AF62B7F888500ACC2AD /* RecommendationModel.swift in Sources */,
+				A6F7415F2B7D030500E1C9A5 /* JoinGroupModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

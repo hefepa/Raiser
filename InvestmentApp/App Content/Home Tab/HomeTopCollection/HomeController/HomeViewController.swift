@@ -11,6 +11,8 @@ class HomeViewController: UIViewController {
     
     var currentPage = 0
     var homeCellData: [HomeTopProperties] = HomeTopModel().populateData()
+    var verifcationCellData: [VerificationUpdatesProperties] = VerificationUpdatesModel().populateData()
+    var recommendationCellData: [RecommendationProperties] = RecommendationModel().populateData()
 
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var topHomeCollection: UICollectionView!
@@ -26,24 +28,35 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //KeyboardUtility.addTapGestureToDismissKeyboard(for: self)
-        
-        for views in quickViews{
-            views.backgroundColor = UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)
-            
-            verificationUpdatesLabel.text = "Verification Updates"
-            verificationUpdatesLabel.font = .systemFont(ofSize: 15, weight: .regular)
-            
-            quickActionsLabel.text = "Quick Actions"
-            quickActionsLabel.font = .systemFont(ofSize: 15, weight: .regular)
-            
-            recommendationLabel.text = "Recommendations"
-            recommendationLabel.font = .systemFont(ofSize: 15, weight: .regular)
+        self.navigationItem.hidesBackButton = true
 
+        for views in quickViews{
+            views.backgroundColor = .white
+            /*UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)*/
+            views.layer.borderWidth = 1
+            views.layer.borderColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1).cgColor
+            
+            navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "profilepicture"), style: .plain, target: self, action: nil),
+                                                  UIBarButtonItem(image: UIImage(named: "notification"), style: .plain, target: self, action: nil)
+            ]
+            
+            navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu2"), style: .plain, target: self, action: nil)
+            navigationController?.navigationBar.tintColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1)
         }
        
+        verificationUpdatesLabel.text = "Verification Updates"
+        verificationUpdatesLabel.font = .systemFont(ofSize: 15, weight: .regular)
         
-        verificationImageBelow.layer.backgroundColor = UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1).cgColor
+        quickActionsLabel.text = "Quick Actions"
+        quickActionsLabel.font = .systemFont(ofSize: 15, weight: .regular)
+        
+        recommendationLabel.text = "Recommendations"
+        recommendationLabel.font = .systemFont(ofSize: 15, weight: .regular)
+        
+        
+        verificationImageBelow.contentMode = .scaleAspectFill
+        verificationImageBelow.image = UIImage(named: "raiserdashboard")
+//        verificationImageBelow.layer.backgroundColor = UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1).cgColor
 
         view.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
         
@@ -86,10 +99,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return homeCellData.count
         }
         else if collectionView.tag == 2{
-             return 3
+            return verifcationCellData.count
         }
         else if collectionView.tag == 3{
-            return 3
+            return recommendationCellData.count
         }
         return 0
     }
@@ -103,10 +116,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         else if collectionView.tag == 2{
             let verificationCell = verificationCollection.dequeueReusableCell(withReuseIdentifier: "VerificationCollectionViewCell", for: indexPath) as! VerificationCollectionViewCell
+            verificationCell.setupData(with: verifcationCellData[indexPath.item])
             return verificationCell
         }
         else if collectionView.tag == 3{
             let recommendationCell = recommendationViews.dequeueReusableCell(withReuseIdentifier: "RecommendationCollectionViewCell", for: indexPath) as! RecommendationCollectionViewCell
+            recommendationCell.setupData(with: recommendationCellData[indexPath.item])
             return recommendationCell
         }
        
@@ -123,7 +138,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
             else if collectionView.tag == 2{
                 let widthOfTheScreen = collectionView.bounds.width
-                return CGSize(width: (widthOfTheScreen)/2, height: 270)
+                return CGSize(width: (widthOfTheScreen)/2, height: 240)
             }
             else if collectionView.tag == 3{
                 
@@ -161,6 +176,20 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
        
     }
+
+//extension UIImage {
+//    var averageColor: UIColor? {
+//        guard let inputImage = CIImage(image: self) else { return nil }
+//        let extentVector = CIVector(x: inputImage.extent.origin.x, y: inputImage.extent.origin.y, z: inputImage.extent.size.width, w: inputImage.extent.size.height)
+//        guard let filter = CIFilter(name: "CIAreaAverage", parameters: [kCIInputImageKey: inputImage, kCIInputExtentKey: extentVector]) else { return nil }
+//        guard let outputImage = filter.outputImage else { return nil }
+//        
+//        var bitmap = [UInt8](repeating: 0, count: 4)
+//        let context = CIContext(options: nil)
+//        context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: .RGBA8, colorSpace: nil)
+//        
+//        return UIColor(red: CGFloat(bitmap[0]) / 255.0, green: CGFloat(bitmap[1]) / 255.0, blue: CGFloat(bitmap[2]) / 255.0, alpha: CGFloat(bitmap[3]) / 255.0)
+//    }
 
 
 

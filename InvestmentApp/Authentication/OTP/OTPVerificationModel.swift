@@ -13,5 +13,14 @@ class OTPVerificationModel: Codable{
 
 class OTPResponseModel: Codable{
     let message: String?
+    let code: String?
     let success: Bool?
+    let data: OTPDetailsModel?
+}
+
+class OTPDetailsModel: Codable{
+    let firstName: String?
+    let lastName: String?
+    let email: String?
+    let phoneNumber: String?
 }

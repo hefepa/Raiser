@@ -19,8 +19,8 @@ class OTPViewModel{
        
         do {
             let dico: [String: Any] = ["otp": otps]
-        
-            let postURLString = "https://f062-155-93-95-78.ngrok-free.app/api/User/validate"
+//        https://bit-group-one-back-end.azurewebsites.net/api/User/validate
+            let postURLString = "https://bit-group-one-back-end.azurewebsites.net/api/User/validate"
                     guard let postURL = URL(string: postURLString) else {
                         return
                     }
