@@ -8,7 +8,10 @@
 import Foundation
 
 class LoginResponseModel: Codable{
+    let userId: Int?
     let token: String?
+    let message: String?
+    let success: Bool?
     let userDetails: LoginUserDetailsModel?
     
 }

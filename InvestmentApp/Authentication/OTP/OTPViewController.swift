@@ -36,16 +36,21 @@ class OTPViewController: UIViewController, OTPModelDelegate {
                 let toast = Toast.default(
                     image: UIImage(systemName: "checkmark.shield.fill")!, title: response ?? "Error")
                 toast.show()
+                let savedEmail = KeychainWrapper.getEmail(forAccount: "userEmail")
                 let loginPage = LoginPageViewController()
-//                loginPage.emailTF.text = KeychainWrapper.getEmail(forAccount: "userEmail")
-                self.navigationController?.pushViewController(loginPage, animated: true)
+                loginPage.emailFromOTP = self.userEmailLabel.text
+                let splashScreen = SplashScreenViewController()
+
+                self.navigationController?.pushViewController(splashScreen, animated: true)
                 print("Success message is \(data?.message)")
             }
             
             
-            else{
+            else if data?.success == false{
                 self.activityLoader.hidesWhenStopped = true
                 self.activityLoader.stopAnimating()
+                
+                let deleteKeyChain: () = KeychainWrapper.deleteValue(forKey: "userEmail")
                 
                 let config = ToastConfiguration(
                     direction: .top,

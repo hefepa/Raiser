@@ -36,7 +36,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="393" height="1005"/>
                             <subviews>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="tSF-hJ-UdN">
-                                    <rect key="frame" x="30" y="50" width="333" height="128"/>
+                                    <rect key="frame" x="30" y="30" width="333" height="128"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="128" id="VU0-Fy-DZb" userLabel="height = 140"/>
@@ -49,17 +49,17 @@
                                     </collectionViewFlowLayout>
                                 </collectionView>
                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="eVA-TA-9Mi">
-                                    <rect key="frame" x="120" y="198" width="153" height="25.666666666666657"/>
+                                    <rect key="frame" x="120" y="178" width="153" height="25.666666666666657"/>
                                     <color key="backgroundColor" red="0.48627454040000001" green="0.082352943720000002" blue="0.20784312490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </pageControl>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USd-hJ-ONN">
-                                    <rect key="frame" x="30" y="258.66666666666669" width="333" height="20.333333333333314"/>
+                                    <rect key="frame" x="30" y="238.66666666666666" width="333" height="20.333333333333343"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hQe-po-Qby">
-                                    <rect key="frame" x="30" y="289" width="333" height="80"/>
+                                    <rect key="frame" x="30" y="269" width="333" height="80"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="80" id="WE1-cw-7J2"/>
@@ -72,26 +72,26 @@
                                     </collectionViewFlowLayout>
                                 </collectionView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cgH-ck-put">
-                                    <rect key="frame" x="30" y="379" width="333" height="128"/>
+                                    <rect key="frame" x="30" y="359" width="333" height="128"/>
                                     <color key="backgroundColor" systemColor="systemGray2Color"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="128" id="gmf-Na-3av"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2R-lw-p9T">
-                                    <rect key="frame" x="30" y="547" width="333" height="20.333333333333371"/>
+                                    <rect key="frame" x="30" y="527" width="333" height="20.333333333333371"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBV-Up-o7s">
-                                    <rect key="frame" x="30" y="712" width="333" height="20.333333333333371"/>
+                                    <rect key="frame" x="30" y="692" width="333" height="20.333333333333371"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="20m-9Q-h1h">
-                                    <rect key="frame" x="30" y="755.33333333333337" width="333" height="219.66666666666663"/>
+                                    <rect key="frame" x="30" y="735.33333333333337" width="333" height="239.66666666666663"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="I85-Ci-925">
                                         <size key="itemSize" width="128" height="128"/>
@@ -101,7 +101,7 @@
                                     </collectionViewFlowLayout>
                                 </collectionView>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RZm-gI-U3E">
-                                    <rect key="frame" x="30" y="584" width="333" height="88"/>
+                                    <rect key="frame" x="30" y="564" width="333" height="88"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYH-9v-Kvl">
                                             <rect key="frame" x="0.0" y="0.0" width="104.33333333333333" height="88"/>
@@ -163,6 +163,7 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="wBV-Up-o7s" secondAttribute="trailing" constant="30" id="30o-2R-nsk"/>
                                 <constraint firstAttribute="trailing" secondItem="F2R-lw-p9T" secondAttribute="trailing" constant="30" id="7Go-Sd-Bt2"/>
@@ -173,13 +174,13 @@
                                 <constraint firstItem="USd-hJ-ONN" firstAttribute="top" secondItem="eVA-TA-9Mi" secondAttribute="bottom" constant="35" id="L7P-jl-Cwz"/>
                                 <constraint firstItem="hQe-po-Qby" firstAttribute="top" secondItem="USd-hJ-ONN" secondAttribute="bottom" constant="10" id="ME3-dN-Hvk"/>
                                 <constraint firstItem="eVA-TA-9Mi" firstAttribute="leading" secondItem="yOw-f7-Qcl" secondAttribute="leading" constant="120" id="QmV-yP-z5r"/>
+                                <constraint firstItem="tSF-hJ-UdN" firstAttribute="top" secondItem="yOw-f7-Qcl" secondAttribute="top" constant="30" id="Rr6-Qw-694"/>
                                 <constraint firstItem="F2R-lw-p9T" firstAttribute="leading" secondItem="yOw-f7-Qcl" secondAttribute="leading" constant="30" id="SU1-mE-gAs"/>
                                 <constraint firstItem="20m-9Q-h1h" firstAttribute="top" secondItem="wBV-Up-o7s" secondAttribute="bottom" constant="23" id="SkY-bZ-8hw"/>
                                 <constraint firstAttribute="trailing" secondItem="20m-9Q-h1h" secondAttribute="trailing" constant="30" id="Uox-rO-qUe"/>
                                 <constraint firstAttribute="trailing" secondItem="cgH-ck-put" secondAttribute="trailing" constant="30" id="Wsb-uh-6lR"/>
                                 <constraint firstAttribute="trailing" secondItem="eVA-TA-9Mi" secondAttribute="trailing" constant="120" id="Yis-PX-E9X"/>
                                 <constraint firstItem="wBV-Up-o7s" firstAttribute="leading" secondItem="yOw-f7-Qcl" secondAttribute="leading" constant="30" id="aoH-5o-XC5"/>
-                                <constraint firstItem="tSF-hJ-UdN" firstAttribute="top" secondItem="yOw-f7-Qcl" secondAttribute="top" constant="50" id="dWm-Df-nFg"/>
                                 <constraint firstAttribute="trailing" secondItem="hQe-po-Qby" secondAttribute="trailing" constant="30" id="ddC-Py-Zh2"/>
                                 <constraint firstItem="cgH-ck-put" firstAttribute="leading" secondItem="yOw-f7-Qcl" secondAttribute="leading" constant="30" id="dnb-86-A7y"/>
                                 <constraint firstAttribute="trailing" secondItem="USd-hJ-ONN" secondAttribute="trailing" constant="30" id="kld-6K-G9A"/>
@@ -223,7 +224,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -23,26 +23,48 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var recommendationViews: UICollectionView!
     @IBOutlet weak var quickActionsLabel: UILabel!
     @IBOutlet weak var recommendationLabel: UILabel!
+//    @IBOutlet weak var userImage: UIImageView!
+//    @IBOutlet weak var userName: UILabel!
+//    @IBOutlet weak var notificationImage: UIImageView!
+//    
     
+  
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.hidesBackButton = true
+        
+        let storedUserName = UserDefaults.standard.string(forKey: "UserName")
+//        userName.text = "Hi, \(storedUserName ?? "null")"
+//        UINavigationBar.appearance().tintColor = .green
 
         for views in quickViews{
             views.backgroundColor = .white
-            /*UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)*/
             views.layer.borderWidth = 1
             views.layer.borderColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1).cgColor
-            
-            navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "profilepicture"), style: .plain, target: self, action: nil),
-                                                  UIBarButtonItem(image: UIImage(named: "notification"), style: .plain, target: self, action: nil)
-            ]
-            
-            navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu2"), style: .plain, target: self, action: nil)
-            navigationController?.navigationBar.tintColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1)
         }
+        
+        let profilePictureItem = UIBarButtonItem(image: UIImage(named: "profilepicture"), style: .plain, target: self, action: nil)
+        profilePictureItem.tintColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1)
+
+        
+        let notificationItem = UIBarButtonItem(image: UIImage(named: "notification"), style: .plain, target: nil, action: nil)
+        notificationItem.tintColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1)
+
+        let userNameItem = UIBarButtonItem(title: "Hi, \(storedUserName ?? "nil").", style: .plain, target: nil, action: nil)
+        userNameItem.tintColor = .black
+
+        navigationItem.leftBarButtonItems = [profilePictureItem, userNameItem]
+        navigationItem.rightBarButtonItem = notificationItem
+            
+        
+        
+//
+//
+//        
+//        let customNavigation = UIBarButtonItem(image: UIImage(named: "menu2"), style: .plain, target: self, action: nil)
+//        navigationItem.leftBarButtonItem = customNavigation
+        //n/*avigationController?.navigationBar.tintColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1)*/
        
         verificationUpdatesLabel.text = "Verification Updates"
         verificationUpdatesLabel.font = .systemFont(ofSize: 15, weight: .regular)
@@ -72,6 +94,8 @@ class HomeViewController: UIViewController {
         topHomeCollection.showsHorizontalScrollIndicator = false
         topHomeCollection.dataSource = self
         topHomeCollection.delegate = self
+        topHomeCollection.isPagingEnabled = true
+
         
         verificationCollection.register(UINib(nibName: "VerificationCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "VerificationCollectionViewCell")
         verificationCollection.showsHorizontalScrollIndicator = false
@@ -132,9 +156,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     extension HomeViewController: UICollectionViewDelegateFlowLayout{
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             if collectionView.tag == 1{
-                let widthOfScreen = collectionView.bounds.width
-                let heightOfScreen = collectionView.bounds.height
-                return CGSize(width: widthOfScreen, height: heightOfScreen)
+                let collectionViewSize = collectionView.frame.size
+//                let widthOfScreen: collectionViewSize
+                return CGSize(width: collectionViewSize.width, height: collectionViewSize.height)
+
+//                let heightOfScreen = collectionView.bounds.height
+//                return CGSize(width: widthOfScreen, height: heightOfScreen)
             }
             else if collectionView.tag == 2{
                 let widthOfTheScreen = collectionView.bounds.width

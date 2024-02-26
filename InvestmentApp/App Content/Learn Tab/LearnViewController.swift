@@ -16,12 +16,18 @@ class LearnViewController: UIViewController {
     @IBOutlet weak var learnNavImage: UIImageView!
     @IBOutlet weak var learnNavLabel: UILabel!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // Hide the back button
+        navigationController?.navigationBar.backItem?.hidesBackButton = true
+    }
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//                
-//        let learnNavigationn = LearnNavigation()
-//        navigationItem.titleView = learnNavigationn
+        navigationItem.hidesBackButton = true
         
         learnTableView.register(UINib(nibName: "LearnTableViewCell", bundle: nil), forCellReuseIdentifier: "LearnTableViewCell")
         

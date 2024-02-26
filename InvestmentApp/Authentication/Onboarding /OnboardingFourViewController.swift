@@ -26,8 +26,8 @@ class OnboardingFourViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //KeyboardUtility.addTapGestureToDismissKeyboard(for: self)
-
+        
+        navigationItem.hidesBackButton = true
         btn.colorConfiguration(button: nextButton)
         
         for checkboxes in checkBoxesArray{
@@ -42,8 +42,17 @@ class OnboardingFourViewController: UIViewController {
         skipLabel.addGestureRecognizer(skip)
     }
     
+    
+    // Function to mark that the onboarding process was skipped
+    func markOnboardingSkipped() {
+            AppUtility.markOnboardingSkipped()
+        }
+    
+    
+    
     @IBAction func nextBtn(_ sender: UIButton){
         if checkBoxesArray.contains(where: { $0.isSelected }) {
+            markOnboardingSkipped()
             let fifth = OnboardingFiveViewController()
             navigationController?.pushViewController(fifth, animated: true)
         }
@@ -116,6 +125,4 @@ class OnboardingFourViewController: UIViewController {
         }
         sender.isSelected = true
     }
-    
-
 }

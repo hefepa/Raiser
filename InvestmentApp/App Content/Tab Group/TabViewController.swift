@@ -12,7 +12,10 @@ class TabViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.tintColor = .green
+        navigationItem.hidesBackButton = true
+        
+        tabBar.tintColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1)
+
         let homeController = HomeViewController()
         let learnController = LearnViewController()
         let analyzeController = AnalyzeViewController()
@@ -20,18 +23,27 @@ class TabViewController: UITabBarController {
         
         homeController.tabBarItem.image = UIImage(named: "home")
         learnController.tabBarItem.image = UIImage(named: "books")
-        analyzeController.tabBarItem.image = UIImage(named: "trending")
-        investmentController.tabBarItem.image = UIImage(named: "card")
+        investmentController.tabBarItem.image = UIImage(named: "trending")
+        analyzeController.tabBarItem.image = UIImage(named: "card")
+
         
         homeController.tabBarItem.selectedImage = UIImage(named: "homefill")
         learnController.tabBarItem.selectedImage = UIImage(named: "bookfill")
-        analyzeController.tabBarItem.selectedImage = UIImage(named: "trendingfill")
-        investmentController.tabBarItem.selectedImage = UIImage(named: "cardfill")
+        investmentController.tabBarItem.selectedImage = UIImage(named: "trendingfill")
+        analyzeController.tabBarItem.selectedImage = UIImage(named: "cardfill")
+
         
         
-        setViewControllers([UINavigationController(rootViewController: homeController), UINavigationController(rootViewController: learnController), UINavigationController(rootViewController: analyzeController), UINavigationController(rootViewController: investmentController)], animated: true)
+        setViewControllers([UINavigationController(rootViewController: homeController), UINavigationController(rootViewController: learnController), UINavigationController(rootViewController: investmentController), UINavigationController(rootViewController: analyzeController)], animated: true)
 
     }
-    
-
 }
+
+extension TabViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if let navigationController = viewController as? UINavigationController {
+            navigationController.popToRootViewController(animated: false)
+        }
+    }
+}
+

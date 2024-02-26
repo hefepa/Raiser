@@ -15,6 +15,7 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
     
     func DidReceiveError(error: String) {
             print("erroroooooooo")
+//        KeychainWrapper
         }
     
     func DidReceivedResponse(data: RegistrationResponseModel?) {
@@ -62,29 +63,29 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
         }
     }
         
-        func storesUserName() {
-            // Retrieve email input from the text field
-            guard let emailInput = emailTF.text, !emailInput.isEmpty else {
-                // Handle the case where the email input is nil or empty
-                return
-            }
-
-            // Check if there is no value stored in UserDefaults under the key "EmailAddress"
-            if UserDefaults.standard.string(forKey: "EmailAddress") == nil {
-                // Save the email input to UserDefaults under the key "EmailAddress"
-                UserDefaults.standard.setValue(emailInput, forKey: "EmailAddress")
-            }
-
-            // Create an instance of LoginPageViewController
-            let otpPage = OTPViewController()
-
-            // Set the email text field in the LoginPageViewController instance
-            if let storedEmail = UserDefaults.standard.string(forKey: "EmailAddress") {
-                otpPage.userEmailLabel.text = storedEmail as? String
-            } else {
-                otpPage.userEmailLabel.text = ""
-            }
-        }
+//        func storesUserName() {
+//            // Retrieve email input from the text field
+//            guard let emailInput = emailTF.text, !emailInput.isEmpty else {
+//                // Handle the case where the email input is nil or empty
+//                return
+//            }
+//
+//            // Check if there is no value stored in UserDefaults under the key "EmailAddress"
+//            if UserDefaults.standard.string(forKey: "EmailAddress") == nil {
+//                // Save the email input to UserDefaults under the key "EmailAddress"
+//                UserDefaults.standard.setValue(emailInput, forKey: "EmailAddress")
+//            }
+//
+//            // Create an instance of LoginPageViewController
+//            let otpPage = OTPViewController()
+//
+//            // Set the email text field in the LoginPageViewController instance
+//            if let storedEmail = UserDefaults.standard.string(forKey: "EmailAddress") {
+//                otpPage.userEmailLabel.text = storedEmail as? String
+//            } else {
+//                otpPage.userEmailLabel.text = ""
+//            }
+//        }
 
     
 
@@ -188,7 +189,7 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
     }
     
     @IBAction func signUpButton(_ sender: UIButton) {
-        let otpPage = OTPViewController()
+//        let otpPage = OTPViewController()
         
         
         if ((firstNameTF.text?.isEmpty ?? true) ||
@@ -213,7 +214,6 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
                 activityLoader.startAnimating()
                 await registerViewModel.registerUser(firstNameInput: firstNameTF.text ?? "", lastNameInput: lastNameTF.text ?? "", emailInput: emailTF.text ?? "", phoneNumberInput: phoneNumberTF.text ?? "", passwordInput: passwordTF.text ?? "", confirmPasswordInput: confirmPasswordTF.text ?? "")
 //                emailTF.text ?? "\(otpPage.text = emailTF.text)"
-                savingUserDetails()
             }
         }
     }

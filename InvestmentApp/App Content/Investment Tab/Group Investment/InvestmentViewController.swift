@@ -11,6 +11,10 @@ var numberOfCategoriesCell: [CategoriesProperties] = CategoriesPropertiesModel()
 var numberOfTandPCell: [TrendingAndPortfolioProperties] = TrendingAndPortfolioModel().populateData()
 
 class InvestmentViewController: UIViewController {
+    var trendingStockViewModel = TrendingStockViewModel(trendingStocknetworkCall: TrendingStockNetworkCall())
+    var portfolioViewModel = PortFolioViewModel(portfolioNetworkCall: PortFolioNetworkCall())
+    var numberOfItemsInPortFolio: [PortFolioProperties]?
+
     
     @IBOutlet weak var trendingBtn: UIButton!
     @IBOutlet weak var portfolioBtn: UIButton!
@@ -22,33 +26,18 @@ class InvestmentViewController: UIViewController {
     @IBOutlet weak var investNavImage: UIImageView!
     @IBOutlet weak var investNavLabel: UILabel!
     @IBOutlet weak var searchIcon: UIImageView!
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        
-//        let navigationBar = NavigationBar(navigationItem: self.navigationItem)
-//        navigationBar.learnNavigation(image: UIImage(named: "investnav"), titleText: "Invest")
-//        navigationController?.navigationBar.isTranslucent = true
-//
-//    }
-//    
-    
+//    @IBOutlet weak var investNavImage: UIImageView!
+//    @IBOutlet weak var investNavLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.hidesBackButton = true
-
-        navigationController?.navigationBar.isTranslucent = true
-
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationTapped), name: Notification.Name("nav"), object: nil)
+        
         categoryCollection.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
         categoryCollection.dataSource = self
         categoryCollection.delegate = self
         categoryCollection.tag = 1
-        
-//        trendingAndPortfolioCollection.register(UINib(nibName: "TrendingAndPortfolioCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TrendingAndPortfolioCollectionViewCell")
-//        trendingAndPortfolioCollection.delegate = self
-//        trendingAndPortfolioCollection.dataSource = self
-//        trendingAndPortfolioCollection.tag = 2
         
         trendingStockCollection.register(UINib(nibName: "TrendingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TrendingCollectionViewCell")
         trendingStockCollection.delegate = self
@@ -62,26 +51,20 @@ class InvestmentViewController: UIViewController {
         trendingStockCollection.isScrollEnabled = false
         
         propertiesAssignment()
+        investNavLabel.text = "Invest"
         trendingBtn.layer.borderWidth = 2
-        trendingBtn.layer.borderColor = UIColor(.green).cgColor
-        
-        learnNavigation()
-        
-//        let navigationBar = NavigationBar(navigationItem: self.navigationItem)
-//        navigationBar.learnNavigation(image: UIImage(named: "investnav"), titleText: "Invest")
+        trendingBtn.layer.borderColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1).cgColor
+        trendingBtn.tintColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1)
+        portfolioBtn.tintColor = .black
+//        learnNavigation()
     }
     
-    
-
-
-
-
     private func learnNavigation(){
-    //
-            let customTitleView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+
+        let customTitleView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 44))
     
             let imageView = UIImageView(image: UIImage(named: "investnav"))
-            imageView.contentMode = .scaleAspectFit
+//        imageView.contentMode = .scaleAspectFit
             imageView.translatesAutoresizingMaskIntoConstraints = false
             customTitleView.addSubview(imageView)
     
@@ -94,11 +77,14 @@ class InvestmentViewController: UIViewController {
     
             // Center the imageView and titleLabel horizontally within customTitleView
             NSLayoutConstraint.activate([
+//                customTitleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
+//                customTitleView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 80),
+                
                 imageView.centerYAnchor.constraint(equalTo: customTitleView.centerYAnchor),
                 imageView.leadingAnchor.constraint(equalTo: customTitleView.leadingAnchor, constant: 100),
     
     
-                titleLabel.centerYAnchor.constraint(equalTo: customTitleView.centerYAnchor),
+                titleLabel.centerYAnchor.constraint(equalTo: customTitleView.centerYAnchor, constant: 8),
                 titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8) // Adjust spacing as needed
             ])
     
@@ -113,9 +99,11 @@ class InvestmentViewController: UIViewController {
     
     @IBAction func trendingStocksBtn(_ sender: Any) {
         trendingBtn.layer.borderWidth = 2
-        trendingBtn.layer.borderColor = UIColor(.green).cgColor
+        trendingBtn.layer.borderColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1).cgColor
+        trendingBtn.tintColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1)
         portfolioBtn.layer.borderWidth = .nan
         portfolioBtn.layer.borderColor = .none
+        portfolioBtn.tintColor = .black
         let indexPath = IndexPath(item: 0, section: 0)
         trendingStockCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
@@ -123,8 +111,10 @@ class InvestmentViewController: UIViewController {
     @IBAction func myPortfolioBtn(_ sender: Any) {
         trendingBtn.layer.borderWidth = .nan
         trendingBtn.layer.borderColor = .none
+        trendingBtn.tintColor = .black
         portfolioBtn.layer.borderWidth = 2
-        portfolioBtn.layer.borderColor = UIColor(.green).cgColor
+        portfolioBtn.tintColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1)
+        portfolioBtn.layer.borderColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1).cgColor
         let indexPath = IndexPath(item: 1, section: 0)
         trendingStockCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
@@ -135,28 +125,25 @@ class InvestmentViewController: UIViewController {
         trendingBtn.setTitle("Trending Stocks", for: .normal)
         portfolioBtn.setTitle("My Portfolio", for: .normal)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: nil)
-        navigationItem.titleView?.tintColor = .label
+       
     }
 }
 
-extension InvestmentViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension InvestmentViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func didSelectItem(at indexPath: IndexPath) {
+        let investmentDetails = GroupInvestmentDetailsViewController()
+        self.navigationController?.pushViewController(investmentDetails, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView.tag == 1{
-            
             return numberOfCategoriesCell.count
-            
         }else if collectionView.tag == 2{
-            
             return numberOfTandPCell.count
-            
         }else if collectionView.tag == 3{
-            
             return 2
-            
         }
-        
         return 0
     }
     
@@ -166,32 +153,39 @@ extension InvestmentViewController: UICollectionViewDelegate, UICollectionViewDa
             let categoryViewCell = numberOfCategoriesCell[indexPath.item]
             cellCategory.setupData(with: categoryViewCell)
             return cellCategory
-            //            }else if collectionView.tag == 2{
-            //                let cellTAndP = trendingAndPortfolioCollection.dequeueReusableCell(withReuseIdentifier: "TrendingAndPortfolioCollectionViewCell", for: indexPath) as! TrendingAndPortfolioCollectionViewCell
-            //                let tAndPViewCell = numberOfTandPCell[indexPath.item]
-            //                cellTAndP.updateCell(with: tAndPViewCell)
-            //                return cellTAndP
+           
         }else if collectionView.tag == 3 {
             if indexPath.item == 0 {
                 let cellTAndPDetails = trendingStockCollection.dequeueReusableCell(withReuseIdentifier: "TrendingCollectionViewCell", for: indexPath) as! TrendingCollectionViewCell
                 // Configure cellTAndPDetails if needed
+                cellTAndPDetails.initCell(trendingStockViewModel: trendingStockViewModel)
                 return cellTAndPDetails
             }else if indexPath.item == 1 {
+                
                 let portFolioCell = trendingStockCollection.dequeueReusableCell(withReuseIdentifier: "PortFolioTableViewCell", for: indexPath) as! PortFolioTableViewCell
                 // Configure portFolioCell if needed
+//                PortFolioDataTableViewCell
+                portFolioCell.initCell(portfolioViewModel: portfolioViewModel)
+                portFolioCell.delegate = self
+                
                 return portFolioCell
             }
         }
         return UICollectionViewCell()
     }
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 1{
             if indexPath.item == 0{
+                
                 let joinGroupInvestment = JoinGroupViewController()
-                navigationController?.pushViewController(joinGroupInvestment, animated: true)
+                joinGroupInvestment.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(joinGroupInvestment, animated: true)
             }
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, shouldScrollToSection section: Int) -> Bool {
         // Return false to disable scrolling by swiping
         if collectionView.tag == 3{
@@ -209,10 +203,6 @@ extension InvestmentViewController: UICollectionViewDelegateFlowLayout{
             let widthOfScreen: CGFloat = 400 / 2
             let heightOfScreen = collectionView.bounds.height
             return CGSize(width: widthOfScreen, height: heightOfScreen)
-//        }else if collectionView.tag == 2{
-//            let widthOfScreen: CGFloat = 500 / 3
-//            let heightOfScreen = collectionView.bounds.height
-//            return CGSize(width: widthOfScreen, height: heightOfScreen)
         }else if collectionView.tag == 3{
             let widthOfScreen = collectionView.bounds.width
             let heightOfScreen = collectionView.bounds.height
@@ -222,11 +212,18 @@ extension InvestmentViewController: UICollectionViewDelegateFlowLayout{
     }
 }
 
-
-
-    
-    
-
-    
-    
-
+extension InvestmentViewController: PortFolioTableDelegate{
+    func didTapButton(inCell cell: PortFolioDataTableViewCell, data: PortFolioProperties?) {
+        print ("View tapped")
+        let investmentDetails = GroupInvestmentDetailsViewController()
+        print("DATA IS: \(data)")
+        investmentDetails.getData = data
+        print("they are: \(investmentDetails.getData)")
+        navigationController?.pushViewController(investmentDetails, animated: true)
+    }
+    @objc func notificationTapped() {
+        print ("View tapped notification")
+        let investmentDetails = GroupInvestmentDetailsViewController()
+        navigationController?.pushViewController(investmentDetails, animated: true)
+    }
+}

@@ -8,6 +8,9 @@
 import UIKit
 
 class GroupInvestmentDetailsViewController: UIViewController {
+    
+    var getData: PortFolioProperties?
+    
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var startDate: UILabel!
     @IBOutlet weak var startDateDetails: UILabel!
@@ -25,6 +28,38 @@ class GroupInvestmentDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        startDate.text = "Start Date"
+        startDate.font = .systemFont(ofSize: 15, weight: .regular)
+        endDate.text = "End Date"
+        endDate.font = .systemFont(ofSize: 15, weight: .regular)
+        referenceNumber.text = "Reference Number"
+        referenceNumber.font = .systemFont(ofSize: 15, weight: .regular)
+        amount.text = "Amount"
+        amount.font = .systemFont(ofSize: 15, weight: .regular)
+        amountInWords.text = "Amount in words"
+        amountInWords.font = .systemFont(ofSize: 15, weight: .regular)
+        type.text = "Type"
+        type.font = .systemFont(ofSize: 15, weight: .regular)
+        
+        startDateDetails.font = .systemFont(ofSize: 15, weight: .regular)
+        endDateDetails.font = .systemFont(ofSize: 15, weight: .regular)
+        referenceNumberDetails.font = .systemFont(ofSize: 15, weight: .regular)
+        amountDetails.font = .systemFont(ofSize: 15, weight: .regular)
+        amountInWordsDetails.font = .systemFont(ofSize: 15, weight: .regular)
+        typeDetails.font = .systemFont(ofSize: 15, weight: .regular)
 
+
+        
+        groupNameLabel.text = getData?.investmentName
+        startDateDetails.text = getData?.createdAt
+        endDateDetails.text = getData?.endDate
+        referenceNumberDetails.text = getData?.referenceNumber
+        amountDetails.text = getData?.amount?.description
+        amountInWordsDetails.text = getData?.amountInWords
+        typeDetails.text = getData?.investmentType
+        
+        
+        
     }
 }

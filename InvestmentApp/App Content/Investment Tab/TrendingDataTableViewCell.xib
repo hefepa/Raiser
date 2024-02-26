@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBw-I2-UPj">
-                        <rect key="frame" x="75" y="49" width="42" height="21"/>
+                        <rect key="frame" x="75" y="49" width="78" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -43,6 +43,7 @@
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="fBw-I2-UPj" secondAttribute="trailing" constant="200" id="1JA-2V-gpc"/>
                     <constraint firstItem="VTP-az-eQH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="AGN-be-hI7"/>
                     <constraint firstItem="DyB-qY-QAU" firstAttribute="leading" secondItem="VTP-az-eQH" secondAttribute="trailing" constant="25" id="Epu-b3-4bt"/>
                     <constraint firstItem="7xH-22-egQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="35" id="FWp-yx-1uf"/>
@@ -61,7 +62,7 @@
                 <outlet property="trendingStockStatus" destination="7xH-22-egQ" id="ovx-fZ-jMB"/>
                 <outlet property="trendingStockSubDetails" destination="fBw-I2-UPj" id="vIP-f2-TAg"/>
             </connections>
-            <point key="canvasLocation" x="84.732824427480907" y="36.267605633802816"/>
+            <point key="canvasLocation" x="84.732824427480907" y="35.563380281690144"/>
         </tableViewCell>
     </objects>
 </document>

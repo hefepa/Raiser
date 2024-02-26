@@ -28,7 +28,8 @@ class ResetPasswordViewController: UIViewController {
         resetPasswordLabel.text = "Reset your password"
         //lbl.colorConfiguration(to: resetPasswordLabel, withText: resetPasswordLabel.text!)
         resetPasswordLabel.font = .systemFont(ofSize: 25, weight: .semibold)
-        
+        let gradientImage = resetPasswordLabel.gradientImage(frame: resetPasswordLabel.bounds, colors: [UIColor.red.cgColor, UIColor.blue.cgColor])
+
         
         
         emailLabel.text = "Email"

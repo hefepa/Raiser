@@ -17,16 +17,16 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="7Yy-sk-e6F">
-                        <rect key="frame" x="24.666666666666671" y="52" width="170" height="40"/>
+                        <rect key="frame" x="34.666666666666657" y="52" width="150.00000000000003" height="40"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FC1-ye-zOv">
-                                <rect key="frame" x="37" y="8" width="128" height="24"/>
+                                <rect key="frame" x="37" y="8" width="108" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vLY-UQ-5BZ">
-                                <rect key="frame" x="7.9999999999999964" y="8" width="24" height="24"/>
+                                <rect key="frame" x="8" y="8" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Wfn-Hb-Ssg"/>
                                     <constraint firstAttribute="width" constant="24" id="cgx-Kj-gQj"/>
@@ -41,7 +41,7 @@
                             <constraint firstItem="FC1-ye-zOv" firstAttribute="top" secondItem="7Yy-sk-e6F" secondAttribute="top" constant="8" id="cIk-Nr-JXB"/>
                             <constraint firstItem="vLY-UQ-5BZ" firstAttribute="top" secondItem="7Yy-sk-e6F" secondAttribute="top" constant="8" id="fxz-WZ-t0b"/>
                             <constraint firstItem="vLY-UQ-5BZ" firstAttribute="leading" secondItem="7Yy-sk-e6F" secondAttribute="leading" constant="8" id="itV-O3-8fZ"/>
-                            <constraint firstAttribute="width" constant="170" id="k08-UH-Ku2"/>
+                            <constraint firstAttribute="width" constant="150" id="k08-UH-Ku2"/>
                         </constraints>
                     </view>
                 </subviews>

@@ -7,10 +7,12 @@
 
 import UIKit
 
-class GroupInvestmentViewController: UIViewController {
+class GroupInvestmentViewController: UIViewController, CustomAlertDelegate {
+    
+    
     var btn = ButtonColor()
     var getData: JoinGroupProperties?
-    var customAlert = CustomAlertViewController()
+    let investmentCollectionViewCell = InvestmentCollectionViewCell()
     
     @IBOutlet weak var investmentGroupName: UILabel!
     @IBOutlet weak var investmentAndAboutCollection: UICollectionView!
@@ -18,10 +20,6 @@ class GroupInvestmentViewController: UIViewController {
     @IBOutlet weak var aboutButtonScroll: UIButton!
     @IBOutlet weak var moreInfoLabel: UILabel!
     
-    override func viewWillAppear(_ animated: Bool) {
-        /*showCustomAlert*/()
-
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,84 +37,62 @@ class GroupInvestmentViewController: UIViewController {
         propertiesAssigment()
         
         setupKeyboardDismissRecognizer()
-
+        investmentCollectionViewCell.delegate = self
+        
     }
     
+    
     @IBAction func investButtonToScroll(_ sender: UIButton){
+        
+        investmentButtonScroll.layer.borderWidth = 2
+        investmentButtonScroll.layer.borderColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1).cgColor
+        investmentButtonScroll.tintColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1)
+        investmentButtonScroll.layer.borderWidth = .nan
+        aboutButtonScroll.layer.borderColor = .none
+        aboutButtonScroll.tintColor = .black
         let indexPath = IndexPath(item: 0, section: 0)
         investmentAndAboutCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        addBottomBorder(to: investmentButtonScroll, color: UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1), thickness: 2.0)
-        aboutButtonScroll.layer.borderWidth = .nan
-        aboutButtonScroll.layer.borderColor = .none
+        
+        
+//        let indexPath = IndexPath(item: 0, section: 0)
+//        investmentAndAboutCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+//        addBottomBorder(to: investmentButtonScroll, color: UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1), thickness: 2.0)
+//        aboutButtonScroll.layer.borderWidth = .nan
+//        aboutButtonScroll.layer.borderColor = .none
     }
     
     @IBAction func aboutButtonToScroll(_ sender: UIButton){
+        
+        aboutButtonScroll.layer.borderWidth = 2
+        aboutButtonScroll.layer.borderColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1).cgColor
+        aboutButtonScroll.tintColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1)
+        aboutButtonScroll.layer.borderWidth = .nan
+        investmentButtonScroll.layer.borderColor = .none
+        investmentButtonScroll.tintColor = .black
         let indexPath = IndexPath(item: 1, section: 0)
         investmentAndAboutCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        addBottomBorder(to: aboutButtonScroll, color: UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1), thickness: 2.0)
-        investmentButtonScroll.layer.borderWidth = .nan
-        investmentButtonScroll.layer.borderColor = .none
-        addBottomBorder(to: investmentButtonScroll, color: .white, thickness: 0)
-
-    }
-    
-    @IBAction func investButtonTapped(_ sender: UIButton) {
-        let customAlertVC = CustomAlertViewController(nibName: "CustomAlertViewController", bundle: nil)
-//        customAlertVC.modalPresentationStyle = .pageSheet
-//        customAlertVC.modalTransitionStyle = .crossDissolve
-        customAlertVC.okAction = {
-            print("Button Tapped")
-        }
-        customAlertVC.presentWithFadeEffect(on: self)
-
-        //present(customAlertVC, animated: true, completion: nil)
-
         
+
+//        let indexPath = IndexPath(item: 1, section: 0)
+//        investmentAndAboutCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+//        addBottomBorder(to: aboutButtonScroll, color: UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1), thickness: 2.0)
+//        investmentButtonScroll.layer.borderWidth = .nan
+//        investmentButtonScroll.layer.borderColor = .none
+//        addBottomBorder(to: investmentButtonScroll, color: .white, thickness: 0)
+
     }
 
     @objc func backNavigation(){
         navigationController?.popViewController(animated: true)
     }
     
-//    func showCustomAlert(){
-//        
-//        // Load the CustomAlertViewController from the XIB
-//        // Load the CustomAlertViewController from the XIB
-//        if let customAlertViewController = CustomAlertViewController(nibName: "CustomAlertView", bundle: nil) as CustomAlertViewController? {
-//                // Set action for OK button if needed
-//                customAlertViewController.okAction = {
-//                    // Handle OK button tap
-//                    print("OK Button Tapped")
-//                }
-//
-//                // Present the custom alert view modally
-//                present(customAlertViewController, animated: true, completion: nil)
-//            }
-        
     
-//        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-//        alertController.setValue(customAlert, forKey: "viewAlert")
-//        present(alertController, animated: true, completion: nil)
-//        
-//        customAlert.continueButton.addTarget(self, action: #selector(continueBtnTapped), for: .touchUpInside)
-   // }
-    
-    
-    
-//    @IBAction func investButtonTapped(_ sender: Any) {
-//        
-//        showCustomAlert()
-//        
-//        
-//    }
-    
-    
-    
-    
-    
-    
-    
-    
+    func showCustomAlert() {
+
+            let customAlert = CustomAlertViewController()
+            customAlert.modalPresentationStyle = .overFullScreen
+            present(customAlert, animated: true, completion: nil)
+        }
     
     func addBottomBorder(to button: UIButton, color: UIColor, thickness: CGFloat) {
             let border = CALayer()
@@ -168,22 +144,47 @@ extension GroupInvestmentViewController: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item == 0{
             let investmentCell = investmentAndAboutCollection.dequeueReusableCell(withReuseIdentifier: "InvestmentCollectionViewCell", for: indexPath) as! InvestmentCollectionViewCell
-            
-            let contentOfRate = getData?.rate
-            
-            // Split the sentence by spaces
-            let components = contentOfRate?.components(separatedBy: " ")
-            print(components)
-            // Check if there are at least 1 space
-            if components?.count ?? 0 >= 2 {
-                // Join the components starting from the fourth element
-                let contentAfterSecondSpace = components?[1...].joined(separator: " ")
-                print(contentAfterSecondSpace)
-                investmentCell.investTimeFrameTF.text = ("\(getData?.days ?? "0 day") " + (contentAfterSecondSpace ?? "0%"))
-                print(investmentCell.investTimeFrameTF.text!)
+            investmentCell.delegate = self  // Set the delegate here
+            if let duration = getData?.duration, let interestRate = getData?.interestRate {
+                investmentCell.investTimeFrameTF.text = "\(duration) days at \(interestRate)%"
+                print("Duration:\(duration)")
+                print("interest:\(interestRate)")
+                
+                if let minimumCapital = getData?.minimumCapital, let maximumCapital = getData?.maximumCapital {
+                    investmentCell.minimumLabel.text = "Min. amount of \(minimumCapital) and Max amount of \(maximumCapital)"
+                    UserDefaults.standard.set(minimumCapital, forKey: "Minimumcapital")
+                    UserDefaults.standard.set(maximumCapital, forKey: "Maximumcapital")
+                    
+                } else {
+                    // Handle the case where minimumCapital is nil
+                    investmentCell.minimumLabel.text = "Minimum Capital Not Available"
+                }
+                
+                if let investmentID = getData?.id{
+                    UserDefaults.standard.set(investmentID, forKey: "InvestmentID")
+                }
+                
+                let investmentIDResult = UserDefaults.standard.integer(forKey: "InvestmentID")
+                
+                print("Investment ID is: \(investmentIDResult)")
+                
+                let result = UserDefaults.standard.set(duration, forKey: "StoredDuration")
+                let secondResult = UserDefaults.standard.set(interestRate, forKey: "StoredInterestRate")
+                
+                let storedDuration = UserDefaults.standard.integer(forKey: "StoredDuration")
+                let storedInterestRate = UserDefaults.standard.double(forKey: "StoredInterestRate")
+                
+                let storedMin = UserDefaults.standard.integer(forKey: "Minimumcapital")
+                let storedMax = UserDefaults.standard.double(forKey: "Maximumcapital")
+                
+                print("Result is:\(storedMin)")
+                print("SResult is:\(storedMax)")
+                
+                print("Result is:\(storedDuration)")
+                print("SResult is:\(storedInterestRate)")
+                return investmentCell
             }
-            return investmentCell
-            }else if indexPath.item == 1{
+        }else if indexPath.item == 1{
                 let aboutCell = investmentAndAboutCollection.dequeueReusableCell(withReuseIdentifier: "AboutCollectionViewCell", for: indexPath) as! AboutCollectionViewCell
                 return aboutCell
             }
@@ -202,3 +203,19 @@ extension GroupInvestmentViewController: UICollectionViewDelegate, UICollectionV
     }
 
 
+
+
+    //            let contentOfRate = getData?.rate
+    //
+    //            // Split the sentence by spaces
+    //            let components = contentOfRate?.components(separatedBy: " ")
+    //            print(components)
+    //            // Check if there are at least 1 space
+    //            if components?.count ?? 0 >= 2 {
+    //                // Join the components starting from the fourth element
+    //                let contentAfterSecondSpace = components?[1...].joined(separator: " ")
+    //                print(contentAfterSecondSpace)
+    //                investmentCell.investTimeFrameTF.text = ("\(getData?.days ?? "0 day") " + (contentAfterSecondSpace ?? "0%"))
+    //                print(investmentCell.investTimeFrameTF.text!)
+    //
+    //                investmentCell.delegate = self

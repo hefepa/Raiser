@@ -10,8 +10,8 @@ import Foundation
 struct SplashSreenModel{
     func populateData() -> [SplashSreenProperties]{
         [
-            SplashSreenProperties(subRaiser: "Start Your Wealth Journey Today, Watch Your Money Grow!", raiserPicture: "OTP"),
-            SplashSreenProperties(subRaiser: "Invest Smarter, Not Harder with Personalized Investment, Tailored for You", raiserPicture: "OTP")
+            SplashSreenProperties(subRaiser: "Start Your Wealth Journey Today, Watch Your Money Grow!", raiserPicture: "splash1"),
+            SplashSreenProperties(subRaiser: "Invest Smarter, Not Harder with Personalized Investment, Tailored for You", raiserPicture: "splash2")
         ]
         
     }

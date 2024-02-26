@@ -28,6 +28,18 @@ class KeychainWrapper {
         }
         return nil
     }
+    
+    static func deleteValue(forKey key: String) {
+            let query = [kSecClass: kSecClassGenericPassword,
+                         kSecAttrService: Bundle.main.bundleIdentifier ?? "",
+                         kSecAttrAccount: key] as [String: Any]
+
+            let status = SecItemDelete(query as CFDictionary)
+
+            if status != errSecSuccess && status != errSecItemNotFound {
+                print("Error deleting item from Keychain: \(status)")
+            }
+        }
 
     private static func saveData(_ data: Data, forAccount account: String) {
         deleteData(forAccount: account)

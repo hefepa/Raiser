@@ -21,7 +21,6 @@
 		A62C2ED12B70E1A8009761CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62C2ED02B70E1A8009761CD /* AppDelegate.swift */; };
 		A62C2ED32B70E1A8009761CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62C2ED22B70E1A8009761CD /* SceneDelegate.swift */; };
 		A62C2EDA2B70E1A9009761CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A62C2ED92B70E1A9009761CD /* Assets.xcassets */; };
-		A62C2EDD2B70E1A9009761CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A62C2EDB2B70E1A9009761CD /* LaunchScreen.storyboard */; };
 		A62C2EE82B70E5EF009761CD /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62C2EE62B70E5EF009761CD /* LoginPageViewController.swift */; };
 		A62C2EE92B70E5EF009761CD /* LoginPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62C2EE72B70E5EF009761CD /* LoginPageViewController.xib */; };
 		A63B4AF62B7F888500ACC2AD /* RecommendationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63B4AF52B7F888500ACC2AD /* RecommendationModel.swift */; };
@@ -65,15 +64,34 @@
 		A65A25702B719919000EFA3D /* OnboardingThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65A256E2B719919000EFA3D /* OnboardingThirdViewController.swift */; };
 		A65A25712B719919000EFA3D /* OnboardingThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A65A256F2B719919000EFA3D /* OnboardingThirdViewController.xib */; };
 		A65E53DB2B81557E00A0BF39 /* NavigationBarItemColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65E53DA2B81557E00A0BF39 /* NavigationBarItemColor.swift */; };
+		A66306A22B82992C0001F8BD /* LabelColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66306A12B82992C0001F8BD /* LabelColor.swift */; };
+		A66306A52B82A7190001F8BD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A66306A42B82A7190001F8BD /* Kingfisher */; };
+		A66306A72B82AA500001F8BD /* TrendingStockNetworkCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66306A62B82AA500001F8BD /* TrendingStockNetworkCall.swift */; };
+		A66306A92B82AB110001F8BD /* TrendingStockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66306A82B82AB110001F8BD /* TrendingStockViewModel.swift */; };
+		A66306AC2B82BADB0001F8BD /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66306AB2B82BADB0001F8BD /* DIContainer.swift */; };
 		A66657812B741F0400991EF2 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A666577F2B741F0400991EF2 /* OTPViewController.swift */; };
 		A66657822B741F0400991EF2 /* OTPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66657802B741F0400991EF2 /* OTPViewController.xib */; };
 		A666F07A2B7EB0440042270D /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A666F0782B7EB0440042270D /* CustomAlertViewController.swift */; };
 		A666F07B2B7EB0440042270D /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A666F0792B7EB0440042270D /* CustomAlertViewController.xib */; };
+		A6697CC42B8BD16400D0BB3F /* ALATEcosystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6697CC22B8BD16400D0BB3F /* ALATEcosystemViewController.swift */; };
+		A6697CC52B8BD16400D0BB3F /* ALATEcosystemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6697CC32B8BD16400D0BB3F /* ALATEcosystemViewController.xib */; };
+		A6697CC82B8BE3DA00D0BB3F /* ALATEcosystemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6697CC62B8BE3DA00D0BB3F /* ALATEcosystemCollectionViewCell.swift */; };
+		A6697CC92B8BE3DA00D0BB3F /* ALATEcosystemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6697CC72B8BE3DA00D0BB3F /* ALATEcosystemCollectionViewCell.xib */; };
+		A6697CCB2B8BE50F00D0BB3F /* ALATEcosystemCollectionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6697CCA2B8BE50F00D0BB3F /* ALATEcosystemCollectionCellModel.swift */; };
+		A6697CCF2B8BF6E800D0BB3F /* RaiserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6697CCD2B8BF6E800D0BB3F /* RaiserViewController.swift */; };
+		A6697CD02B8BF6E800D0BB3F /* RaiserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6697CCE2B8BF6E800D0BB3F /* RaiserViewController.xib */; };
+		A6697CD42B8BFDC500D0BB3F /* NewOrExistingUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6697CD22B8BFDC500D0BB3F /* NewOrExistingUserViewController.swift */; };
+		A6697CD52B8BFDC500D0BB3F /* NewOrExistingUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6697CD32B8BFDC500D0BB3F /* NewOrExistingUserViewController.xib */; };
+		A66EA9362B8370520006B3B4 /* JoinGroupNetworkCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66EA9352B8370520006B3B4 /* JoinGroupNetworkCall.swift */; };
+		A66EA9382B8370D30006B3B4 /* JoinGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66EA9372B8370D30006B3B4 /* JoinGroupViewModel.swift */; };
 		A674EEA32B7B4B03007C07FC /* GroupInvestmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A674EEA12B7B4B03007C07FC /* GroupInvestmentViewController.swift */; };
 		A674EEA42B7B4B03007C07FC /* GroupInvestmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A674EEA22B7B4B03007C07FC /* GroupInvestmentViewController.xib */; };
 		A6853FC92B77CB4A00011806 /* TogglePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6853FC82B77CB4A00011806 /* TogglePassword.swift */; };
 		A6853FCB2B78008700011806 /* TextColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6853FCA2B78008700011806 /* TextColor.swift */; };
 		A687BA482B76ACA500274B14 /* ViewPushClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A687BA472B76ACA500274B14 /* ViewPushClass.swift */; };
+		A6A1ACCB2B85DDF00097E7D3 /* PortFolioNetworkCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1ACCA2B85DDF00097E7D3 /* PortFolioNetworkCall.swift */; };
+		A6A1ACCD2B85DEAB0097E7D3 /* PortFolioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1ACCC2B85DEAB0097E7D3 /* PortFolioViewModel.swift */; };
+		A6AEDAFD2B86E5F300110C18 /* View Skip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AEDAFC2B86E5F300110C18 /* View Skip.swift */; };
 		A6B743032B794D5300E2D6A4 /* TrendingAndPortfolioCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B743012B794D5300E2D6A4 /* TrendingAndPortfolioCollectionViewCell.swift */; };
 		A6B743042B794D5300E2D6A4 /* TrendingAndPortfolioCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B743022B794D5300E2D6A4 /* TrendingAndPortfolioCollectionViewCell.xib */; };
 		A6B743062B794DE700E2D6A4 /* TrendingAndPortfolioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B743052B794DE700E2D6A4 /* TrendingAndPortfolioModel.swift */; };
@@ -89,6 +107,9 @@
 		A6C7B4222B73979B009B0059 /* AnalyzeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C7B4202B73979B009B0059 /* AnalyzeViewController.xib */; };
 		A6C7B4252B7397AE009B0059 /* InvestmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C7B4232B7397AE009B0059 /* InvestmentViewController.swift */; };
 		A6C7B4262B7397AE009B0059 /* InvestmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C7B4242B7397AE009B0059 /* InvestmentViewController.xib */; };
+		A6DE974E2B84E213008EBCC6 /* ROIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DE974D2B84E213008EBCC6 /* ROIModel.swift */; };
+		A6DE97502B84E2B8008EBCC6 /* ROINetworkCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DE974F2B84E2B8008EBCC6 /* ROINetworkCall.swift */; };
+		A6DE97522B84E3BF008EBCC6 /* ROIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DE97512B84E3BF008EBCC6 /* ROIViewModel.swift */; };
 		A6E727662B71078E00798D9B /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E727642B71078E00798D9B /* ResetPasswordViewController.swift */; };
 		A6E727672B71078F00798D9B /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6E727652B71078E00798D9B /* ResetPasswordViewController.xib */; };
 		A6E7276B2B710DF200798D9B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E727692B710DF200798D9B /* SignUpViewController.swift */; };
@@ -125,7 +146,6 @@
 		A62C2ED02B70E1A8009761CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A62C2ED22B70E1A8009761CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A62C2ED92B70E1A9009761CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A62C2EDC2B70E1A9009761CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A62C2EDE2B70E1A9009761CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A62C2EE62B70E5EF009761CD /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		A62C2EE72B70E5EF009761CD /* LoginPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginPageViewController.xib; sourceTree = "<group>"; };
@@ -170,15 +190,33 @@
 		A65A256E2B719919000EFA3D /* OnboardingThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingThirdViewController.swift; sourceTree = "<group>"; };
 		A65A256F2B719919000EFA3D /* OnboardingThirdViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingThirdViewController.xib; sourceTree = "<group>"; };
 		A65E53DA2B81557E00A0BF39 /* NavigationBarItemColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarItemColor.swift; sourceTree = "<group>"; };
+		A66306A12B82992C0001F8BD /* LabelColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelColor.swift; sourceTree = "<group>"; };
+		A66306A62B82AA500001F8BD /* TrendingStockNetworkCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingStockNetworkCall.swift; sourceTree = "<group>"; };
+		A66306A82B82AB110001F8BD /* TrendingStockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingStockViewModel.swift; sourceTree = "<group>"; };
+		A66306AB2B82BADB0001F8BD /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		A666577F2B741F0400991EF2 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		A66657802B741F0400991EF2 /* OTPViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPViewController.xib; sourceTree = "<group>"; };
 		A666F0782B7EB0440042270D /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		A666F0792B7EB0440042270D /* CustomAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
+		A6697CC22B8BD16400D0BB3F /* ALATEcosystemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALATEcosystemViewController.swift; sourceTree = "<group>"; };
+		A6697CC32B8BD16400D0BB3F /* ALATEcosystemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ALATEcosystemViewController.xib; sourceTree = "<group>"; };
+		A6697CC62B8BE3DA00D0BB3F /* ALATEcosystemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALATEcosystemCollectionViewCell.swift; sourceTree = "<group>"; };
+		A6697CC72B8BE3DA00D0BB3F /* ALATEcosystemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ALATEcosystemCollectionViewCell.xib; sourceTree = "<group>"; };
+		A6697CCA2B8BE50F00D0BB3F /* ALATEcosystemCollectionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALATEcosystemCollectionCellModel.swift; sourceTree = "<group>"; };
+		A6697CCD2B8BF6E800D0BB3F /* RaiserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaiserViewController.swift; sourceTree = "<group>"; };
+		A6697CCE2B8BF6E800D0BB3F /* RaiserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RaiserViewController.xib; sourceTree = "<group>"; };
+		A6697CD22B8BFDC500D0BB3F /* NewOrExistingUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrExistingUserViewController.swift; sourceTree = "<group>"; };
+		A6697CD32B8BFDC500D0BB3F /* NewOrExistingUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOrExistingUserViewController.xib; sourceTree = "<group>"; };
+		A66EA9352B8370520006B3B4 /* JoinGroupNetworkCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupNetworkCall.swift; sourceTree = "<group>"; };
+		A66EA9372B8370D30006B3B4 /* JoinGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupViewModel.swift; sourceTree = "<group>"; };
 		A674EEA12B7B4B03007C07FC /* GroupInvestmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInvestmentViewController.swift; sourceTree = "<group>"; };
 		A674EEA22B7B4B03007C07FC /* GroupInvestmentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupInvestmentViewController.xib; sourceTree = "<group>"; };
 		A6853FC82B77CB4A00011806 /* TogglePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglePassword.swift; sourceTree = "<group>"; };
 		A6853FCA2B78008700011806 /* TextColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextColor.swift; sourceTree = "<group>"; };
 		A687BA472B76ACA500274B14 /* ViewPushClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPushClass.swift; sourceTree = "<group>"; };
+		A6A1ACCA2B85DDF00097E7D3 /* PortFolioNetworkCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortFolioNetworkCall.swift; sourceTree = "<group>"; };
+		A6A1ACCC2B85DEAB0097E7D3 /* PortFolioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortFolioViewModel.swift; sourceTree = "<group>"; };
+		A6AEDAFC2B86E5F300110C18 /* View Skip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View Skip.swift"; sourceTree = "<group>"; };
 		A6B743012B794D5300E2D6A4 /* TrendingAndPortfolioCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingAndPortfolioCollectionViewCell.swift; sourceTree = "<group>"; };
 		A6B743022B794D5300E2D6A4 /* TrendingAndPortfolioCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingAndPortfolioCollectionViewCell.xib; sourceTree = "<group>"; };
 		A6B743052B794DE700E2D6A4 /* TrendingAndPortfolioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingAndPortfolioModel.swift; sourceTree = "<group>"; };
@@ -194,6 +232,9 @@
 		A6C7B4202B73979B009B0059 /* AnalyzeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnalyzeViewController.xib; sourceTree = "<group>"; };
 		A6C7B4232B7397AE009B0059 /* InvestmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentViewController.swift; sourceTree = "<group>"; };
 		A6C7B4242B7397AE009B0059 /* InvestmentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvestmentViewController.xib; sourceTree = "<group>"; };
+		A6DE974D2B84E213008EBCC6 /* ROIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROIModel.swift; sourceTree = "<group>"; };
+		A6DE974F2B84E2B8008EBCC6 /* ROINetworkCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROINetworkCall.swift; sourceTree = "<group>"; };
+		A6DE97512B84E3BF008EBCC6 /* ROIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROIViewModel.swift; sourceTree = "<group>"; };
 		A6E727642B71078E00798D9B /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		A6E727652B71078E00798D9B /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
 		A6E727692B710DF200798D9B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -220,6 +261,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A66306A52B82A7190001F8BD /* Kingfisher in Frameworks */,
 				A62996302B750E160074EBF1 /* Toast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +314,9 @@
 		A62C2ECF2B70E1A8009761CD /* InvestmentApp */ = {
 			isa = PBXGroup;
 			children = (
+				A6697CCC2B8BF6AD00D0BB3F /* Raiser LaunchScreen */,
+				A6697CBD2B8BD0E600D0BB3F /* ALAT Ecosystem */,
+				A66306AA2B82BAC10001F8BD /* DIContainer */,
 				A616E9DB2B80E93B0035BECA /* Keychain Helper  */,
 				A666F0732B7EA8470042270D /* Alert Group */,
 				A64E63212B7AA2CB00493E50 /* Splash Screen */,
@@ -281,7 +326,6 @@
 				A62C2ED02B70E1A8009761CD /* AppDelegate.swift */,
 				A62C2ED22B70E1A8009761CD /* SceneDelegate.swift */,
 				A62C2ED92B70E1A9009761CD /* Assets.xcassets */,
-				A62C2EDB2B70E1A9009761CD /* LaunchScreen.storyboard */,
 				A62C2EDE2B70E1A9009761CD /* Info.plist */,
 				A642C6362B724C9700E991D2 /* ButtonColor.swift */,
 				A642C6382B727F2500E991D2 /* ColorLable.swift */,
@@ -292,6 +336,8 @@
 				A6853FCA2B78008700011806 /* TextColor.swift */,
 				A6F741502B7CCB1600E1C9A5 /* NavigationBar.swift */,
 				A65E53DA2B81557E00A0BF39 /* NavigationBarItemColor.swift */,
+				A66306A12B82992C0001F8BD /* LabelColor.swift */,
+				A6AEDAFC2B86E5F300110C18 /* View Skip.swift */,
 			);
 			path = InvestmentApp;
 			sourceTree = "<group>";
@@ -352,6 +398,7 @@
 		A64E63212B7AA2CB00493E50 /* Splash Screen */ = {
 			isa = PBXGroup;
 			children = (
+				A6697CD12B8BFD9400D0BB3F /* New Or Existing User View */,
 				A64E631D2B7A9CCD00493E50 /* SplashScreenViewController.swift */,
 				A64E631E2B7A9CCD00493E50 /* SplashScreenViewController.xib */,
 				A64E63222B7AA2F600493E50 /* SplashSreenCollectionViewCell.swift */,
@@ -359,6 +406,14 @@
 				A64E63262B7AA39A00493E50 /* Splash Model.swift */,
 			);
 			path = "Splash Screen";
+			sourceTree = "<group>";
+		};
+		A66306AA2B82BAC10001F8BD /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				A66306AB2B82BADB0001F8BD /* DIContainer.swift */,
+			);
+			path = DIContainer;
 			sourceTree = "<group>";
 		};
 		A666577E2B741EEA00991EF2 /* OTP */ = {
@@ -382,9 +437,41 @@
 			path = "Alert Group";
 			sourceTree = "<group>";
 		};
+		A6697CBD2B8BD0E600D0BB3F /* ALAT Ecosystem */ = {
+			isa = PBXGroup;
+			children = (
+				A6697CC22B8BD16400D0BB3F /* ALATEcosystemViewController.swift */,
+				A6697CC32B8BD16400D0BB3F /* ALATEcosystemViewController.xib */,
+				A6697CC62B8BE3DA00D0BB3F /* ALATEcosystemCollectionViewCell.swift */,
+				A6697CC72B8BE3DA00D0BB3F /* ALATEcosystemCollectionViewCell.xib */,
+				A6697CCA2B8BE50F00D0BB3F /* ALATEcosystemCollectionCellModel.swift */,
+			);
+			path = "ALAT Ecosystem";
+			sourceTree = "<group>";
+		};
+		A6697CCC2B8BF6AD00D0BB3F /* Raiser LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A6697CCD2B8BF6E800D0BB3F /* RaiserViewController.swift */,
+				A6697CCE2B8BF6E800D0BB3F /* RaiserViewController.xib */,
+			);
+			path = "Raiser LaunchScreen";
+			sourceTree = "<group>";
+		};
+		A6697CD12B8BFD9400D0BB3F /* New Or Existing User View */ = {
+			isa = PBXGroup;
+			children = (
+				A6697CD22B8BFDC500D0BB3F /* NewOrExistingUserViewController.swift */,
+				A6697CD32B8BFDC500D0BB3F /* NewOrExistingUserViewController.xib */,
+			);
+			path = "New Or Existing User View";
+			sourceTree = "<group>";
+		};
 		A674EEA02B7B4AB4007C07FC /* Group Investment */ = {
 			isa = PBXGroup;
 			children = (
+				A6A1ACC92B85DD4B0097E7D3 /* PortFoliio */,
+				A6DE974C2B84E1F4008EBCC6 /* Calculate ROI */,
 				A674EEA12B7B4B03007C07FC /* GroupInvestmentViewController.swift */,
 				A674EEA22B7B4B03007C07FC /* GroupInvestmentViewController.xib */,
 				A6F741522B7CF9A800E1C9A5 /* JoinGroupViewController.swift */,
@@ -392,14 +479,32 @@
 				A6F7415A2B7CFA6000E1C9A5 /* JoinGroupTableViewCell.swift */,
 				A6F7415B2B7CFA6000E1C9A5 /* JoinGroupTableViewCell.xib */,
 				A6F7415E2B7D030500E1C9A5 /* JoinGroupModel.swift */,
+				A66EA9352B8370520006B3B4 /* JoinGroupNetworkCall.swift */,
+				A66EA9372B8370D30006B3B4 /* JoinGroupViewModel.swift */,
 				A63B4AF72B800A8A00ACC2AD /* InvestmentCollectionViewCell.swift */,
 				A63B4AF82B800A8A00ACC2AD /* InvestmentCollectionViewCell.xib */,
 				A63B4AFB2B80102D00ACC2AD /* AboutCollectionViewCell.swift */,
 				A63B4AFC2B80102D00ACC2AD /* AboutCollectionViewCell.xib */,
 				A63B4AFF2B802D4400ACC2AD /* GroupInvestmentDetailsViewController.swift */,
 				A63B4B002B802D4400ACC2AD /* GroupInvestmentDetailsViewController.xib */,
+				A6C7B4232B7397AE009B0059 /* InvestmentViewController.swift */,
+				A6C7B4242B7397AE009B0059 /* InvestmentViewController.xib */,
 			);
 			path = "Group Investment";
+			sourceTree = "<group>";
+		};
+		A6A1ACC92B85DD4B0097E7D3 /* PortFoliio */ = {
+			isa = PBXGroup;
+			children = (
+				A64E63172B7A222A00493E50 /* PortFolioDataTableViewCell.swift */,
+				A64E63182B7A222A00493E50 /* PortFolioDataTableViewCell.xib */,
+				A64E631B2B7A232D00493E50 /* PortFolioModel.swift */,
+				A64E63142B7A203D00493E50 /* PortFolioTableViewCell.xib */,
+				A64E63132B7A203D00493E50 /* PortFolioTableViewCell.swift */,
+				A6A1ACCA2B85DDF00097E7D3 /* PortFolioNetworkCall.swift */,
+				A6A1ACCC2B85DEAB0097E7D3 /* PortFolioViewModel.swift */,
+			);
+			path = PortFoliio;
 			sourceTree = "<group>";
 		};
 		A6C7B4072B736C0D009B0059 /* Learn Tab */ = {
@@ -477,8 +582,6 @@
 			isa = PBXGroup;
 			children = (
 				A674EEA02B7B4AB4007C07FC /* Group Investment */,
-				A6C7B4232B7397AE009B0059 /* InvestmentViewController.swift */,
-				A6C7B4242B7397AE009B0059 /* InvestmentViewController.xib */,
 				A6FF577E2B76362F004D3841 /* CategoryCollectionViewCell.swift */,
 				A6FF577F2B76362F004D3841 /* CategoryCollectionViewCell.xib */,
 				A6FF57822B763753004D3841 /* AgroModel.swift */,
@@ -490,13 +593,20 @@
 				A64E630C2B7A040700493E50 /* TrendingDataTableViewCell.swift */,
 				A64E630D2B7A040700493E50 /* TrendingDataTableViewCell.xib */,
 				A64E63102B7A057000493E50 /* TredingStocksModel.swift */,
-				A64E63132B7A203D00493E50 /* PortFolioTableViewCell.swift */,
-				A64E63142B7A203D00493E50 /* PortFolioTableViewCell.xib */,
-				A64E63172B7A222A00493E50 /* PortFolioDataTableViewCell.swift */,
-				A64E63182B7A222A00493E50 /* PortFolioDataTableViewCell.xib */,
-				A64E631B2B7A232D00493E50 /* PortFolioModel.swift */,
+				A66306A62B82AA500001F8BD /* TrendingStockNetworkCall.swift */,
+				A66306A82B82AB110001F8BD /* TrendingStockViewModel.swift */,
 			);
 			path = "Investment Tab";
+			sourceTree = "<group>";
+		};
+		A6DE974C2B84E1F4008EBCC6 /* Calculate ROI */ = {
+			isa = PBXGroup;
+			children = (
+				A6DE974D2B84E213008EBCC6 /* ROIModel.swift */,
+				A6DE974F2B84E2B8008EBCC6 /* ROINetworkCall.swift */,
+				A6DE97512B84E3BF008EBCC6 /* ROIViewModel.swift */,
+			);
+			path = "Calculate ROI";
 			sourceTree = "<group>";
 		};
 		A6E727632B71077000798D9B /* Reset Password */ = {
@@ -537,6 +647,7 @@
 			name = InvestmentApp;
 			packageProductDependencies = (
 				A629962F2B750E160074EBF1 /* Toast */,
+				A66306A42B82A7190001F8BD /* Kingfisher */,
 			);
 			productName = InvestmentApp;
 			productReference = A62C2ECD2B70E1A8009761CD /* InvestmentApp.app */;
@@ -568,6 +679,7 @@
 			mainGroup = A62C2EC42B70E1A8009761CD;
 			packageReferences = (
 				A629962E2B750E160074EBF1 /* XCRemoteSwiftPackageReference "toast-swift" */,
+				A66306A32B82A7190001F8BD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = A62C2ECE2B70E1A8009761CD /* Products */;
 			projectDirPath = "";
@@ -588,9 +700,10 @@
 				A6E7276C2B710DF200798D9B /* SignUpViewController.xib in Resources */,
 				A6C7B40C2B736C56009B0059 /* HomeViewController.xib in Resources */,
 				A64E63252B7AA2F600493E50 /* SplashSreenCollectionViewCell.xib in Resources */,
+				A6697CC52B8BD16400D0BB3F /* ALATEcosystemViewController.xib in Resources */,
 				A64E63072B7A02FD00493E50 /* TrendingCollectionViewCell.xib in Resources */,
 				A62996412B759DFA0074EBF1 /* RecommendationCollectionViewCell.xib in Resources */,
-				A62C2EDD2B70E1A9009761CD /* LaunchScreen.storyboard in Resources */,
+				A6697CC92B8BE3DA00D0BB3F /* ALATEcosystemCollectionViewCell.xib in Resources */,
 				A642C6262B72138E00E991D2 /* OnboardingFourViewController.xib in Resources */,
 				A6C7B4112B738040009B0059 /* HomeTopCollectionViewCell.xib in Resources */,
 				A6F7415D2B7CFA6000E1C9A5 /* JoinGroupTableViewCell.xib in Resources */,
@@ -605,10 +718,12 @@
 				A65A256D2B717A1B000EFA3D /* OnboardingSecondViewController.xib in Resources */,
 				A63B4B022B802D4400ACC2AD /* GroupInvestmentDetailsViewController.xib in Resources */,
 				A6F741552B7CF9A800E1C9A5 /* JoinGroupViewController.xib in Resources */,
+				A6697CD02B8BF6E800D0BB3F /* RaiserViewController.xib in Resources */,
 				A642C62F2B7238CD00E991D2 /* LearnViewController.xib in Resources */,
 				A64E631A2B7A222A00493E50 /* PortFolioDataTableViewCell.xib in Resources */,
 				A62C2EDA2B70E1A9009761CD /* Assets.xcassets in Resources */,
 				A66657822B741F0400991EF2 /* OTPViewController.xib in Resources */,
+				A6697CD52B8BFDC500D0BB3F /* NewOrExistingUserViewController.xib in Resources */,
 				A65A25712B719919000EFA3D /* OnboardingThirdViewController.xib in Resources */,
 				A6C7B4262B7397AE009B0059 /* InvestmentViewController.xib in Resources */,
 				A674EEA42B7B4B03007C07FC /* GroupInvestmentViewController.xib in Resources */,
@@ -629,6 +744,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A629962D2B74F8CC0074EBF1 /* OTPNetworkCall.swift in Sources */,
+				A66306AC2B82BADB0001F8BD /* DIContainer.swift in Sources */,
 				A64E63152B7A203D00493E50 /* PortFolioTableViewCell.swift in Sources */,
 				A674EEA32B7B4B03007C07FC /* GroupInvestmentViewController.swift in Sources */,
 				A6C7B4132B738151009B0059 /* HomeTopModel.swift in Sources */,
@@ -637,6 +753,8 @@
 				A6F741512B7CCB1600E1C9A5 /* NavigationBar.swift in Sources */,
 				A6C7B4252B7397AE009B0059 /* InvestmentViewController.swift in Sources */,
 				A6FF57802B76362F004D3841 /* CategoryCollectionViewCell.swift in Sources */,
+				A66EA9362B8370520006B3B4 /* JoinGroupNetworkCall.swift in Sources */,
+				A6AEDAFD2B86E5F300110C18 /* View Skip.swift in Sources */,
 				A642C6322B7239C900E991D2 /* LearnTableViewCell.swift in Sources */,
 				A6B743032B794D5300E2D6A4 /* TrendingAndPortfolioCollectionViewCell.swift in Sources */,
 				A62C2EE82B70E5EF009761CD /* LoginPageViewController.swift in Sources */,
@@ -651,16 +769,24 @@
 				A642C6292B72197800E991D2 /* OnboardingFiveViewController.swift in Sources */,
 				A63B4AFD2B80102D00ACC2AD /* AboutCollectionViewCell.swift in Sources */,
 				A6C7B4212B73979B009B0059 /* AnalyzeViewController.swift in Sources */,
+				A6697CD42B8BFDC500D0BB3F /* NewOrExistingUserViewController.swift in Sources */,
 				A65E53DB2B81557E00A0BF39 /* NavigationBarItemColor.swift in Sources */,
 				A6FF577D2B760F92004D3841 /* LoginViewModel.swift in Sources */,
 				A666F07A2B7EB0440042270D /* CustomAlertViewController.swift in Sources */,
+				A6DE974E2B84E213008EBCC6 /* ROIModel.swift in Sources */,
+				A6697CCF2B8BF6E800D0BB3F /* RaiserViewController.swift in Sources */,
 				A648D14D2B73C8E800DAA3BE /* Labels.swift in Sources */,
 				A6853FCB2B78008700011806 /* TextColor.swift in Sources */,
+				A6697CC82B8BE3DA00D0BB3F /* ALATEcosystemCollectionViewCell.swift in Sources */,
 				A65A25702B719919000EFA3D /* OnboardingThirdViewController.swift in Sources */,
 				A6C7B4102B738040009B0059 /* HomeTopCollectionViewCell.swift in Sources */,
+				A66306A92B82AB110001F8BD /* TrendingStockViewModel.swift in Sources */,
+				A66306A72B82AA500001F8BD /* TrendingStockNetworkCall.swift in Sources */,
 				A66657812B741F0400991EF2 /* OTPViewController.swift in Sources */,
 				A6C7B4182B7391A7009B0059 /* VerificationCollectionViewCell.swift in Sources */,
+				A66EA9382B8370D30006B3B4 /* JoinGroupViewModel.swift in Sources */,
 				A63B4AF92B800A8A00ACC2AD /* InvestmentCollectionViewCell.swift in Sources */,
+				A6A1ACCB2B85DDF00097E7D3 /* PortFolioNetworkCall.swift in Sources */,
 				A62996272B74C3260074EBF1 /* RegistrationViewModel.swift in Sources */,
 				A687BA482B76ACA500274B14 /* ViewPushClass.swift in Sources */,
 				A642C6252B72138E00E991D2 /* OnboardingFourViewController.swift in Sources */,
@@ -673,11 +799,15 @@
 				A6F7415C2B7CFA6000E1C9A5 /* JoinGroupTableViewCell.swift in Sources */,
 				A642C62E2B7238CD00E991D2 /* LearnViewController.swift in Sources */,
 				A62996292B74F5D90074EBF1 /* OTPVerificationModel.swift in Sources */,
+				A6DE97522B84E3BF008EBCC6 /* ROIViewModel.swift in Sources */,
 				A64E63062B7A02FD00493E50 /* TrendingCollectionViewCell.swift in Sources */,
 				A65A256C2B717A1B000EFA3D /* OnboardingSecondViewController.swift in Sources */,
 				A6853FC92B77CB4A00011806 /* TogglePassword.swift in Sources */,
 				A6FF57792B760D82004D3841 /* LoginModel.swift in Sources */,
+				A6A1ACCD2B85DEAB0097E7D3 /* PortFolioViewModel.swift in Sources */,
+				A6697CCB2B8BE50F00D0BB3F /* ALATEcosystemCollectionCellModel.swift in Sources */,
 				A6FF577B2B760F27004D3841 /* LoginNetworkCall.swift in Sources */,
+				A66306A22B82992C0001F8BD /* LabelColor.swift in Sources */,
 				A642C6352B723D3E00E991D2 /* LearnModel.swift in Sources */,
 				A62C2ED32B70E1A8009761CD /* SceneDelegate.swift in Sources */,
 				A6FF57852B76562B004D3841 /* KeyboardUtility.swift in Sources */,
@@ -686,7 +816,9 @@
 				A616E9DD2B80E95E0035BECA /* KeychainHelperClass.swift in Sources */,
 				A6E7276B2B710DF200798D9B /* SignUpViewController.swift in Sources */,
 				A62996402B759DFA0074EBF1 /* RecommendationCollectionViewCell.swift in Sources */,
+				A6DE97502B84E2B8008EBCC6 /* ROINetworkCall.swift in Sources */,
 				A64E63112B7A057000493E50 /* TredingStocksModel.swift in Sources */,
+				A6697CC42B8BD16400D0BB3F /* ALATEcosystemViewController.swift in Sources */,
 				A642C6392B727F2500E991D2 /* ColorLable.swift in Sources */,
 				A64E631C2B7A232D00493E50 /* PortFolioModel.swift in Sources */,
 				A642C6372B724C9700E991D2 /* ButtonColor.swift in Sources */,
@@ -697,17 +829,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		A62C2EDB2B70E1A9009761CD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A62C2EDC2B70E1A9009761CD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A62C2EDF2B70E1A9009761CD /* Debug */ = {
@@ -915,6 +1036,14 @@
 				minimumVersion = 2.1.2;
 			};
 		};
+		A66306A32B82A7190001F8BD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -922,6 +1051,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A629962E2B750E160074EBF1 /* XCRemoteSwiftPackageReference "toast-swift" */;
 			productName = Toast;
+		};
+		A66306A42B82A7190001F8BD /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A66306A32B82A7190001F8BD /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -15,10 +15,11 @@ class SplashScreenViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var getStartedButton: UIButton!
     var currentPage = 0
-
+    var newOrExistingUserVC: NewOrExistingUserViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
         splashScreenCollection.register(UINib(nibName: "SplashSreenCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SplashSreenCollectionViewCell")
         splashScreenCollection.dataSource = self
         splashScreenCollection.delegate = self
@@ -27,13 +28,16 @@ class SplashScreenViewController: UIViewController {
         pageControl.currentPageIndicatorTintColor = UIColor(red: 0.663, green: 0.118, blue: 0.227, alpha: 1)
 
         pageControl.pageIndicatorTintColor = UIColor(red: 0.209, green: 0.118, blue: 0.227, alpha: 1)
+        
+        newOrExistingUserVC = NewOrExistingUserViewController()
+        newOrExistingUserVC?.delegate = self
+        
 
         
         propertiesAssignment()
     }
     @IBAction func getStarted(_ sender: UIButton) {
-        let loginPage = LoginPageViewController()
-        navigationController?.pushViewController(loginPage, animated: true)
+        present(newOrExistingUserVC!, animated: true, completion: nil)
     }
 
     func propertiesAssignment(){
@@ -41,7 +45,11 @@ class SplashScreenViewController: UIViewController {
         
         getStartedButton.setTitle("Get Started", for: .normal)
         getStartedButton.tintColor = .white
-        btn.colorConfiguration(button: getStartedButton)
+        getStartedButton.layer.cornerRadius = 4
+        getStartedButton.backgroundColor = UIColor(red: 0.671, green: 0.149, blue: 0.337, alpha: 1)
+
+//        btn.colorConfiguration(button: getStartedButton)
+        
     }
 }
 
@@ -72,4 +80,18 @@ extension SplashScreenViewController: UICollectionViewDelegateFlowLayout{
         let heightOfTheScreen = collectionView.bounds.height
         return CGSize(width: width, height: heightOfTheScreen)
     }
+}
+
+extension SplashScreenViewController: NewOrExistingUserDelegate{
+    func newUserButtonTapped() {
+        let signupPage = SignUpViewController()
+        navigationController?.pushViewController(signupPage, animated: true)
+    }
+    
+    func existingUserButtonTapped() {
+        let loginPage = LoginPageViewController()
+        navigationController?.pushViewController(loginPage, animated: true)
+    }
+    
+    
 }

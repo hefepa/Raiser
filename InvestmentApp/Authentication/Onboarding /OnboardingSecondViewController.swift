@@ -25,6 +25,7 @@ class OnboardingSecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.hidesBackButton = true
         btn.colorConfiguration(button: nextButton)
         
         for buttons in checkBoxesArray{
@@ -32,26 +33,26 @@ class OnboardingSecondViewController: UIViewController {
             
             buttons.setImage(UIImage(systemName: "circle")?.withRenderingMode(.alwaysTemplate), for: .normal)
             buttons.setImage(UIImage(named: "circletick")?.withRenderingMode(.alwaysOriginal), for: .selected)
-            //btn.colorConfiguration(button: buttons)
-//            buttons.tintColor = UIColor.black
+            
         }
         propertiesAssignment()
-        /*updateNextButtonState*/()
-        
         let skip = UITapGestureRecognizer(target: self, action: #selector(nextScreen))
         skipLabel.isUserInteractionEnabled = true
         skipLabel.addGestureRecognizer(skip)
     }
+//    let storedEmail = UserDefaults.standard.string(forKey: "UserEmail")
+    func isOnboardingSkipped(forUserWithEmail userEmail: String) -> Bool {
+            return UserDefaults.standard.bool(forKey: "IsOnboardingSkipped")
+        }
     
-//    func updateNextButtonState() {
-//        let isAnyCheckBoxSelected = checkBoxesArray.contains { $0.isSelected }
-//        nextButton.isEnabled = isAnyCheckBoxSelected
-//        nextButton.alpha = isAnyCheckBoxSelected ? 1.0 : 0.5
-//
-//        }
+    // Function to mark that the onboarding process was skipped
+    func markOnboardingSkipped() {
+            AppUtility.markOnboardingSkipped()
+        }
     
     @IBAction func continueBtn(_ sender: UIButton){
         if checkBoxesArray.contains(where: { $0.isSelected }) {
+            markOnboardingSkipped()
             let third = OnboardingThirdViewController()
             navigationController?.pushViewController(third, animated: true)
         }

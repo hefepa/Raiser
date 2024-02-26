@@ -26,7 +26,8 @@ class OnboardingFiveViewController: UIViewController {
     @IBOutlet var checkBoxesArray: [UIButton]!
     override func viewDidLoad() {
         super.viewDidLoad()
-        //KeyboardUtility.addTapGestureToDismissKeyboard(for: self)
+        
+        navigationItem.hidesBackButton = true
         btn.colorConfiguration(button: nextButton)
         
         for checkboxes in checkBoxesArray{
@@ -49,13 +50,25 @@ class OnboardingFiveViewController: UIViewController {
 //        nextButton.alpha = isAnyCheckBoxSelected ? 1.0 : 0.5
 //        }
     
+    func isOnboardingSkipped(forUserWithEmail userEmail: String) -> Bool {
+            return UserDefaults.standard.bool(forKey: "IsOnboardingSkipped")
+        }
+    
+    // Function to mark that the onboarding process was skipped
+    func markOnboardingSkipped() {
+            AppUtility.markOnboardingSkipped()
+        }
+    
+    
     @IBAction func nextBtn(_ sender: UIButton){
         if checkBoxesArray.contains(where: { $0.isSelected }) {
+            markOnboardingSkipped()
             let home = TabViewController()
             navigationController?.pushViewController(home, animated: true)
         }
     }
     
+
     @objc func nextScreen(){
         let home = TabViewController()
         navigationController?.pushViewController(home, animated: true)

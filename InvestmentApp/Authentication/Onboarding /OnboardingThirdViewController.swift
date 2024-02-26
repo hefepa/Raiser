@@ -27,31 +27,32 @@ class OnboardingThirdViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //KeyboardUtility.addTapGestureToDismissKeyboard(for: self)
-
+        
+        navigationItem.hidesBackButton = true
         btn.colorConfiguration(button: nextButton)
         
         for buttons in checkBoxesArray{
             buttons.setImage(UIImage(systemName: "square")?.withRenderingMode(.alwaysTemplate), for: .normal)
             buttons.setImage(UIImage(named: "tick")?.withRenderingMode(.alwaysOriginal), for: .selected)
-            //buttons.tintColor = UIColor.black
         }
         propertiesAssignment()
-//        updateNextButtonState()
         
         let skip = UITapGestureRecognizer(target: self, action: #selector(nextScreen))
         skipLabel.isUserInteractionEnabled = true
         skipLabel.addGestureRecognizer(skip)
     }
+    
    
-//    func updateNextButtonState() {
-//        let isAnyCheckBoxSelected = checkBoxesArray.contains { $0.isSelected }
-//        nextButton.isEnabled = isAnyCheckBoxSelected
-//        nextButton.alpha = isAnyCheckBoxSelected ? 1.0 : 0.5
-//        }
+    
+    // Function to mark that the onboarding process was skipped
+    func markOnboardingSkipped() {
+            AppUtility.markOnboardingSkipped()
+        }
+   
     
     @IBAction func nextBtn(_ sender: UIButton){
         if checkBoxesArray.contains(where: { $0.isSelected }) {
+            markOnboardingSkipped()
             let fourth = OnboardingFourViewController()
             navigationController?.pushViewController(fourth, animated: true)
         }
@@ -95,27 +96,22 @@ class OnboardingThirdViewController: UIViewController {
     
     @IBAction func agroCheckBox(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-//        updateNextButtonState()
     }
     
     @IBAction func realEstateCheckBox(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-//        updateNextButtonState()
     }
     
     @IBAction func stocksCheckBox(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-//        updateNextButtonState()
     }
     
     @IBAction func dollarCheckBox(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-//        updateNextButtonState()
     }
     
     @IBAction func mutualFundsCheckBox(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-//        updateNextButtonState()
     }
     
     @IBAction func noIdeaCheckBox(_ sender: UIButton) {
@@ -124,13 +120,5 @@ class OnboardingThirdViewController: UIViewController {
             $0.isSelected = false
         }
         sender.isSelected = !sender.isSelected
-//        if sender.isSelected{
-//            for checkboxes in checkBoxesArray{
-//                checkboxes.isSelected = false
-//            }
-//            }else{
-//                sender.isSelected /*= !sender.isSelected*/
-//
-//        }
     }
 }

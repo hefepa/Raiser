@@ -26,15 +26,20 @@ class OnboardingViewController: UIViewController {
         propertiesAssignment()
         btn.colorConfiguration(button: continueButton)
         
-        
-//        let skip = UITapGestureRecognizer(target: self, action: #selector(nextScreen))
-//        skipLabel.isUserInteractionEnabled = true
-//        skipLabel.addGestureRecognizer(skip)
     }
     
     @IBAction func continueButton(_ sender: UIButton) {
-        let secondOnboarding = OnboardingSecondViewController()
-        navigationController?.pushViewController(secondOnboarding, animated: true)
+        
+        if AppUtility.isOnboardingSkipped() {
+            let homeTab =  TabViewController()
+            self.navigationController?.pushViewController(homeTab, animated: true)
+        } else {
+            let secondOnboarding = OnboardingSecondViewController()
+            self.navigationController?.pushViewController(secondOnboarding, animated: true)
+        }
+            
+//        let secondOnboarding = OnboardingSecondViewController()
+//        navigationController?.pushViewController(secondOnboarding, animated: true)
     }
     
     @objc func nextScreen(){

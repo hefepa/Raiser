@@ -10,12 +10,24 @@ import Toast
 
 class LoginPageViewController: UIViewController, LoginModelDelegate, UITextFieldDelegate {
     func DidReceivedResponse(data: LoginResponseModel?) {
-
+        
         DispatchQueue.main.async{
             self.activityLoader.hidesWhenStopped = true
             self.activityLoader.stopAnimating()
-
+            
+            let userId = data?.userId
+            UserDefaults.standard.set(userId, forKey: "UserID")
+            let storedUserID = UserDefaults.standard.integer(forKey: "UserID")
+            print("User ID is: \(storedUserID)")
+            
+            let userName = data?.userDetails?.firstName
+            UserDefaults.standard.set(userName, forKey: "UserName")
+            let storedUserName = UserDefaults.standard.string(forKey: "UserName")
+            print("UserName is: \(storedUserName ?? "null")")
+            
+            
             if let token = data?.token{
+                print("Login Success message:", token)
                 let config = ToastConfiguration(
                     direction: .top,
                     dismissBy: [.time(time: 4.0), .swipe(direction: .natural), .longPress],
@@ -24,26 +36,33 @@ class LoginPageViewController: UIViewController, LoginModelDelegate, UITextField
                 let toast = Toast.default(
                     image: UIImage(systemName: "checkmark.shield.fill")!, title: "Login Successful")
                 toast.show()
+                
+                //                let isOnboardingSkipped = UserDefaults.standard.bool(forKey: "IsOnboardingSkipped")
+                
                 let onboarding = OnboardingViewController()
                 self.navigationController?.pushViewController(onboarding, animated: true)
                 print("Login Success message:", token)
-            }else{
+            }else if data?.success == false{
                 let config = ToastConfiguration(
                     direction: .top,
                     dismissBy: [.time(time: 4.0), .swipe(direction: .natural), .longPress],
                     animationTime: 0.2
-                    )
-                
+                )
+                //                if let message = data?.message else {
+                //                    return
+                //                }
                 let toast = Toast.default(
-                    image: UIImage(systemName: "checkmark.shield.fill")!, title: "Invalid User Details")
+                    image: UIImage(systemName: "xmark.circle.fill")!, title: "\(data?.message ?? "Invalid Details")")
                 toast.show()
-//                self.activityLoader.hidesWhenStopped = true
+                //                self.activityLoader.hidesWhenStopped = true
                 print("error is error")
                 self.activityLoader.stopAnimating()
-
+                
             }
         }
     }
+    
+    
     
     func DidReceiveError(error: String) {
         DispatchQueue.main.async{
@@ -53,8 +72,8 @@ class LoginPageViewController: UIViewController, LoginModelDelegate, UITextField
             self.activityLoader.hidesWhenStopped = true
             self.activityLoader.stopAnimating()
         }
-        
     }
+    
     
     
     var btn = ButtonColor()
@@ -76,9 +95,11 @@ class LoginPageViewController: UIViewController, LoginModelDelegate, UITextField
     @IBOutlet var viewContainers: [UIView]!
     var keyboardHandler: KeyboardHandler?
     let activityLoader = UIActivityIndicatorView(style: .large)
+    var emailFromOTP: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTF.text = emailFromOTP
         emailTF.text = KeychainWrapper.getEmail(forAccount: "userEmail")
         navigationItem.hidesBackButton = true
         view.addSubview(activityLoader)
@@ -112,7 +133,7 @@ class LoginPageViewController: UIViewController, LoginModelDelegate, UITextField
         forgotPasswordLabel.isUserInteractionEnabled = true
         forgotPasswordLabel.addGestureRecognizer(reset)
     }
-
+    
     @objc func togglePassword(){
         // Toggle the secure text entry property of the password text field
         passwordTF.isSecureTextEntry.toggle()
@@ -124,7 +145,7 @@ class LoginPageViewController: UIViewController, LoginModelDelegate, UITextField
         // Update the eye image based on the current state of the password visibility
         let imageState = passwordTF.isSecureTextEntry ? "eye" : "openeye"
         passwordImage.image = UIImage(named: imageState)
-        }
+    }
     
     @IBAction func loginClicked(_ sender: UIButton) {
         Task {
@@ -133,15 +154,23 @@ class LoginPageViewController: UIViewController, LoginModelDelegate, UITextField
             
             if (email?.isEmpty ?? true || password?.isEmpty ?? true) {
                 print("a field is empty")
+                let config = ToastConfiguration(
+                    direction: .top,
+                    dismissBy: [.time(time: 4.0), .swipe(direction: .natural), .longPress],
+                    animationTime: 0.2
+                )
+                let toast = Toast.default(
+                    image: UIImage(systemName: "xmark.circle.fill")!, title: "A field is empty")
+                toast.show()
+                self.activityLoader.stopAnimating()
             }else{
                 await loginViewModel.login(emailInput: email ?? "", passwordInput: password ?? "")
             }
-
-//            let home = TabViewController()
-//            navigationController?.pushViewController(home, animated: true)
+            
+            //            let home = TabViewController()
+            //            navigationController?.pushViewController(home, animated: true)
         }
         activityLoader.startAnimating()
-
     }
     
     @objc func createLabel() {
@@ -154,15 +183,16 @@ class LoginPageViewController: UIViewController, LoginModelDelegate, UITextField
         navigationController?.pushViewController(resetPage, animated: true)
     }
     
+    
     func propertiesAssignment(){
         
         let gradient = UIImage.gradientImage(frame: loginLabel.frame, colors: [UIColor(red: 0.804, green: 0.129, blue: 0.157, alpha: 1).cgColor, UIColor(red: 0.286, green: 0.047, blue: 0.235, alpha: 1).cgColor])
         loginLabel.text = "Login"
-    
+        
         loginLabel.textColor = UIColor(patternImage: gradient!)
-
+        
         loginLabel.font = .systemFont(ofSize: 30, weight: .bold)
-
+        
         loginSubLabel.text = "Take control of your financial future Today!"
         loginSubLabel.font = .systemFont(ofSize: 14, weight: .light)
         
@@ -202,18 +232,20 @@ class LoginPageViewController: UIViewController, LoginModelDelegate, UITextField
         }
     }
 }
-extension UIImage{
+    
+    extension UIImage{
+        
+        static func gradientImage(frame: CGRect, colors: [CGColor]) -> UIImage? {
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.frame = frame
+            gradientLayer.colors = colors
+            
+            // Create an image using UIGraphicsImageRenderer
+            let renderer = UIGraphicsImageRenderer(size: frame.size)
+            let image = renderer.image { _ in
+                gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+            }
+            return image
+        }
+    }
 
-    static func gradientImage(frame: CGRect, colors: [CGColor]) -> UIImage? {
-           let gradientLayer = CAGradientLayer()
-           gradientLayer.frame = frame
-           gradientLayer.colors = colors
-
-           // Create an image using UIGraphicsImageRenderer
-           let renderer = UIGraphicsImageRenderer(size: frame.size)
-           let image = renderer.image { _ in
-               gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
-           }
-           return image
-       }
-}
