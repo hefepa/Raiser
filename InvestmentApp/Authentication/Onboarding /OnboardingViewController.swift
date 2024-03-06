@@ -24,8 +24,6 @@ class OnboardingViewController: UIViewController {
         
         navigationItem.hidesBackButton = true
         propertiesAssignment()
-        btn.colorConfiguration(button: continueButton)
-        
     }
     
     @IBAction func continueButton(_ sender: UIButton) {
@@ -62,6 +60,8 @@ class OnboardingViewController: UIViewController {
         
         continueButton.setTitle("Continue", for: .normal)
         continueButton.tintColor = .white
+        continueButton.backgroundColor = UIColor(red: 0.671, green: 0.149, blue: 0.337, alpha: 1)
+        continueButton.layer.cornerRadius = 3
         getToKnowImage.image = UIImage(named: "gettoknow")
     }
 }

@@ -20,6 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //               let loginPage = SplashScreenViewController(nibName: "SplashScreenViewController", bundle: nil)
         
             let loginPage = ALATEcosystemViewController(nibName: "ALATEcosystemViewController", bundle: nil)
+        
+//        let loginPage = TermsAndConditionsViewController(nibName: "TermsAndConditionsViewController", bundle: nil)
+
 
 
 //                let loginPage = GroupInvestmentViewController(nibName: "GroupInvestmentViewController", bundle: nil)
@@ -28,17 +31,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //                let loginPage = InvestmentViewController(nibName: "InvestmentViewController", bundle: nil)
 //                let loginPage = JoinGroupViewController(nibName: "JoinGroupViewController", bundle: nil)
 //       let loginPage = LearnViewController(nibName: "LearnViewController", bundle: nil)
-//       let loginPage = LoginPageViewController(nibName: "LoginPageViewController", bundle: nil)
+//       let loginPage = NewLoginViewController(nibName: "NewLoginViewController", bundle: nil)
+//        let loginPage = ExistingOrNewUserViewController(nibName: "ExistingOrNewUserViewController", bundle: nil)
+
+//        let loginPage = GlossaryViewController(nibName: "GlossaryViewController", bundle: nil)
+//        let loginPage = StudyViewController(nibName: "StudyViewController", bundle: nil)
 
 //        let rootViewController = UINavigationController(rootViewController: loginPage)
 //        window?.rootViewController = rootViewController
 //        window?.makeKeyAndVisible()
 //        let loginPage = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
-        //let loginPage = OnboardingViewController(nibName: "OnboardingViewController", bundle: nil)
+//        let loginPage = OnboardingViewController(nibName: "OnboardingViewController", bundle: nil)
+//        let loginPage = DashboardViewController(nibName: "DashboardViewController", bundle: nil)
+//        let loginPage = AccountDetailsViewController(nibName: "AccountDetailsViewController", bundle: nil)
+
+
         //let loginPage = ResetPasswordViewController(nibName: "ResetPasswordViewController", bundle: nil)
 //        let loginPage = SplashScreenViewController(nibName: "SplashScreenViewController", bundle: nil)
 //        let loginPage = LoginPageViewController(nibName: "LoginPageViewController", bundle: nil)
-        //let loginPage = OTPViewController(nibName: "OTPViewController", bundle: nil)
+//        let loginPage = OTPViewController(nibName: "OTPViewController", bundle: nil)
         
         
 //        if KeychainWrapper.getEmail(forAccount: "userEmail") != nil{
@@ -50,19 +61,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            showSplashScreen()
 //        }
         
-        if !hasShownSplashScreen() {
-            // Show the splash screen
-            let splashScreenVC = SplashScreenViewController(nibName: "SplashScreenViewController", bundle: nil)
-            let rootViewController = UINavigationController(rootViewController: splashScreenVC)
-            window?.rootViewController = rootViewController
-            window?.makeKeyAndVisible()
-            markSplashScreenAsShown()
-        }else{
-            let loginPage = LoginPageViewController(nibName: "LoginPageViewController", bundle: nil)
-            let rootViewController = UINavigationController(rootViewController: loginPage)
-            window?.rootViewController = rootViewController
-            window?.makeKeyAndVisible()
-        }
+//        if !hasShownSplashScreen() {
+//            // Show the splash screen
+//            let splashScreenVC = SplashScreenViewController(nibName: "SplashScreenViewController", bundle: nil)
+//            let rootViewController = UINavigationController(rootViewController: splashScreenVC)
+//            window?.rootViewController = rootViewController
+//            window?.makeKeyAndVisible()
+//            markSplashScreenAsShown()
+//        }else{
+//            let loginPage = NewLoginViewController(nibName: "NewLoginViewController", bundle: nil)
+//            let rootViewController = UINavigationController(rootViewController: loginPage)
+//            window?.rootViewController = rootViewController
+//            window?.makeKeyAndVisible()
+//        }
 
         
         
@@ -74,21 +85,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     // Function to check if the splash screen has been shown
 
-    func hasShownSplashScreen() -> Bool{
-        return UserDefaults.standard.bool(forKey: "HasShownSplashScreen")
+//    func hasShownSplashScreen() -> Bool{
+//        return UserDefaults.standard.bool(forKey: "HasShownSplashScreen")
 //        let splashScreen = SplashScreenViewController(nibName: "SplashScreenViewController", bundle: nil)
 //        let rootViewController = UINavigationController(rootViewController: splashScreen)
 //        window?.rootViewController = rootViewController
 //        window?.makeKeyAndVisible()
     }
     // Function to mark the splash screen as shown
-        func markSplashScreenAsShown() {
-            UserDefaults.standard.set(true, forKey: "HasShownSplashScreen")
-        }
+//        func markSplashScreenAsShown() {
+//            UserDefaults.standard.set(true, forKey: "HasShownSplashScreen")
+//        }
     
-    func isOnboardingSkipped() -> Bool {
-        return UserDefaults.standard.bool(forKey: "IsOnboardingSkipped")
-    }
+//    func isOnboardingSkipped() -> Bool {
+//        return UserDefaults.standard.bool(forKey: "IsOnboardingSkipped")
+//    }
     
     
     
@@ -123,5 +134,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
-}
+
 

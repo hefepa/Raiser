@@ -12,11 +12,11 @@
             <connections>
                 <outlet property="categoryCollection" destination="gun-8P-ga3" id="pcW-jJ-UpI"/>
                 <outlet property="catgoryLabel" destination="nht-RV-BPu" id="ufO-9S-oga"/>
-                <outlet property="investNavImage" destination="SfU-Sy-bGD" id="VVV-cx-wsl"/>
                 <outlet property="investNavLabel" destination="PJU-hy-9w6" id="tDl-XH-9YU"/>
                 <outlet property="portfolioBtn" destination="I2i-8R-YYG" id="Lnh-PI-ndi"/>
                 <outlet property="trendingBtn" destination="NFf-Me-TwY" id="jhR-eF-DQp"/>
                 <outlet property="trendingStockCollection" destination="hcD-Mg-XEx" id="NYe-lm-FG9"/>
+                <outlet property="verificationCollection" destination="ssa-UI-g8N" id="iHI-ET-AU1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -45,7 +45,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hcD-Mg-XEx">
-                    <rect key="frame" x="20" y="370" width="353" height="448"/>
+                    <rect key="frame" x="20" y="435" width="353" height="383"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tfv-9G-pMR">
                         <size key="itemSize" width="128" height="128"/>
@@ -55,7 +55,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFf-Me-TwY">
-                    <rect key="frame" x="20" y="315" width="75" height="35"/>
+                    <rect key="frame" x="20" y="380" width="75" height="35"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
                     <connections>
@@ -63,55 +63,61 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2i-8R-YYG">
-                    <rect key="frame" x="115" y="315" width="75" height="35"/>
+                    <rect key="frame" x="115" y="380" width="75" height="35"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
                     <connections>
                         <action selector="myPortfolioBtn:" destination="-1" eventType="touchUpInside" id="pvf-k4-cDN"/>
                     </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="investnav" translatesAutoresizingMaskIntoConstraints="NO" id="SfU-Sy-bGD">
-                    <rect key="frame" x="130" y="19" width="40" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="40" id="OeF-GU-4pu"/>
-                        <constraint firstAttribute="height" constant="40" id="hm8-WL-Gci"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJU-hy-9w6">
-                    <rect key="frame" x="190" y="29" width="73" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJU-hy-9w6">
+                    <rect key="frame" x="120" y="29" width="153" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ssa-UI-g8N">
+                    <rect key="frame" x="20" y="300" width="353" height="50"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="x3B-Tk-oZU"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DTI-Ad-D34">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="PJU-hy-9w6" firstAttribute="leading" secondItem="SfU-Sy-bGD" secondAttribute="trailing" constant="20" id="2pB-Eg-zxn"/>
                 <constraint firstItem="nht-RV-BPu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="317-M8-IrM"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PJU-hy-9w6" secondAttribute="trailing" constant="130" id="5rN-Q7-Xqq"/>
-                <constraint firstItem="NFf-Me-TwY" firstAttribute="top" secondItem="gun-8P-ga3" secondAttribute="bottom" constant="45" id="6D2-8l-LWH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PJU-hy-9w6" secondAttribute="trailing" constant="120" id="5rN-Q7-Xqq"/>
+                <constraint firstItem="I2i-8R-YYG" firstAttribute="top" secondItem="ssa-UI-g8N" secondAttribute="bottom" constant="30" id="79U-IV-OX4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="PJU-hy-9w6" secondAttribute="top" constant="30" id="7qv-DO-X93"/>
+                <constraint firstItem="nht-RV-BPu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="8Bc-gp-V03"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hcD-Mg-XEx" secondAttribute="bottom" id="Grn-uN-ncN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hcD-Mg-XEx" secondAttribute="trailing" constant="20" id="KH5-2c-2dE"/>
+                <constraint firstItem="ssa-UI-g8N" firstAttribute="top" secondItem="gun-8P-ga3" secondAttribute="bottom" constant="30" id="Nkp-JY-TXS"/>
                 <constraint firstItem="hcD-Mg-XEx" firstAttribute="top" secondItem="NFf-Me-TwY" secondAttribute="bottom" constant="20" id="OyM-Sz-bki"/>
                 <constraint firstItem="I2i-8R-YYG" firstAttribute="leading" secondItem="NFf-Me-TwY" secondAttribute="trailing" constant="20" id="Pql-Zs-Men"/>
                 <constraint firstItem="hcD-Mg-XEx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Psi-ud-N2f"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gun-8P-ga3" secondAttribute="trailing" id="Pxh-1I-UaR"/>
-                <constraint firstItem="I2i-8R-YYG" firstAttribute="top" secondItem="gun-8P-ga3" secondAttribute="bottom" constant="45" id="XAy-va-xBP"/>
-                <constraint firstItem="SfU-Sy-bGD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="130" id="cAS-eN-XCm"/>
+                <constraint firstItem="NFf-Me-TwY" firstAttribute="top" secondItem="ssa-UI-g8N" secondAttribute="bottom" constant="30" id="SIi-wi-D4l"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nht-RV-BPu" secondAttribute="trailing" constant="20" id="cTW-4h-99E"/>
                 <constraint firstItem="NFf-Me-TwY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ca5-yQ-1uz"/>
-                <constraint firstItem="nht-RV-BPu" firstAttribute="top" secondItem="SfU-Sy-bGD" secondAttribute="bottom" constant="40" id="fHI-2Y-hX3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ssa-UI-g8N" secondAttribute="trailing" constant="20" id="gTx-WW-nFd"/>
                 <constraint firstItem="gun-8P-ga3" firstAttribute="top" secondItem="nht-RV-BPu" secondAttribute="bottom" constant="30" id="hmY-EW-kew"/>
                 <constraint firstItem="gun-8P-ga3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="oDJ-C7-lX4"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="SfU-Sy-bGD" secondAttribute="top" constant="40" id="x3r-Jh-cAO"/>
+                <constraint firstItem="PJU-hy-9w6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="120" id="t50-e4-s9X"/>
+                <constraint firstItem="ssa-UI-g8N" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="yGa-Ze-grn"/>
             </constraints>
             <point key="canvasLocation" x="52.671755725190835" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
-        <image name="investnav" width="33" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

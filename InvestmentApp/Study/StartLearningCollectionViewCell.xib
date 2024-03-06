@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="StartLearningCollectionViewCell" customModule="InvestmentApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="256" height="386"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="256" height="386"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="owj-2t-ybd">
+                        <rect key="frame" x="0.0" y="58.999999999999986" width="256" height="212.66666666666663"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNd-k6-kiJ">
+                        <rect key="frame" x="0.0" y="279.66666666666669" width="256" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9A-qD-5Uh">
+                        <rect key="frame" x="0.0" y="310.66666666666669" width="256" height="20.333333333333314"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNT-n5-gvM">
+                        <rect key="frame" x="0.0" y="346" width="41.333333333333336" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="XkK-YD-95K">
+                        <rect key="frame" x="51.333333333333329" y="354" width="204.66666666666669" height="4"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="4" id="3HD-lE-7Vs"/>
+                        </constraints>
+                    </progressView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WS2-fD-gjV">
+                        <rect key="frame" x="214.66666666666666" y="368" width="41.333333333333343" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="HNT-n5-gvM" firstAttribute="top" secondItem="U9A-qD-5Uh" secondAttribute="bottom" constant="15" id="1GJ-Md-1gP"/>
+                <constraint firstItem="HNT-n5-gvM" firstAttribute="centerY" secondItem="XkK-YD-95K" secondAttribute="centerY" id="1sN-fa-atT"/>
+                <constraint firstItem="owj-2t-ybd" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="FQu-bF-JsL"/>
+                <constraint firstItem="owj-2t-ybd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="topMargin" id="FS0-Cr-f3W"/>
+                <constraint firstItem="U9A-qD-5Uh" firstAttribute="top" secondItem="KNd-k6-kiJ" secondAttribute="bottom" constant="10" id="GvL-Rz-fC3"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="owj-2t-ybd" secondAttribute="trailing" id="IAw-TZ-8kG"/>
+                <constraint firstItem="WS2-fD-gjV" firstAttribute="top" secondItem="XkK-YD-95K" secondAttribute="bottom" constant="10" id="KoN-Zu-siB"/>
+                <constraint firstItem="U9A-qD-5Uh" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="ObG-rb-s9J"/>
+                <constraint firstItem="XkK-YD-95K" firstAttribute="top" secondItem="U9A-qD-5Uh" secondAttribute="bottom" constant="23" id="S41-wH-SZt"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="WS2-fD-gjV" secondAttribute="trailing" id="Vai-iZ-Sxn"/>
+                <constraint firstAttribute="trailing" secondItem="XkK-YD-95K" secondAttribute="trailing" id="aaz-7h-DZe"/>
+                <constraint firstItem="KNd-k6-kiJ" firstAttribute="top" secondItem="owj-2t-ybd" secondAttribute="bottom" constant="8" symbolic="YES" id="gtP-jK-5s5"/>
+                <constraint firstItem="XkK-YD-95K" firstAttribute="leading" secondItem="HNT-n5-gvM" secondAttribute="trailing" constant="10" id="n8z-i0-OQE"/>
+                <constraint firstItem="HNT-n5-gvM" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="oby-03-jAu"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="KNd-k6-kiJ" secondAttribute="trailing" id="qfT-8H-NUi"/>
+                <constraint firstAttribute="bottom" secondItem="HNT-n5-gvM" secondAttribute="bottom" constant="20" id="rRI-bt-O7W"/>
+                <constraint firstItem="KNd-k6-kiJ" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="vUE-d5-t9O"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="U9A-qD-5Uh" secondAttribute="trailing" id="xYd-8y-EIF"/>
+            </constraints>
+            <size key="customSize" width="256" height="386"/>
+            <connections>
+                <outlet property="beginner" destination="WS2-fD-gjV" id="WaM-H6-A28"/>
+                <outlet property="percentageCompleted" destination="HNT-n5-gvM" id="dNR-OI-rLx"/>
+                <outlet property="progressBar" destination="XkK-YD-95K" id="f4v-cB-MWs"/>
+                <outlet property="raiserVideoImage" destination="owj-2t-ybd" id="2XM-wH-fki"/>
+                <outlet property="startLearningTitle" destination="KNd-k6-kiJ" id="hcG-XW-Kw7"/>
+                <outlet property="subStartingLearning" destination="U9A-qD-5Uh" id="w74-Li-uk2"/>
+            </connections>
+            <point key="canvasLocation" x="175.57251908396947" y="137.32394366197184"/>
+        </collectionViewCell>
+    </objects>
+</document>

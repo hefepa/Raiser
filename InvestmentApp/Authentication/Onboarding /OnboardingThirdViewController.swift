@@ -29,7 +29,6 @@ class OnboardingThirdViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.hidesBackButton = true
-        btn.colorConfiguration(button: nextButton)
         
         for buttons in checkBoxesArray{
             buttons.setImage(UIImage(systemName: "square")?.withRenderingMode(.alwaysTemplate), for: .normal)
@@ -84,6 +83,8 @@ class OnboardingThirdViewController: UIViewController {
         
         nextButton.setTitle("Next", for: .normal)
         nextButton.tintColor = .white
+        nextButton.backgroundColor = UIColor(red: 0.671, green: 0.149, blue: 0.337, alpha: 1)
+        nextButton.layer.cornerRadius = 3
         
         for labelContainers in containers{
             labelContainers.layer.shadowColor = UIColor.black.cgColor

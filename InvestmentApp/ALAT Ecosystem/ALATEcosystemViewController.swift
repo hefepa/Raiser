@@ -24,7 +24,7 @@ class ALATEcosystemViewController: UIViewController {
     @IBOutlet weak var alatBusinessLogo: UIImageView!
     
     var currentPage = 0
-    var timer: Timer?
+//    var timer: Timer?
     var dataSourceArray: [ALATEcosystemCollectionCellProperties]?
 
 
@@ -44,32 +44,37 @@ class ALATEcosystemViewController: UIViewController {
 
         
         propertiesAssignment()
-        startTimer()
+//        startTimer()
 
     }
-    func startTimer() {
-            // Adjust the time interval as needed (e.g., 5 seconds)
-            timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(handleTimer), userInfo: nil, repeats: true)
-        }
+//    func startTimer() {
+//            // Adjust the time interval as needed (e.g., 5 seconds)
+//            timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(handleTimer), userInfo: nil, repeats: true)
+//        }
 
         // Function called by the timer
-        @objc func handleTimer() {
-            // Perform the sliding animation
-            let newOffset = CGPoint(x: myCollectionView.contentOffset.x + myCollectionView.frame.width, y: myCollectionView.contentOffset.y)
-            
-            // Animate the change in content offset
-            UIView.animate(withDuration: 0.5, animations: {
-                self.myCollectionView.setContentOffset(newOffset, animated: false)
-            }) { (_) in
-                // Update the UIPageControl after the animation completes
-                let newIndex = Int(newOffset.x / self.myCollectionView.frame.width)
-                self.pageControl.currentPage = newIndex
-            }
-        }
+//        @objc func handleTimer() {
+//            // Perform the sliding animation
+//            let newOffset = CGPoint(x: myCollectionView.contentOffset.x + myCollectionView.frame.width, y: myCollectionView.contentOffset.y)
+//            
+//            // Animate the change in content offset
+//            UIView.animate(withDuration: 0.5, animations: {
+//                self.myCollectionView.setContentOffset(newOffset, animated: false)
+//            }) { (_) in
+//                // Update the UIPageControl after the animation completes
+//                let newIndex = Int(newOffset.x / self.myCollectionView.frame.width)
+//                self.pageControl.currentPage = newIndex
+//            }
+//        }
     
     @objc func raiserImageTapped(){
-            let raiserLaunchScreen = RaiserViewController()
-            self.navigationController?.pushViewController(raiserLaunchScreen, animated: true)
+        if UserDefaults.standard.hasViewSplashScreen{
+            let existingOrNewPage = ExistingOrNewUserViewController()
+            self.navigationController?.pushViewController(existingOrNewPage, animated: true)
+        }else{
+            let splashScreenPage = SplashScreenViewController()
+            self.navigationController?.pushViewController(splashScreenPage, animated: true)
+        }
     }
     
     
@@ -87,8 +92,18 @@ class ALATEcosystemViewController: UIViewController {
         
         alatBusinessLogo.image = UIImage(named: "alatbusinesslogo")
         alatImage.image = UIImage(named: "alatlogo")
+        alatImage.layer.borderWidth = 1
+        alatImage.layer.borderColor = UIColor(red: 0.671, green: 0.149, blue: 0.337, alpha: 1).cgColor
+
         alatonboardingLogo.image = UIImage(named: "onboardingofficelogo")
+        alatonboardingLogo.layer.borderWidth = 1
+        alatonboardingLogo.layer.borderColor = UIColor(red: 0.671, green: 0.149, blue: 0.337, alpha: 1).cgColor
+        
         raiserImage.image = UIImage(named: "raiserlogo")
+        raiserImage.layer.borderWidth = 1
+        raiserImage.layer.borderColor = UIColor(red: 0.671, green: 0.149, blue: 0.337, alpha: 1).cgColor
+
+        
 
     }
 }

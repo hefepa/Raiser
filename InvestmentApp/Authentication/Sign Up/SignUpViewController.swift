@@ -62,34 +62,7 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
             KeychainWrapper.savePassword(password, forAccount: "userPassword")
         }
     }
-        
-//        func storesUserName() {
-//            // Retrieve email input from the text field
-//            guard let emailInput = emailTF.text, !emailInput.isEmpty else {
-//                // Handle the case where the email input is nil or empty
-//                return
-//            }
-//
-//            // Check if there is no value stored in UserDefaults under the key "EmailAddress"
-//            if UserDefaults.standard.string(forKey: "EmailAddress") == nil {
-//                // Save the email input to UserDefaults under the key "EmailAddress"
-//                UserDefaults.standard.setValue(emailInput, forKey: "EmailAddress")
-//            }
-//
-//            // Create an instance of LoginPageViewController
-//            let otpPage = OTPViewController()
-//
-//            // Set the email text field in the LoginPageViewController instance
-//            if let storedEmail = UserDefaults.standard.string(forKey: "EmailAddress") {
-//                otpPage.userEmailLabel.text = storedEmail as? String
-//            } else {
-//                otpPage.userEmailLabel.text = ""
-//            }
-//        }
 
-    
-
-    
     var registerViewModel = RegistrationViewModel()
 
     
@@ -144,7 +117,7 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
         view.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
         
         propertiesAssignment()
-        btn.colorConfiguration(button: signUpButton)
+//        btn.colorConfiguration(button: signUpButton)
         
         termsCheckBox.setImage(UIImage(systemName: "square")?.withRenderingMode(.alwaysTemplate), for: .normal)
         termsCheckBox.setImage(UIImage(named: "tick")?.withRenderingMode(.alwaysTemplate), for: .selected)
@@ -184,7 +157,7 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
 
     
     @objc func LoginLabelClicked(){
-        let loginPage = LoginPageViewController()
+        let loginPage = NewLoginViewController()
         navigationController?.pushViewController(loginPage, animated: true)
     }
     
@@ -266,57 +239,45 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
     func propertiesAssignment(){
         signUpLabel.text = "Sign Up"
         signUpLabel.font = .systemFont(ofSize: 30, weight: .bold)
+        signUpLabel.textColor = UIColor(red: 0.671, green: 0.149, blue: 0.337, alpha: 1)
         
         subSignUpLabel.text = "Start your investment journey with ease."
         subSignUpLabel.font = .systemFont(ofSize: 14, weight: .light)
         subSignUpLabel.textColor = .black
         
         
-        
-        firstNameLabel.text = "First Name"
-        firstNameLabel.textColor = .white
-        firstNameLabel.font = .systemFont(ofSize: 12)
-        
         firstNameTF.placeholder = "Enter your first name"
-        
-        lastNameLabel.text = "Last Name"
-        lastNameLabel.textColor = .white
-        lastNameLabel.font = .systemFont(ofSize: 12)
-        
         lastNameTF.placeholder = "Enter your last name"
-        
-        
-        emailLabel.text = "Email"
-        emailLabel.textColor = .white
-        emailLabel.font = .systemFont(ofSize: 12)
-        
         emailTF.placeholder = "Enter your email address"
-        
-        phoneNumberLabel.text = "Phone Number"
-        phoneNumberLabel.textColor = .white
-        phoneNumberLabel.font = .systemFont(ofSize: 12)
-        
         phoneNumberTF.placeholder = "Enter your mobile number"
-        
-        passwordLabel.text = "Password"
-        passwordLabel.textColor = .white
-        passwordLabel.font = .systemFont(ofSize: 12)
-        
         passwordTF.placeholder = "Enter your password"
         passwordHideImage.image = UIImage(named: "eye")
-        
-        confirmPasswordLabel.text = "Confirm Password"
-        confirmPasswordLabel.textColor = .white
-        confirmPasswordLabel.font = .systemFont(ofSize: 12)
-        
         confirmPasswordTF.placeholder = "Confirm your password"
         confirmPasswordHideImage.image = UIImage(named: "eye")
 
         termsCheckBox.layer.borderWidth = 2.0
         termsCheckBox.layer.borderColor = UIColor(red: 0.604, green: 0.051, blue: 0.243, alpha: 0.5).cgColor
-        termsLabel.text = "I hereby agree to the terms and privacy policy of Raise"
-        termsLabel.font = .systemFont(ofSize: 12, weight: .regular)
         
+        termsLabel.font = .systemFont(ofSize: 12, weight: .regular)
+
+        
+        let attributedString = NSMutableAttributedString(string: "I hereby agree to the terms & conditions and privacy policy of Raiser.")
+        
+        let wordToColor = "terms & conditions and privacy policy"
+        let range = (attributedString.string as NSString).range(of: wordToColor)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.red, range: range)
+        
+        // Apply the attributed string to the UILabel
+        termsLabel.attributedText = attributedString
+        
+        // Enable user interaction on the label
+        termsLabel.isUserInteractionEnabled = true
+        
+        // Add a tap gesture recognizer
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
+        termsLabel.addGestureRecognizer(tapGesture)
+        
+    
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.titleLabel?.textColor = UIColor(red: 0.604, green: 0.051, blue: 0.243, alpha: 1)
         
@@ -329,19 +290,28 @@ class SignUpViewController: UIViewController, RegistrationModelDelegate, UITextF
         signUpButton.tintColor = .white
         signUpButton.titleLabel?.textColor = .white
         signUpButton.layer.cornerRadius = 8
+        signUpButton.layer.backgroundColor = UIColor(red: 0.671, green: 0.149, blue: 0.337, alpha: 1).cgColor
+
         
         haveAccountLabel.text = "Do you have already existing account?"
         haveAccountLabel.font = .systemFont(ofSize: 12, weight: .regular)
         
+        
         loginLabel.text = "Login"
         loginLabel.font = .systemFont(ofSize: 12)
+        loginLabel.textColor = UIColor(red: 0.671, green: 0.149, blue: 0.337, alpha: 1)
         
-        colorLabels()
+//        colorLabels()
     }
     
-    func colorLabels(){
-        for viewLabel in container{
-            labelsView.colorConfiguration(viewContainers: viewLabel)
-        }
+    @objc func labelTapped() {
+        let termsAndConditionPage = TermsAndConditionsViewController()
+        present(termsAndConditionPage, animated: true)
     }
+    
+//    func colorLabels(){
+//        for viewLabel in container{
+//            labelsView.colorConfiguration(viewContainers: viewLabel)
+//        }
+//    }
 }

@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYt-nN-pr6">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYt-nN-pr6">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kho-Gz-NKN">
@@ -41,7 +41,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="sZq-JE-mjk">
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="sZq-JE-mjk">
                                     <rect key="frame" x="0.0" y="198" width="401" height="420"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
@@ -112,7 +112,7 @@
                         <constraint firstItem="Kho-Gz-NKN" firstAttribute="leading" secondItem="bYt-nN-pr6" secondAttribute="leading" id="4YL-SB-eaV"/>
                         <constraint firstAttribute="trailing" secondItem="Kho-Gz-NKN" secondAttribute="trailing" id="A4D-lC-Rkk"/>
                         <constraint firstItem="Kho-Gz-NKN" firstAttribute="width" secondItem="bYt-nN-pr6" secondAttribute="width" multiplier="1.02036" id="OVc-zc-Pag"/>
-                        <constraint firstAttribute="bottom" secondItem="Kho-Gz-NKN" secondAttribute="bottom" constant="-98" id="wfy-xU-IP1"/>
+                        <constraint firstAttribute="bottom" secondItem="Kho-Gz-NKN" secondAttribute="bottom" id="wfy-xU-IP1"/>
                         <constraint firstItem="Kho-Gz-NKN" firstAttribute="top" secondItem="bYt-nN-pr6" secondAttribute="top" id="z9F-GT-dYf"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="QuP-L4-f9Q"/>

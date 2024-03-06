@@ -13,11 +13,7 @@ class DIContainer {
     
     private init() {}
     
-    func makeTrendingStock() -> TrendingStockViewModel{
-        TrendingStockViewModel(trendingStocknetworkCall: TrendingStockNetworkCall())
+    func generatePortfolioModel() -> PortFolioViewModel{
+        PortFolioViewModel(portfolioNetworkCall: PortFolioNetworkCall())
     }
-    
-//    func makeBooksViewModel() -> BooksViewModel{
-//        BooksViewModel(networkCall: NetworkCall())
-//    }
 }

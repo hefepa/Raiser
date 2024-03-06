@@ -10,6 +10,11 @@ import UIKit
 var numberOfCategoriesCell: [CategoriesProperties] = CategoriesPropertiesModel().populateData()
 var numberOfTandPCell: [TrendingAndPortfolioProperties] = TrendingAndPortfolioModel().populateData()
 
+var verifcationCellData: [VerificationUpdatesProperties] = VerificationUpdatesModel().populateData()
+
+
+
+
 class InvestmentViewController: UIViewController {
     var trendingStockViewModel = TrendingStockViewModel(trendingStocknetworkCall: TrendingStockNetworkCall())
     var portfolioViewModel = PortFolioViewModel(portfolioNetworkCall: PortFolioNetworkCall())
@@ -26,18 +31,25 @@ class InvestmentViewController: UIViewController {
     @IBOutlet weak var investNavImage: UIImageView!
     @IBOutlet weak var investNavLabel: UILabel!
     @IBOutlet weak var searchIcon: UIImageView!
+    @IBOutlet weak var verificationCollection: UICollectionView!
 //    @IBOutlet weak var investNavImage: UIImageView!
 //    @IBOutlet weak var investNavLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(notificationTapped), name: Notification.Name("nav"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(notificationTapped), name: Notification.Name("nav"), object: nil)
         
         categoryCollection.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
         categoryCollection.dataSource = self
         categoryCollection.delegate = self
         categoryCollection.tag = 1
+        
+        verificationCollection.register(UINib(nibName: "VerificationCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "VerificationCollectionViewCell")
+        verificationCollection.showsHorizontalScrollIndicator = false
+        verificationCollection.delegate = self
+        verificationCollection.dataSource = self
+        verificationCollection.tag = 2
         
         trendingStockCollection.register(UINib(nibName: "TrendingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TrendingCollectionViewCell")
         trendingStockCollection.delegate = self
@@ -47,6 +59,7 @@ class InvestmentViewController: UIViewController {
         trendingStockCollection.register(UINib(nibName: "PortFolioTableViewCell", bundle: nil), forCellWithReuseIdentifier: "PortFolioTableViewCell")
         trendingStockCollection.dataSource = self
         trendingStockCollection.delegate = self
+        
         
         trendingStockCollection.isScrollEnabled = false
         
@@ -140,7 +153,7 @@ extension InvestmentViewController: UICollectionViewDelegate, UICollectionViewDa
         if collectionView.tag == 1{
             return numberOfCategoriesCell.count
         }else if collectionView.tag == 2{
-            return numberOfTandPCell.count
+            return verifcationCellData.count
         }else if collectionView.tag == 3{
             return 2
         }
@@ -170,6 +183,10 @@ extension InvestmentViewController: UICollectionViewDelegate, UICollectionViewDa
                 
                 return portFolioCell
             }
+        }else if collectionView.tag == 2 {
+            let verificationCell = verificationCollection.dequeueReusableCell(withReuseIdentifier: "VerificationCollectionViewCell", for: indexPath) as! VerificationCollectionViewCell
+            verificationCell.setupData(with: verifcationCellData[indexPath.item])
+            return verificationCell
         }
         return UICollectionViewCell()
     }
@@ -207,9 +224,20 @@ extension InvestmentViewController: UICollectionViewDelegateFlowLayout{
             let widthOfScreen = collectionView.bounds.width
             let heightOfScreen = collectionView.bounds.height
             return CGSize(width: widthOfScreen, height: heightOfScreen)
+        }else if collectionView.tag == 2{
+            let widthOfTheScreen = collectionView.bounds.width
+            return CGSize(width: (widthOfTheScreen)/2, height: 240)
         }
         return CGSize(width: 0, height: 50)
     }
+}
+
+func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    
+    if collectionView.tag == 2{
+        return 0
+    }
+    return 0
 }
 
 extension InvestmentViewController: PortFolioTableDelegate{
@@ -219,11 +247,12 @@ extension InvestmentViewController: PortFolioTableDelegate{
         print("DATA IS: \(data)")
         investmentDetails.getData = data
         print("they are: \(investmentDetails.getData)")
+        investmentDetails.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(investmentDetails, animated: true)
     }
-    @objc func notificationTapped() {
-        print ("View tapped notification")
-        let investmentDetails = GroupInvestmentDetailsViewController()
-        navigationController?.pushViewController(investmentDetails, animated: true)
-    }
+//    @objc func notificationTapped() {
+//        print ("View tapped notification")
+//        let investmentDetails = GroupInvestmentDetailsViewController()
+//        navigationController?.pushViewController(investmentDetails, animated: true)
+//    }
 }

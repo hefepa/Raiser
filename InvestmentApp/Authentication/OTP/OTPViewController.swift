@@ -37,11 +37,11 @@ class OTPViewController: UIViewController, OTPModelDelegate {
                     image: UIImage(systemName: "checkmark.shield.fill")!, title: response ?? "Error")
                 toast.show()
                 let savedEmail = KeychainWrapper.getEmail(forAccount: "userEmail")
-                let loginPage = LoginPageViewController()
+                let loginPage = NewLoginViewController()
                 loginPage.emailFromOTP = self.userEmailLabel.text
-                let splashScreen = SplashScreenViewController()
+                let loginPageView = NewLoginViewController()
 
-                self.navigationController?.pushViewController(splashScreen, animated: true)
+                self.navigationController?.pushViewController(loginPageView, animated: true)
                 print("Success message is \(data?.message)")
             }
             
@@ -198,8 +198,9 @@ class OTPViewController: UIViewController, OTPModelDelegate {
         
         verifyBtn.setTitle("Verify", for: .normal)
         verifyBtn.tintColor = .white
-        btn.colorConfiguration(button: verifyBtn)
-        
+        verifyBtn.backgroundColor = UIColor(red: 0.671, green: 0.149, blue: 0.337, alpha: 1)
+        verifyBtn.layer.cornerRadius = 8
+
     }
 }
 

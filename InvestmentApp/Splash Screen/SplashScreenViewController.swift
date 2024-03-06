@@ -37,7 +37,10 @@ class SplashScreenViewController: UIViewController {
         propertiesAssignment()
     }
     @IBAction func getStarted(_ sender: UIButton) {
-        present(newOrExistingUserVC!, animated: true, completion: nil)
+        let newOrExistingPage = ExistingOrNewUserViewController()
+        UserDefaults.standard.hasViewSplashScreen = true
+        navigationController?.pushViewController(newOrExistingPage, animated: true)
+//        present(newOrExistingUserVC!, animated: true, completion: nil)
     }
 
     func propertiesAssignment(){
@@ -89,7 +92,7 @@ extension SplashScreenViewController: NewOrExistingUserDelegate{
     }
     
     func existingUserButtonTapped() {
-        let loginPage = LoginPageViewController()
+        let loginPage = NewLoginViewController()
         navigationController?.pushViewController(loginPage, animated: true)
     }
     

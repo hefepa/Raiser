@@ -7,27 +7,53 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, PortFolioTableDelegate {
+    func didTapButton(inCell cell: PortFolioDataTableViewCell, data: PortFolioProperties?) {
+        let investmentDetails = GroupInvestmentDetailsViewController()
+        print("DATA IS: \(data)")
+        investmentDetails.getData = data
+        print("they are: \(investmentDetails.getData)")
+        investmentDetails.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(investmentDetails, animated: true)
+    }
+    
     
     var currentPage = 0
     var homeCellData: [HomeTopProperties] = HomeTopModel().populateData()
     var verifcationCellData: [VerificationUpdatesProperties] = VerificationUpdatesModel().populateData()
     var recommendationCellData: [RecommendationProperties] = RecommendationModel().populateData()
+    var numberOfinvestmentPortfolio: [PortFolioProperties]?
+//    var portfolioViewModel: PortFolioViewModel?
+//    var portfolioViewModel = PortFolioViewModel(portfolioNetworkCall: PortFolioNetworkCall())
+
+
+    
+    weak var delegate: PortFolioTableDelegate?
+//    var numberOfItemsInPortFolio: [PortFolioProperties]?
+
+
 
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var topHomeCollection: UICollectionView!
-    @IBOutlet weak var verificationUpdatesLabel: UILabel!
-    @IBOutlet weak var verificationCollection: UICollectionView!
+//    @IBOutlet weak var verificationUpdatesLabel: UILabel!
+//    @IBOutlet weak var verificationCollection: UICollectionView!
     @IBOutlet weak var verificationImageBelow: UIImageView!
     @IBOutlet var quickViews: [UIView]!
     @IBOutlet weak var recommendationViews: UICollectionView!
     @IBOutlet weak var quickActionsLabel: UILabel!
     @IBOutlet weak var recommendationLabel: UILabel!
+    @IBOutlet weak var investmentPortfolioTable: UITableView!
+    var portfolioViewModel = DIContainer.shared.generatePortfolioModel()
+
 //    @IBOutlet weak var userImage: UIImageView!
 //    @IBOutlet weak var userName: UILabel!
 //    @IBOutlet weak var notificationImage: UIImageView!
 //    
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+
+    }
   
     
     
@@ -57,17 +83,8 @@ class HomeViewController: UIViewController {
         navigationItem.leftBarButtonItems = [profilePictureItem, userNameItem]
         navigationItem.rightBarButtonItem = notificationItem
             
-        
-        
-//
-//
-//        
-//        let customNavigation = UIBarButtonItem(image: UIImage(named: "menu2"), style: .plain, target: self, action: nil)
-//        navigationItem.leftBarButtonItem = customNavigation
-        //n/*avigationController?.navigationBar.tintColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1)*/
-       
-        verificationUpdatesLabel.text = "Verification Updates"
-        verificationUpdatesLabel.font = .systemFont(ofSize: 15, weight: .regular)
+//        verificationUpdatesLabel.text = "Verification Updates"
+//        verificationUpdatesLabel.font = .systemFont(ofSize: 15, weight: .regular)
         
         quickActionsLabel.text = "Quick Actions"
         quickActionsLabel.font = .systemFont(ofSize: 15, weight: .regular)
@@ -86,7 +103,7 @@ class HomeViewController: UIViewController {
         pageControl.pageIndicatorTintColor = UIColor.lightGray
         
         topHomeCollection.tag = 1
-        verificationCollection.tag = 2
+//        verificationCollection.tag = 2
         recommendationViews.tag = 3
         
         
@@ -95,19 +112,49 @@ class HomeViewController: UIViewController {
         topHomeCollection.dataSource = self
         topHomeCollection.delegate = self
         topHomeCollection.isPagingEnabled = true
+        
+        
+        investmentPortfolioTable.register(UINib(nibName: "PortFolioDataTableViewCell", bundle: nil), forCellReuseIdentifier: "PortFolioDataTableViewCell")
+        investmentPortfolioTable.dataSource = self
+        investmentPortfolioTable.delegate = self
+        
+        portfolioViewModel.delegate = self
+        
+        Task{
+            await portfolioViewModel.getPortFolio()
+        }
+        
 
         
-        verificationCollection.register(UINib(nibName: "VerificationCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "VerificationCollectionViewCell")
-        verificationCollection.showsHorizontalScrollIndicator = false
-        verificationCollection.delegate = self
-        verificationCollection.dataSource = self
+//        verificationCollection.register(UINib(nibName: "VerificationCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "VerificationCollectionViewCell")
+//        verificationCollection.showsHorizontalScrollIndicator = false
+//        verificationCollection.delegate = self
+//        verificationCollection.dataSource = self
         
         recommendationViews.register(UINib(nibName: "RecommendationCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RecommendationCollectionViewCell")
         recommendationViews.showsHorizontalScrollIndicator = false
         recommendationViews.delegate = self
         recommendationViews.dataSource = self
         
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshPortfolio), name: Notification.Name("RefreshPortFolio"), object: nil)
+        
     }
+    
+    @objc func refreshPortfolio(){
+        Task{
+            await portfolioViewModel.getPortFolio()
+        }
+    }
+    
+    func initCell(portfolioViewModel: PortFolioViewModel){
+        self.portfolioViewModel = portfolioViewModel
+        self.portfolioViewModel.delegate = self
+        Task{
+            await self.portfolioViewModel.getPortFolio()
+        }
+    }
+    
+    
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let width = scrollView.frame.width
@@ -115,6 +162,58 @@ class HomeViewController: UIViewController {
         pageControl.currentPage = currentPage
     }
 
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource, PortfolioModelDelegate {
+    func didReceivedResponse(data: PortFolioResponseModel?) {
+        DispatchQueue.main.async { [weak self] in
+            self?.numberOfinvestmentPortfolio = data?.data
+            self?.investmentPortfolioTable.reloadData()
+//
+//            self?.numberOfinvestmentPortfolio = data?.data
+//            print("The data is: \(self?.numberOfinvestmentPortfolio ?? nil)")
+//            self?.investmentPortfolioTable.reloadData()
+        }
+    }
+    
+    func didReceiveError(error: String) {
+        print("ERROR")
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        numberOfinvestmentPortfolio?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("seen")
+        let cell = investmentPortfolioTable.dequeueReusableCell(withIdentifier: "PortFolioDataTableViewCell", for: indexPath) as! PortFolioDataTableViewCell
+        
+        guard let portfolioViewCell = numberOfinvestmentPortfolio?[indexPath.item] else { return cell }
+        cell.setUpData(with: portfolioViewCell)
+        cell.getData = portfolioViewCell
+        cell.onViewButtonTapped = { [weak self] in
+            guard let data = self?.numberOfinvestmentPortfolio?[indexPath.item] else { return }
+        }
+        cell.delegate = self
+        cell.selectionStyle = .none
+        print("cell is: \(cell)")
+        return cell
+        
+//        let portFolioCell = investmentPortfolioTable.dequeueReusableCell(withIdentifier: "PortFolioDataTableViewCell", for: indexPath) as! PortFolioDataTableViewCell
+//        // Configure portFolioCell if needed
+////                PortFolioDataTableViewCell
+//        portFolioCell.initCell(portfolioViewModel: portfolioViewModel)
+//        portFolioCell.delegate = self
+//        
+//        return portFolioCell
+
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        250
+    }
+    
+    
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
@@ -138,11 +237,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             topCell.setUpData(with: homeCellData[indexPath.item])
             return topCell
         }
-        else if collectionView.tag == 2{
-            let verificationCell = verificationCollection.dequeueReusableCell(withReuseIdentifier: "VerificationCollectionViewCell", for: indexPath) as! VerificationCollectionViewCell
-            verificationCell.setupData(with: verifcationCellData[indexPath.item])
-            return verificationCell
-        }
+//        else if collectionView.tag == 2{
+//            let verificationCell = verificationCollection.dequeueReusableCell(withReuseIdentifier: "VerificationCollectionViewCell", for: indexPath) as! VerificationCollectionViewCell
+//            verificationCell.setupData(with: verifcationCellData[indexPath.item])
+//            return verificationCell
+//        }
         else if collectionView.tag == 3{
             let recommendationCell = recommendationViews.dequeueReusableCell(withReuseIdentifier: "RecommendationCollectionViewCell", for: indexPath) as! RecommendationCollectionViewCell
             recommendationCell.setupData(with: recommendationCellData[indexPath.item])
@@ -163,10 +262,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 //                let heightOfScreen = collectionView.bounds.height
 //                return CGSize(width: widthOfScreen, height: heightOfScreen)
             }
-            else if collectionView.tag == 2{
-                let widthOfTheScreen = collectionView.bounds.width
-                return CGSize(width: (widthOfTheScreen)/2, height: 240)
-            }
+//            else if collectionView.tag == 2{
+//                let widthOfTheScreen = collectionView.bounds.width
+//                return CGSize(width: (widthOfTheScreen)/2, height: 240)
+//            }
             else if collectionView.tag == 3{
                 
                 let widthOfScreen: CGFloat = 250
@@ -182,9 +281,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return 0
                 
             }
-            else if collectionView.tag == 2{
-                return 0
-            }
+//            else if collectionView.tag == 2{
+//                return 0
+//            }
             else if collectionView.tag == 3{
                 return 10
             }

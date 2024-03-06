@@ -10,10 +10,9 @@ import UIKit
 class ResetPasswordViewController: UIViewController {
     
     @IBOutlet weak var resetPasswordLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var subResetPasswordLabel: UILabel!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var emailTF: UITextField!
-    @IBOutlet weak var container: UIView!
     
     var btn = ButtonColor()
     var viewLabel = ViewColor()
@@ -21,27 +20,23 @@ class ResetPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyboardDismissRecognizer()
-
-        btn.colorConfiguration(button: resetButton)
-        viewLabel.colorConfiguration(viewContainers: container)
         
         resetPasswordLabel.text = "Reset your password"
         //lbl.colorConfiguration(to: resetPasswordLabel, withText: resetPasswordLabel.text!)
         resetPasswordLabel.font = .systemFont(ofSize: 25, weight: .semibold)
-        let gradientImage = resetPasswordLabel.gradientImage(frame: resetPasswordLabel.bounds, colors: [UIColor.red.cgColor, UIColor.blue.cgColor])
-
+        resetPasswordLabel.textColor = UIColor(red: 0.671, green: 0.149, blue: 0.337, alpha: 1)
         
+        subResetPasswordLabel.text = "Enter your email address to reset your password"
+        subResetPasswordLabel.font = .systemFont(ofSize: 14, weight: .regular)
         
-        emailLabel.text = "Email"
-        emailLabel.textColor = .white
-        emailLabel.font = .systemFont(ofSize: 16)
         emailTF.placeholder = "Enter your email address"
         
         
         resetButton.setTitle("Reset Password", for: .normal)
-        resetButton.backgroundColor = .gray
         resetButton.tintColor = .white
         resetButton.layer.cornerRadius = 8
+        resetButton.backgroundColor = UIColor(red: 0.671, green: 0.149, blue: 0.337, alpha: 1)
+
 
     }
 }

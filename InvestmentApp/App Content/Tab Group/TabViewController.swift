@@ -16,25 +16,30 @@ class TabViewController: UITabBarController {
         
         tabBar.tintColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1)
 
-        let homeController = HomeViewController()
+        let dashboardController = DashboardViewController()
         let learnController = LearnViewController()
-        let analyzeController = AnalyzeViewController()
         let investmentController = InvestmentViewController()
+        let communityController = CommunityViewController()
+//        let homeController = HomeViewController()
+        let accountDetails = AccountDetailsViewController()
         
-        homeController.tabBarItem.image = UIImage(named: "home")
+        dashboardController.tabBarItem.image = UIImage(named: "home")
         learnController.tabBarItem.image = UIImage(named: "books")
         investmentController.tabBarItem.image = UIImage(named: "trending")
-        analyzeController.tabBarItem.image = UIImage(named: "card")
+        communityController.tabBarItem.image = UIImage(named: "person.crop.circle")
+//        homeController.tabBarItem.image = UIImage(systemName: "person.crop.circle")
+        accountDetails.tabBarItem.image = UIImage(named: "card")
 
         
-        homeController.tabBarItem.selectedImage = UIImage(named: "homefill")
+        dashboardController.tabBarItem.selectedImage = UIImage(named: "homefill")
         learnController.tabBarItem.selectedImage = UIImage(named: "bookfill")
         investmentController.tabBarItem.selectedImage = UIImage(named: "trendingfill")
-        analyzeController.tabBarItem.selectedImage = UIImage(named: "cardfill")
+        communityController.tabBarItem.image = UIImage(systemName: "person.crop.circle.fill")
+        accountDetails.tabBarItem.selectedImage = UIImage(named: "cardfill")
 
         
         
-        setViewControllers([UINavigationController(rootViewController: homeController), UINavigationController(rootViewController: learnController), UINavigationController(rootViewController: investmentController), UINavigationController(rootViewController: analyzeController)], animated: true)
+        setViewControllers([UINavigationController(rootViewController: dashboardController), UINavigationController(rootViewController: learnController), UINavigationController(rootViewController: investmentController), UINavigationController(rootViewController: communityController), /*UINavigationController(rootViewController: homeController),*/ UINavigationController(rootViewController: accountDetails)], animated: true)
 
     }
 }

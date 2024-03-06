@@ -6,13 +6,60 @@
 //
 
 import UIKit
+import Toast
 
-class GroupInvestmentViewController: UIViewController, CustomAlertDelegate {
+class GroupInvestmentViewController: UIViewController, CustomAlertDelegate, SouceOfFundingViewDelegate, SuccessViewControllerDelegate, PinViewControllerDelegate {
+    func portfolioLabelTapped() {
+        let nextViewController = HomeViewController(nibName: "HomeViewController", bundle: nil)
+        let navigationController = UINavigationController(rootViewController: nextViewController)
+        self.present(navigationController, animated: true, completion: nil)
+//    }
+//        let homeVC = HomeViewController()
+//        homeVC.hidesBottomBarWhenPushed = false
+//        navigationController?.pushViewController(homeVC, animated:  true)
+        
+    }
     
     
+    func continueButtonTapped() {
+        dismiss(animated: true) {
+            let successVC = SuccessViewController()
+            successVC.delegate = self
+            self.present(successVC, animated: false, completion: nil)
+        }
+    }
+
+    func showEnterPinView() {
+        sourceOfFundingVC?.dismiss(animated: true)
+        let enterPinView =  PinViewController()
+        enterPinView.delegate = self
+//        enterPinView.modalPresentationStyle = .overFullScreen
+        self.present(enterPinView, animated: false, completion: nil)
+    }
+    
+    
+    func continueButton() {
+        let joinGroupVC = JoinGroupViewController()
+        navigationController?.popViewController(animated: false)
+    }
+    
+    
+//    func purchaseButtonTapped() {
+//        sourceOfFundingVC?.dismiss(animated: true)
+//        let successVC = SuccessViewController()
+//        successVC.delegate = self
+////        successVC.sheetPresentationController?.prefersGrabberVisible = true
+//        self.present(successVC, animated: false, completion: nil)
+//    }
+    
+
     var btn = ButtonColor()
     var getData: JoinGroupProperties?
     let investmentCollectionViewCell = InvestmentCollectionViewCell()
+    
+    var sourceOfFundingVC: SourceOfFundingViewController?
+    var successVC: SuccessViewController?
+//    var pinVC: PinViewController?
     
     @IBOutlet weak var investmentGroupName: UILabel!
     @IBOutlet weak var investmentAndAboutCollection: UICollectionView!
@@ -38,7 +85,8 @@ class GroupInvestmentViewController: UIViewController, CustomAlertDelegate {
         
         setupKeyboardDismissRecognizer()
         investmentCollectionViewCell.delegate = self
-        
+//        successVC?.delegate = self
+        investmentButtonScroll.tintColor = UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1)
     }
     
     
@@ -52,13 +100,6 @@ class GroupInvestmentViewController: UIViewController, CustomAlertDelegate {
         aboutButtonScroll.tintColor = .black
         let indexPath = IndexPath(item: 0, section: 0)
         investmentAndAboutCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        
-        
-//        let indexPath = IndexPath(item: 0, section: 0)
-//        investmentAndAboutCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-//        addBottomBorder(to: investmentButtonScroll, color: UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1), thickness: 2.0)
-//        aboutButtonScroll.layer.borderWidth = .nan
-//        aboutButtonScroll.layer.borderColor = .none
     }
     
     @IBAction func aboutButtonToScroll(_ sender: UIButton){
@@ -71,28 +112,24 @@ class GroupInvestmentViewController: UIViewController, CustomAlertDelegate {
         investmentButtonScroll.tintColor = .black
         let indexPath = IndexPath(item: 1, section: 0)
         investmentAndAboutCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        
-
-//        let indexPath = IndexPath(item: 1, section: 0)
-//        investmentAndAboutCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-//        addBottomBorder(to: aboutButtonScroll, color: UIColor(red: 0.663, green: 0.031, blue: 0.212, alpha: 1), thickness: 2.0)
-//        investmentButtonScroll.layer.borderWidth = .nan
-//        investmentButtonScroll.layer.borderColor = .none
-//        addBottomBorder(to: investmentButtonScroll, color: .white, thickness: 0)
-
     }
 
     @objc func backNavigation(){
         navigationController?.popViewController(animated: true)
     }
     
+    func showSourceOfFunding() {
+        let sourceOfFunding = SourceOfFundingViewController()
+        sourceOfFunding.delegate = self
+        self.sourceOfFundingVC = sourceOfFunding
+        present(sourceOfFunding, animated: true)
+    }
     
     func showCustomAlert() {
-
-            let customAlert = CustomAlertViewController()
-            customAlert.modalPresentationStyle = .overFullScreen
-            present(customAlert, animated: true, completion: nil)
-        }
+        let customAlert = CustomAlertViewController()
+        customAlert.modalPresentationStyle = .overFullScreen
+        present(customAlert, animated: true, completion: nil)
+    }
     
     func addBottomBorder(to button: UIButton, color: UIColor, thickness: CGFloat) {
             let border = CALayer()
@@ -135,6 +172,7 @@ class GroupInvestmentViewController: UIViewController, CustomAlertDelegate {
         // Add your navigation logic or any action you want to perform when the label is tapped
     }
 }
+
 
 extension GroupInvestmentViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

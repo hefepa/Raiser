@@ -36,9 +36,17 @@ class LearnViewController: UIViewController {
         
         learnTableView.separatorStyle = .none
                 
-        let navigationBar = NavigationBar(navigationItem: self.navigationItem)
-        navigationBar.learnNavigation(image: UIImage(named: "learn"), titleText: "Learn")
+//        let navigationBar = NavigationBar(navigationItem: self.navigationItem)
+//        navigationBar.learnNavigation(image: UIImage(named: "learn"), titleText: "Learn")
+        
+        navigationItem.title = "Learn"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backicon"), style: .done, target: self, action: #selector(backNavTapped))
 
+    }
+    
+    @objc func backNavTapped(){
+        let dashboard = DashboardViewController()
+        navigationController?.popViewController(animated: true)
     }
 }
 
