@@ -93,7 +93,7 @@ class OnboardingSecondViewController: UIViewController {
         
     }
     
-    @IBAction func beginCheckBox(_ sender: UIButton) {
+    @IBAction func beginChteckBox(_ sender: UIButton) {
         checkBoxesArray.forEach {
             $0.isSelected = false
         }

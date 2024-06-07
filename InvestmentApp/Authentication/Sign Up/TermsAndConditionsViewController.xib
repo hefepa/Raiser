@@ -31,7 +31,7 @@
                                 <fragment content="Welcome">
                                     <attributes>
                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <font key="NSFont" size="14" name="MyanmarSangamMN-Bold"/>
+                                        <font key="NSFont" metaFont="system" size="14"/>
                                         <font key="NSOriginalFont" size="14" name="Nadeem"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
@@ -39,14 +39,14 @@
                                 <fragment content=" ">
                                     <attributes>
                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <font key="NSFont" size="14" name="MyanmarSangamMN-Bold"/>
+                                        <font key="NSFont" metaFont="system" size="14"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>
                                 <fragment content="to">
                                     <attributes>
                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <font key="NSFont" size="14" name="MyanmarSangamMN-Bold"/>
+                                        <font key="NSFont" metaFont="system" size="14"/>
                                         <font key="NSOriginalFont" size="14" name="Nadeem"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
@@ -54,14 +54,14 @@
                                 <fragment content=" ">
                                     <attributes>
                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <font key="NSFont" size="14" name="MyanmarSangamMN-Bold"/>
+                                        <font key="NSFont" metaFont="system" size="14"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>
                                 <fragment content="Raiser">
                                     <attributes>
                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <font key="NSFont" size="14" name="MyanmarSangamMN-Bold"/>
+                                        <font key="NSFont" metaFont="system" size="14"/>
                                         <font key="NSOriginalFont" size="14" name="Nadeem"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
@@ -69,14 +69,14 @@
                                 <fragment content=" ">
                                     <attributes>
                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <font key="NSFont" size="14" name="MyanmarSangamMN-Bold"/>
+                                        <font key="NSFont" metaFont="system" size="14"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>
                                 <fragment content="by">
                                     <attributes>
                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <font key="NSFont" size="14" name="MyanmarSangamMN-Bold"/>
+                                        <font key="NSFont" metaFont="system" size="14"/>
                                         <font key="NSOriginalFont" size="14" name="Nadeem"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
@@ -84,30 +84,22 @@
                                 <fragment content=" ">
                                     <attributes>
                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <font key="NSFont" size="14" name="MyanmarSangamMN-Bold"/>
+                                        <font key="NSFont" metaFont="system" size="14"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>
                                 <fragment content="Alat">
                                     <attributes>
                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <font key="NSFont" size="14" name="MyanmarSangamMN-Bold"/>
+                                        <font key="NSFont" metaFont="system" size="14"/>
                                         <font key="NSOriginalFont" size="14" name="Nadeem"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>
                                 <fragment>
-                                    <string key="content" base64-UTF8="YES">
-IAoKA
-</string>
-                                    <attributes>
-                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <font key="NSFont" size="14" name="MyanmarSangamMN-Bold"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                    </attributes>
-                                </fragment>
-                                <fragment>
-                                    <mutableString key="content">We value your privacy and are committed to protecting your personal and financial information. By using our internet banking web application (Raiser), you agree to the terms outlined in this Data Privacy section. 
+                                    <mutableString key="content"> 
+
+We value your privacy and are committed to protecting your personal and financial information. By using our internet banking web application (Raiser), you agree to the terms outlined in this Data Privacy section. 
 
 We collect various types of personal and financial information from users, including but not limited to name, address, contact information, and account details. The data collected is used for account management, transactions, fraud prevention, and other necessary banking services. 
 

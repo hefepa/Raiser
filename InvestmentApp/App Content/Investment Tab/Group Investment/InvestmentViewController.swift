@@ -250,9 +250,9 @@ extension InvestmentViewController: PortFolioTableDelegate{
         investmentDetails.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(investmentDetails, animated: true)
     }
-//    @objc func notificationTapped() {
-//        print ("View tapped notification")
-//        let investmentDetails = GroupInvestmentDetailsViewController()
-//        navigationController?.pushViewController(investmentDetails, animated: true)
-//    }
+    @objc func notificationTapped() {
+        print ("View tapped notification")
+        let investmentDetails = GroupInvestmentDetailsViewController()
+        navigationController?.pushViewController(investmentDetails, animated: true)
+    }
 }
